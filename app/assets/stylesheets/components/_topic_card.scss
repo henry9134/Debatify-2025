@@ -2,8 +2,19 @@
   background-color: rgb(225, 225, 225);
   padding: 30px;
   border-radius: 8px;
-  width: 50%;
-  position: relative;
+  width: 100%;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 
+  border: 1px solid #ddd;
+  min-height: 200px;
+}
+
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
 }

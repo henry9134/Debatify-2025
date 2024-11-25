@@ -1,11 +1,19 @@
-<div class="container d-flex justify-content-center mt-5">
-  <div class="row topic-card">
-    <div class="d-flex align-items-center mb-3">
-      <div class="avatar-placeholder me-2"></div>
-      <p class="username"> <%= @topics.last.user.name %> </p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <% @topics.each do |topic| %>
+        <div class="topic-card">
+          <div class="d-flex align-items-center mb-3">
+            <div class="avatar-placeholder me-2"></div>
+            <p class="username"> <%= topic.user.name %> </p>
+          </div>
+          <h3 mb-2> <%= topic.title %> </h3>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="mb-0"> <%= topic.description %> </p>
+            <%= link_to "Open", topics_path(@topic), class: "gumroad"%>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <h3 mb-2> <%= @topics.last.title %> </h3>
-    <p class="mb-0"> <%= @topics.last.description %> </p>
-    <%= link_to "Open", topics_path(@topic), class: "gumroad"%>
   </div>
 </div>
