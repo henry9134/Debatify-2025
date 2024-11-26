@@ -1,0 +1,18 @@
+.btn-comments {
+    background-color: #8AA399; /* A muted green background */
+    color: black; /* White text */
+    padding: 10px 20px; /* Space inside the button */
+    border: 1px solid #4f6455; /* A darker green border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 16px; /* Medium-sized text */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    width: 676px;
+    height: 61px;
+}
+
+.btn-comments:hover {
+    background-color: #4f6455; /* Darker green on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */ 
+}
