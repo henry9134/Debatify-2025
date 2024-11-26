@@ -21,24 +21,32 @@ famous_names.each_with_index do |name, index|
   )
 end
 
-
-categories = ["Sports", "Technology", "Politics", "Entertainment", "Health"]
+categories = ["Sports", "Tech", "Politics", "Food", "Celebrities", "Education", "Finance"]
 topics = [
-  { title: "AI is dangerous", description: "Artificial intelligence poses a threat to humanity as it may surpass human control, leading to unintended catastrophic outcomes.", category: "Technology" },
-  { title: "Social media regulation", description: "Social media companies should be regulated like utilities to reduce misinformation and protect public safety.", category: "Technology" },
-  { title: "Electric cars", description: "Electric vehicles are the only viable solution for a sustainable future, reducing reliance on fossil fuels.", category: "Technology" },
-  { title: "Soccer referees", description: "Video referees have improved fairness in soccer by ensuring critical decisions are reviewed.", category: "Sports" },
-  { title: "Football safety", description: "American football is too dangerous due to the high risk of CTE and severe injuries among players.", category: "Sports" },
-  { title: "eSports recognition", description: "eSports should be respected as legitimate sports, given the level of skill, strategy, and teamwork required.", category: "Sports" },
-  { title: "Mandatory voting", description: "Voting should be mandatory to ensure all citizens participate in the democratic process.", category: "Politics" },
-  { title: "Universal healthcare", description: "Universal healthcare systems provide the best outcomes for society, ensuring everyone has access to essential medical care.", category: "Politics" },
-  { title: "Gun control", description: "Stricter gun control laws are necessary to reduce gun violence and protect public safety.", category: "Politics" },
-  { title: "Superhero movies", description: "The superhero movie genre has become oversaturated, leading to declining creativity and repetitive storytelling.", category: "Entertainment" },
-  { title: "Streaming platforms", description: "Streaming platforms are killing traditional movie theaters by making it easier and cheaper to watch movies at home.", category: "Entertainment" },
-  { title: "Reality TV", description: "Reality TV shows are harmful, exploiting participants for profit and promoting unhealthy social norms.", category: "Entertainment" },
-  { title: "Plant-based diets", description: "Plant-based diets are the healthiest choice for most people, reducing disease risk and benefiting the environment.", category: "Health" },
-  { title: "Mental health days", description: "Mandatory mental health days in schools can help students manage stress and improve overall well-being.", category: "Health" },
-  { title: "Fitness trackers", description: "Fitness trackers are not always reliable, as they often provide inaccurate data that could mislead users.", category: "Health" }
+  { title: "The rise of virtual reality in gaming", description: "Exploring how virtual reality is changing the gaming experience.", category: "Tech" },
+  { title: "The impact of sports on mental health", description: "Examining how participation in sports can improve mental well-being.", category: "Sports" },
+  { title: "The future of food sustainability", description: "Discussing innovative practices for sustainable food production.", category: "Food" },
+  { title: "The role of influencers in modern marketing", description: "How social media influencers are reshaping advertising strategies.", category: "Celebrities" },
+  { title: "The evolution of online learning", description: "How digital platforms are transforming traditional education methods.", category: "Education" },
+  { title: "The significance of financial planning", description: "Understanding the importance of budgeting and saving for the future.", category: "Finance" },
+  { title: "The effects of climate change on agriculture", description: "Analyzing how climate change is affecting farming practices.", category: "Food" },
+  { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
+  { title: "The importance of voting in a democracy", description: "Encouraging civic participation and the impact of voting.", category: "Politics" },
+  { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" },
+  { title: "The impact of technology on education", description: "Examining how technology is enhancing learning experiences.", category: "Education" },
+  { title: "The role of sports in community building", description: "How sports can foster community engagement and unity.", category: "Sports" },
+  { title: "The ethics of data privacy", description: "Discussing the importance of protecting personal information online.", category: "Tech" },
+  { title: "The influence of media on public opinion", description: "How media shapes perceptions and opinions in society.", category: "Politics" },
+  { title: "The future of celebrity activism", description: "How celebrities are using their platforms for social change.", category: "Celebrities" },
+  { title: "The benefits of lifelong learning", description: "Understanding the importance of continuous education throughout life.", category: "Education" },
+  { title: "The impact of automation on jobs", description: "Examining how automation is changing the job market.", category: "Finance" },
+  { title: "The role of sports in youth development", description: "How sports participation can aid in the development of young people.", category: "Sports" },
+  { title: "The future of renewable energy technologies", description: "Exploring advancements in renewable energy solutions.", category: "Tech" },
+  { title: "The challenges of political discourse", description: "Analyzing the difficulties in maintaining civil political discussions.", category: "Politics" },
+  { title: "The impact of fast fashion on the environment", description: "Discussing the environmental consequences of fast fashion.", category: "Food" },
+  { title: "The role of social media in shaping public discourse", description: "How social media platforms influence conversations in society.", category: "Celebrities" },
+  { title: "The future of personalized education", description: "Exploring how education can be tailored to individual needs.", category: "Education" },
+  { title: "The importance of ethical investing", description: "Understanding the significance of investing in socially responsible companies.", category: "Finance" }
 ]
 
 topics.each do |topic|

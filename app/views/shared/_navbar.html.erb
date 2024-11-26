@@ -11,13 +11,13 @@
 			<li><%= link_to "<i class='fa-solid fa-fire'></i> Trending".html_safe, "/topics" , data: { title: "Trending" }, aria: { label: "Trending" } %></li>
 			<li class="separator"></li>
 			<li><h5 class="nav-title">Categories</h5></li>
-			<li><%= link_to "<i class='fa-solid fa-computer'></i> Tech".html_safe, "/topics", data: { title: "Technology" }, aria: { label: "Explore Technology" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-money-bill-trend-up'></i> Finance".html_safe, "/topics", data: { title: "Finance Tips" }, aria: { label: "Discover Finance Tips" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-landmark-flag'></i> Politics".html_safe, "/topics", data: { title: "Political Insights" }, aria: { label: "Read Political Insights" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-futbol'></i> Sports".html_safe, "/topics", data: { title: "Sports News" }, aria: { label: "Catch Up on Sports News" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-utensils'></i> Food".html_safe, "/topics", data: { title: "Culinary Delights" }, aria: { label: "Explore Culinary Delights" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-video'></i> Celebrities".html_safe, "/topics", data: { title: "Celebrity Gossip" }, aria: { label: "Get the Latest Celebrity Gossip" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-school'></i> Education".html_safe, "/topics", data: { title: "Educational Resources" }, aria: { label: "Find Educational Resources" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-computer'></i> Tech".html_safe, "/topics?query=Tech", data: { title: "Technology" }, aria: { label: "Explore Technology" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-money-bill-trend-up'></i> Finance".html_safe, "/topics?query=Finance", data: { title: "Finance Tips" }, aria: { label: "Discover Finance Tips" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-landmark-flag'></i> Politics".html_safe, "/topics?query=Politics", data: { title: "Political Insights" }, aria: { label: "Read Political Insights" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-futbol'></i> Sports".html_safe, "/topics?query=Sports", data: { title: "Sports News" }, aria: { label: "Catch Up on Sports News" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-utensils'></i> Food".html_safe, "/topics?query=Food", data: { title: "Culinary Delights" }, aria: { label: "Explore Culinary Delights" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-video'></i> Celebrities".html_safe, "/topics?query=Celebrities", data: { title: "Celebrity Gossip" }, aria: { label: "Get the Latest Celebrity Gossip" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-school'></i> Education".html_safe, "/topics?query=Education", data: { title: "Educational Resources" }, aria: { label: "Find Educational Resources" } %></li>
 			<li class="separator"></li>
 			<% if user_signed_in? %>
 				<li><%= link_to "<i class='fa-solid fa-user'></i> Account".html_safe, "dashboard", data: { title: "Account" }, aria: { label: "Account" } %></li>
