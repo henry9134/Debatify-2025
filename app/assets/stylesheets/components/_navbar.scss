@@ -48,7 +48,7 @@ nav {
     position: absolute;
     width: 240px;
     margin: -100px 0 0 -50px;
-    padding: 125px 10px 570px;
+    padding: 125px 10px 450px;
     background: #D7D1C9;
     list-style-type: none;
     -webkit-transform-origin: 0% 0%;
@@ -125,4 +125,8 @@ nav {
     font-size: 18px;
     font-weight: 600;
     color: #232323;
+}
+
+.nav-logo {
+  margin-bottom: 0px;
 }
