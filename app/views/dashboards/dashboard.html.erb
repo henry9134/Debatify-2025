@@ -1,47 +1,63 @@
 <div class="user-profile">
-  <div class="card" style="display: flex; flex-direction: column; align-items: center;">
+  <div class="card">
     <div class="user-info">
-      <%# if current_user.photo.present? %>
-        <%# cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
-      <%# else %>
-        <%# image_tag "https://static.miraheze.org/kiddancerswiki/a/a6/Mayoral-dylan-image.jpg", class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
-      <%# end %>
+        <%# if current_user.photo.present? %>
+          <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
+        <%# else %>
+          <%# image_tag "https://static.miraheze.org/kiddancerswiki/a/a6/Mayoral-dylan-image.jpg", class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
+        <%# end %>
 
-      <h2><%= @user.name %></h2>
+      <h2 class="user-name"><%= @user.name %></h2>
     </div>
   </div>
 
-  <div class="user-details" style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
-    <div style="width: 40%;">
+  <div class='container'>
+    <ul class="nav nav-tabs" id="userProfileTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="topics-tab" data-bs-toggle="tab" data-bs-target="#topics" type="button" role="tab" aria-controls="topics" aria-selected="true">
+          Favourite Topics
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">
+          My Comments
+        </button>
+      </li>
+    </ul>
+
+    <div class='tab-content'>
+      <div class="tab-pane fade show active" id="topics" role="tabpanel" aria-labelledby="topics-tab">
         <h3>Favourite Topics</h3>
         <% if @user.favorited_topics.present? %>
-          <ul>
+          <ul class="topics-list">
             <% @user.favorited_topics.each do |topic| %>
-              <li><%= topic.title %></li>
+              <li>
+                <%= link_to topic.title, topic_path(topic), class: "topic-link" %>
+              </li>
             <% end %>
           </ul>
         <% else %>
-          <p>No Favourite Topics</p>
+          <p class="no-topics-message">No Favourite Topics</p>
         <% end %>
       </div>
-    </div>
 
-    <div style="width: 40%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 8px;">
-      <h3>My Comments</h3>
-      <% if @user.comments.any? %>
-        <p><%= @user.comments.count %> comment(s).</p>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <% @user.comments.each do |comment| %>
-            <div style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
-              <h4 style="margin: 0 0 5px;">Topic: <%= comment.topic.title %></h4>
-              <p style="margin: 0;"><%= comment.content %></p>
-              <p style="margin: 5px 0 0; font-size: 12px; color: #777;">Written on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <p>You have not made any comments yet.</p>
-      <% end %>
+      <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+        <h3>My Comments</h3>
+        <% if @user.comments.any? %>
+          <p class="comments-count"><%= @user.comments.count %> comment(s).</p>
+          <div class="comments-container">
+            <% @user.comments.each do |comment| %>
+              <div class="comment-card">
+                <h4 class="comment-topic">Topic: <%= comment.topic.title %></h4>
+                <p class="comment-content"><%= comment.content %></p>
+                <small class="comment-date">Written on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="no-comments-message">You have not made any comments yet.</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
