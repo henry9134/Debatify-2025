@@ -1,36 +1,34 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+<nav role="navigation">
+	<div id="clickNav">
+		<input type="checkbox" />
+
+		<span></span>
+		<span></span>
+		<span></span>
+
+		<ul class="nav-data" role="list">
+			<li><%= link_to "<i class='fa-solid fa-house'></i> Home".html_safe, root_path, data: { title: "Home" }, aria: { label: "Home" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-fire'></i> Trending".html_safe, root_path, data: { title: "Trending" }, aria: { label: "Trending" } %></li>
+			<li class="separator"></li>
+			<li><h5 class="nav-title">Categories</h5></li>
+			<li><%= link_to "<i class='fa-solid fa-computer'></i> Tech".html_safe, "#", data: { title: "Technology" }, aria: { label: "Explore Technology" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-money-bill-trend-up'></i> Finance".html_safe, "#", data: { title: "Finance Tips" }, aria: { label: "Discover Finance Tips" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-landmark-flag'></i> Politics".html_safe, "#", data: { title: "Political Insights" }, aria: { label: "Read Political Insights" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-futbol'></i> Sports".html_safe, "#", data: { title: "Sports News" }, aria: { label: "Catch Up on Sports News" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-utensils'></i> Food".html_safe, "#", data: { title: "Culinary Delights" }, aria: { label: "Explore Culinary Delights" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-video'></i> Celebrities".html_safe, "#", data: { title: "Celebrity Gossip" }, aria: { label: "Get the Latest Celebrity Gossip" } %></li>
+			<li><%= link_to "<i class='fa-solid fa-school'></i> Education".html_safe, "#", data: { title: "Educational Resources" }, aria: { label: "Find Educational Resources" } %></li>
+			<li class="separator"></li>
+			<% if user_signed_in? %>
+				<li><%= link_to "<i class='fa-solid fa-user'></i> Account".html_safe, "#", data: { title: "Account" }, aria: { label: "Account" } %></li>
+				<li><%= link_to "<i class='fa-solid fa-right-from-bracket'></i> Log out".html_safe, destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+			<% else %>
+				<li><%= link_to "<i class='fa-solid fa-user-plus'></i> Sign Up".html_safe, "/users/sign_up", data: { title: "Sign Up" }, aria: { label: "Sign Up" } %></li>
+				<li><%= link_to "<i class='fa-solid fa-sign-in-alt'></i> Log In".html_safe, "/users/sign_in", data: { title: "Log In" }, aria: { label: "Log In" } %></li>
+			<% end %>
+		</ul>
+	</div>
+</nav>
+<div class="navbar-logo" style="text-align: center; margin-bottom: 20px;">
+    <%= link_to image_tag("https://res.cloudinary.com/docdjbqcu/image/upload/v1732521565/Logo_trdbe1.png", alt: "Logo", style: "max-width: 110px; height: auto; padding-top: 10px;"), root_path %>
 </div>

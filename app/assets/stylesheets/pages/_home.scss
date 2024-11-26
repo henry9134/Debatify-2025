@@ -1,1 +1,50 @@
-// Specific CSS for your home-page
+
+.search-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 60px;
+  background: #a9815178; /* Updated to match the navbar background */
+  line-height: 40px;
+  padding: 10px;
+  border-radius: 60px;
+}
+.search-input{
+  background: #D1BDA7; /* Lighter shade for contrast */
+  color: #D1BDA7; /* Dark text for readability */
+  outline: none;
+  border: none;
+  line-height: 40px;
+  width: 0px;
+  float: left;
+  font-size: 14px;
+  transition: 0.7s ease;
+  font-family: sans-serif;
+}
+.search-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: #A98251; /* Consistent button color */
+  padding: 12px;
+  border-radius: 50%;
+  float: right;
+  color: #FFFFFF; /* White text for contrast */
+  transition: 0.4s ease;
+}
+.search-box:hover > .search-input{
+  width: 240px;
+  margin: 0px 8px;
+}
+.search-input:focus{
+  width: 240px;
+  margin: 0px 8px;
+}
+.search-box:hover > .search-btn{
+  background: #A98251; /* Keep button color consistent on hover */
+}
+.search-input:focus + .search-btn{
+  background: #A98251; /* Keep button color consistent when input is focused */
+}
