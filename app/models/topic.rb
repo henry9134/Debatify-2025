@@ -9,5 +9,5 @@ class Topic < ApplicationRecord
     using: {
       tsearch: { prefix: true },
     }
-    
+
 end
