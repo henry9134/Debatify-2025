@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <% @topics.each do |topic| %>
-        <div class="topic-card">
+        <div class="topic-card my-5">
           <div class="d-flex align-items-center mb-3">
             <div class="avatar-placeholder me-2"></div>
             <p class="username"> <%= topic.user.name %> </p>
@@ -10,7 +10,7 @@
           <h3 mb-2> <%= topic.title %> </h3>
           <div class="d-flex align-items-center justify-content-between">
             <p class="mb-0"> <%= topic.description %> </p>
-            <%= link_to "Open", topics_path(@topic), class: "gumroad"%>
+            <%= link_to "Open", topic_path(topic), class: "gumroad"%>
           </div>
         </div>
       <% end %>

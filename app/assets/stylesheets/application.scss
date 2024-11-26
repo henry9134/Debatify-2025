@@ -13,6 +13,8 @@
 @import "components/_topic_card";
 @import "components/_gum_button";
 
+
+
 .username {
   font-size: 14px;
   color: rgb(81, 81, 81);
@@ -21,6 +23,14 @@
   display: flex;
   display: inline-block;
   margin: 0;
+}
+
+p {
+  font-family: "Merriweather";
+}
+
+h1, h2, h3 {
+  font-family: "Lexend";
 }
 
 .avatar-placeholder {
