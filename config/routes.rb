@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :dashboards, only: [:show]
+  get 'dashboard', to: 'dashboards#dashboard'
 
   resources :topics, only: [:index, :new, :create, :show] do
     resources :comments, only: [:new, :create]
