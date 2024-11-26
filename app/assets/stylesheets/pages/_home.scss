@@ -1,50 +1,68 @@
+.debatify{
+  font-size: 110px;
+  font-weight: bold;
+  color: #51493f;
+  margin-bottom: 0px;
+  margin-top: -210px; /* Adjusted to center vertically */
+  text-align: center; /* Center text */
+}
+.debatify-p{
+  font-size: 23px;
+  color: #51493f;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+  margin-bottom: 0px;
+  text-align: center; /* Center text */
+}
+
+.container-home{
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full height to center content */
+}
 
 .search-box{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  margin-top: 20px; /* Adjusted margin for better spacing */
   height: 60px;
-  background: #a9815178; /* Updated to match the navbar background */
-  line-height: 40px;
+  background: #d7d1c9;
+  line-height:40px;
   padding: 10px;
   border-radius: 60px;
+  display: flex; /* Use flexbox for input and button alignment */
+  align-items: center; /* Center items vertically */
 }
 .search-input{
-  background: #D1BDA7; /* Lighter shade for contrast */
-  color: #D1BDA7; /* Dark text for readability */
+  background: #d7d1c9;
+  color: #51493f;
   outline: none;
   border: none;
-  line-height: 40px;
-  width: 0px;
-  float: left;
-  font-size: 14px;
-  transition: 0.7s ease;
-  font-family: sans-serif;
+  line-height:40px;
+  width: 240px; /* Set to final width */
+  font-size:18px;
+  padding-left: 10px;
 }
 .search-btn{
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  background: #A98251; /* Consistent button color */
+  text-decoration:none;
+  background: #6e614f;
   padding: 12px;
   border-radius: 50%;
-  float: right;
-  color: #FFFFFF; /* White text for contrast */
-  transition: 0.4s ease;
+  color: #d7d1c9;
+  margin-left: 10px; /* Add margin for spacing */
 }
-.search-box:hover > .search-input{
-  width: 240px;
-  margin: 0px 8px;
-}
-.search-input:focus{
-  width: 240px;
-  margin: 0px 8px;
-}
+// .search-box:hover > .search-input{
+//   margin: 0px 20px; /* Keep margin */
+// }
+// .search-input:focus{
+//   margin: 0px 60px; /* Keep margin */
+// }
 .search-box:hover > .search-btn{
-  background: #A98251; /* Keep button color consistent on hover */
+  background: #51493f; /* Keep hover background */
 }
 .search-input:focus + .search-btn{
-  background: #A98251; /* Keep button color consistent when input is focused */
+  background: #51493f; /* Keep focus background */
 }

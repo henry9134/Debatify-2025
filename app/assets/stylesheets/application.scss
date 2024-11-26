@@ -12,6 +12,8 @@
 @import "pages/index";
 @import "components/_topic_card";
 @import "components/_gum_button";
+@import "pages/show";
+@import "components/main_topic_card";
 
 
 
@@ -38,6 +40,4 @@ h1, h2, h3 {
   height: 30px;
   background-color: rgb(65, 65, 65);
   border-radius: 50%;
-  display: flex;
-  display: inline;
 }

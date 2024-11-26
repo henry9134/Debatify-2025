@@ -6,8 +6,8 @@ class ActsAsFavoritorMigration < ActiveRecord::Migration[7.1]
       t.references :favoritable, polymorphic: true, null: false
       t.references :favoritor, polymorphic: true, null: false
       t.string :scope, default: ActsAsFavoritor.configuration.default_scope,
-                       null: false,
-                       index: true
+                      null: false,
+                      index: true
       t.boolean :blocked, default: false, null: false, index: true
       t.timestamps
     end
