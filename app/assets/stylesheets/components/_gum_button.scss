@@ -1,0 +1,31 @@
+.gumroad {
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0;
+  border: 1px solid #000;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 16px;
+  text-decoration: none;
+  color:#1e1e1e;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.gumroad:hover {
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-4px,-4px);
+}
+
+.gumroad:focus-visible{
+  outline-offset: 1px;
+}

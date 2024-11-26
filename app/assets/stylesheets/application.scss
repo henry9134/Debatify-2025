@@ -10,3 +10,34 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/_topic_card";
+@import "components/_gum_button";
+
+
+
+.username {
+  font-size: 14px;
+  color: rgb(81, 81, 81);
+  font-weight: bold;
+  font-style: italic;
+  display: flex;
+  display: inline-block;
+  margin: 0;
+}
+
+p {
+  font-family: "Merriweather";
+}
+
+h1, h2, h3 {
+  font-family: "Lexend";
+}
+
+.avatar-placeholder {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(65, 65, 65);
+  border-radius: 50%;
+  display: flex;
+  display: inline;
+}
