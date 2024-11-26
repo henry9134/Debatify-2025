@@ -79,3 +79,5 @@ gem 'acts_as_favoritor'
 gem 'cloudinary', '~> 1.16.0'
 
 gem 'ostruct'
+
+gem 'pg_search'
