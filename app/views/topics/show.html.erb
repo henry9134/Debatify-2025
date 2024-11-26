@@ -1,1 +1,20 @@
-<p>hello</p>
+<div class="container d-flex 100vh justify-content-center">
+  <div class="main-topic-card my-5 d-flex flex-column">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <div class="avatar-placeholder me-2"></div>
+        <p class="username"> <%= @topic.user.name %> </p>
+      </div>
+      <div> Ai</div>
+    </div>
+    <div class="d-flex flex-column justify-content-center text-center flex-grow-1">
+      <h3> <%= @topic.title %> </h3>
+      <div class="d-flex align-items-center">
+        <p class="mb-0"> <%= @topic.description %> </p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-auto">
+      <i class="fa-regular fa-star"></i>
+    </div>
+  </div>
+</div>

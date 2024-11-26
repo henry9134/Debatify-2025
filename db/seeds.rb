@@ -91,14 +91,13 @@ Topic.all.each do |topic|
         topic_id: topic.id
       )
 
-      User.all.each do |user|
-        favorite_topics = Topic.all.sample(rand(3..5))
-        favorite_topics.each do |topic|
-          user.favorite(topic)
-        end
-      end
     end
   end
 end
+  User.all.each do |user|
+    (3..5).to_a.sample.times do
+        user.favorite(Topic.all.sample)
+    end
+  end
 
 puts "Seeding complete!"
