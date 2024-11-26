@@ -90,6 +90,13 @@ Topic.all.each do |topic|
         user_id: User.all.sample.id,
         topic_id: topic.id
       )
+
+      User.all.each do |user|
+        favorite_topics = Topic.all.sample(rand(3..5))
+        favorite_topics.each do |topic|
+          user.favorite(topic)
+        end
+      end
     end
   end
 end

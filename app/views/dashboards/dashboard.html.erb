@@ -1,0 +1,43 @@
+<div class ='user-profile'>
+  <div class ='user-info' style ="display: flex; flex-direction: column; align-items: center;">
+      <%# if @user.photo.present? %>
+      <%# cl_image_tag @user.photo.key %>
+    <%# else %>
+      <%# image_tag %> <%# Need to add a photo%>
+    <%# end %>
+
+    <h2> <%= @user.name %></h2>
+  </div>
+
+  <div class="user-details" style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <div style="width:<%# finish setting the width%> ;">
+<h3>Favourite Topics</h3>
+  <% if @user.all_favorites.any? %>
+    <ul>
+      <% @user.all_favorites.each do |favorite| %>
+        <% if favorite.favoritable_type == "Topic" %>
+          <% topic = Topic.find(favorite.favoritable_id) %>
+        <li><%= link_to topic.title, topic_path(topic) %></li>
+      <% end %>
+  <% end %>
+  </ul>
+  <% else %>
+    <p>No Favourite Topics</p>
+  <% end %>
+    </div>
+
+    <div style="width: <%# finish setting the width%>;">
+      <h3>My Comments</h3>
+      <% if @user.comments.any? %>
+        <p><%= @user.comments.count %> comment(s).</p>
+        <ul>
+          <% @user.comments.each do |comment| %>
+            <li><%= comment.content %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>You have not made any comments yet.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
