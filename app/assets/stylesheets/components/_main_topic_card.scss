@@ -1,0 +1,15 @@
+.main-topic-card {
+  width: 50%;
+  background-color: rgb(225, 225, 225);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  min-height: 200px;
+}
+
+.main-topic-card p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
