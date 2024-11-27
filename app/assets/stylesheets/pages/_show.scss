@@ -11,11 +11,10 @@
     text-align: center; /* Center the text */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-    width: 676px;
-    height: 61px;
+
 }
 
 .btn-comments:hover {
-    background-color: #4f6455; /* Darker green on hover */
+    background-color: #101010; /* Darker green on hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
