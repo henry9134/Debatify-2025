@@ -6,6 +6,11 @@ class TopicsController < ApplicationController
     else
       @topics = Topic.all
     end
+
+    respond_to do |format|
+      format.html # Default behavior for full page load
+      format.text { render partial: "topics/card_topics", locals: { topics: @topics }, formats: [:html] }
+    end
   end
 
   def show
