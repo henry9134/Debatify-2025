@@ -18,7 +18,7 @@
       <% else %>
         <i class="fa-regular fa-circle-up me-1" id="upvote-icon-<%= comment.id %>" onclick="event.preventDefault(); handleVote(<%= comment.id %>, this);" data-voted="false" style="cursor: pointer;"></i>
       <% end %>
-      <p class="mb-0" id="vote-count-<%= comment.id %>"> <%= comment.votes %> </p>
+      <p class="mb-0" id="vote-count-<%= comment.id %>"> <%= comment.votes.count %> </p>
       <%= form_with url: upvote_comment_path(comment.id), method: :patch, local: true, id: "vote-form-#{comment.id}", class: "d-none" do %>
         <%= hidden_field_tag :vote, 1 %>
       <% end %>
