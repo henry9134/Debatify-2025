@@ -24,14 +24,28 @@
 
 
 
-.btn-against {
-
+/* Default button styles */
+.btn-against, .btn-neutral, .btn-for {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-neutral {
-
+/* Active button styles */
+.btn-against.active {
+  background-color: #ffcccc; /* Light red */
+  color: #900; /* Dark red */
 }
 
-.btn-for {
+.btn-neutral.active {
+  background-color: #ffeeba; /* Light yellow */
+  color: #856404; /* Dark yellow */
+}
 
+.btn-for.active {
+  background-color: #c3e6cb; /* Light green */
+  color: #155724; /* Dark green */
 }
