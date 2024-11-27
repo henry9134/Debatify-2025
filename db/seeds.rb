@@ -67,7 +67,6 @@ Topic.all.each do |topic|
     comments_data[topic.title].each do |status, content|
       Comment.create!(
         content: content,
-        votes: rand(0..50),
         status: status.to_s,
         user_id: User.all.sample.id,
         topic_id: topic.id
