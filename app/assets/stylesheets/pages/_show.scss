@@ -2,29 +2,26 @@
   margin: 0px 25px;
 }
 .btn-comments {
-    background-color: #8AA399; /* A muted green background */
-    color: black; /* White text */
-    padding: 10px 20px; /* Space inside the button */
-    border: 1px solid #4f6455; /* A darker green border */
-    border-radius: 5px; /* Slightly rounded corners */
-    font-size: 16px; /* Medium-sized text */
-    text-align: center; /* Center the text */
-    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #8AA399;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #4f6455;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;/* Smooth hover effect */
+    text-decoration: none;
 
 
 }
 
 .btn-comments:hover {
-    background-color: #101010; /* Darker green on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    background-color: #101010;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     color: #cfa165;
 }
 
-
-
-/* Default button styles */
 .btn-against, .btn-neutral, .btn-for {
   border: 1px solid #ccc;
   padding: 10px 20px;
@@ -34,18 +31,32 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Active button styles */
+
 .btn-against.active {
-  background-color: #ffcccc; /* Light red */
-  color: #900; /* Dark red */
+  background-color: #ffcccc;
+  color: #900;
+}
+
+.btn-against:hover {
+  background-color: #ffe8e8;
+  color: #900;
 }
 
 .btn-neutral.active {
-  background-color: #ffeeba; /* Light yellow */
-  color: #856404; /* Dark yellow */
+  background-color: #ffeeba;
+  color: #856404;
+}
+
+.btn-neutral:hover {
+  background-color: #c59f2e;
+  color: #856404;
 }
 
 .btn-for.active {
-  background-color: #c3e6cb; /* Light green */
-  color: #155724; /* Dark green */
+  background-color: #c3e6cb;
+  color: #155724;
+}
+.btn-for:hover {
+  background-color: #d7ffe0;
+  color: #155724;
 }
