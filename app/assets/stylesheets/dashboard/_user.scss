@@ -2,19 +2,28 @@
   margin-top: 20px;
 }
 
+<<<<<<< HEAD
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+=======
 .card-dashboard {
   display: flex; /* Enables Flexbox */
   flex-direction: column; /* Stacks items vertically */
   align-items: center; /* Centers items horizontally */
   justify-content: center; /* Centers items vertically */
   text-align: center; /* Centers text content */
+>>>>>>> master
   width: 35%;
-  height: auto; /* Ensure height adjusts to content */
-  margin: 0 auto; /* Centers the card horizontally within the container */
-  background-color: #A98251; /* Background color */
-  padding: 20px; /* Add some padding inside the card */
-  border-radius: 10px; /* Optional: rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: shadow for better appearance */
+  height: auto;
+  margin: 0 auto;
+  background-color: #A98251;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-container {
@@ -117,24 +126,60 @@
 .day-group-card {
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: transparent;
   border: none;
 }
 
-.main-topic-card {
+.inner-topic-card {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
-  background-color: #e1e1e1; /* Keep the original card color */
+  margin: 10px auto;
+  background-color: #e1e1e1;
   border: none;
-  border-radius: 10px; /* Rounded corners */
-  padding: 1rem; /* Padding inside the card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for favorite topic cards */
-.main-topic-card:hover {
-  transform: scale(1.05); /* Slightly enlarge the card */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8); /* Add a black shadow behind the card */
+.inner-topic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.inner-topic-card .inner-topic-content {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.inner-topic-card .username {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inner-topic-card .topic-title-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.inner-topic-card .topic-title-link:hover {
+  text-decoration: underline;
+}
+
+.inner-topic-card p.mb-0 {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.favorite-date {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-align: right;
 }
