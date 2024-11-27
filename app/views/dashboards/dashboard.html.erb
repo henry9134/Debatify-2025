@@ -1,15 +1,16 @@
 <div class="user-profile">
-  <div class="card">
-    <div class="user-info">
-        <%# if current_user.photo.present? %>
-          <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
-        <%# else %>
-          <%# image_tag "https://static.miraheze.org/kiddancerswiki/a/a6/Mayoral-dylan-image.jpg", class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
-        <%# end %>
+    <div class="card">
+      <div class="user-info">
+          <%# if current_user.photo.present? %>
+            <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
+          <%# else %>
+            <%# image_tag "https://static.miraheze.org/kiddancerswiki/a/a6/Mayoral-dylan-image.jpg", class: "avatar dropdown-toggle me-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false }, style: "border-radius: 50%; width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;" %>
+          <%# end %>
 
-      <h2 class="user-name"><%= @user.name %></h2>
+        <h2 class="user-name"><%= @user.name %></h2>
+        <p class="user-duration">Member for <%= distance_of_time_in_words(@user.created_at, Time.current) %></p>
+      </div>
     </div>
-  </div>
 
   <div class='container'>
     <ul class="nav nav-tabs" id="userProfileTabs" role="tablist">

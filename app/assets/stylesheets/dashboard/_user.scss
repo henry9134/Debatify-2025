@@ -4,16 +4,26 @@
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  text-align: center; /* Centers text content */
+  width: 35%;
+  height: auto; /* Ensure height adjusts to content */
+  margin: 0 auto; /* Centers the card horizontally within the container */
+  background-color: #A98251; /* Background color */
+  padding: 20px; /* Add some padding inside the card */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: shadow for better appearance */
 }
 .avatar-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;}
+  width: 100%;
+}
 
   .avatar {
     width: 100px;
@@ -27,6 +37,8 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
+  text-align: center;
+  width: 100%;
 }
 
 .nav-tabs {
