@@ -32,17 +32,7 @@ topics = [
   { title: "The effects of climate change on agriculture", description: "Analyzing how climate change is affecting farming practices.", category: "Food" },
   { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
   { title: "The importance of voting in a democracy", description: "Encouraging civic participation and the impact of voting.", category: "Politics" },
-<<<<<<< HEAD
-  { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" },
-  { title: "The impact of technology on education", description: "Examining how technology is enhancing learning experiences.", category: "Education" },
-  { title: "The role of sports in community building", description: "How sports can foster community engagement and unity.", category: "Sports" },
-  { title: "The ethics of data privacy", description: "Discussing the importance of protecting personal information online.", category: "Tech" },
-  { title: "The influence of media on public opinion", description: "How media shapes perceptions and opinions in society.", category: "Politics" },
-  { title: "The future of celebrity activism", description: "How celebrities are using their platforms for social change.", category: "Celebrities" },
-  { title: "The benefits of lifelong learning", description: "Understanding the importance of continuous education throughout life.", category: "Education" },
-=======
   { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" }
->>>>>>> master
 ]
 
 topics.each do |topic|
