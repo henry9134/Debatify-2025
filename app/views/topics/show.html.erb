@@ -47,24 +47,25 @@
     </div>
   </div>
   <%= render 'comment_button'  %>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add a comment</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <%= simple_form_for @comment do |f| %>
+          <%= simple_form_for [@topic, @comment] do |f| %>
+            <%= f.input :content, label: "Your Comment" %>
+            <%= f.hidden_field :status, id: "comment-status" %>
+            <%= f.input :status, as: :select, collection: Comment.statuses.keys.map { |status| [status.humanize, status] }, label: "Choose Your Side" %>
+            <div class="side-selection">
+              <button type="button" class="btn-against" data-side="against">Against</button>
+              <button type="button" class="btn-neutral" data-side="neutral">Neutral</button>
+              <button type="button" class="btn-for" data-side="for">For</button>
+            </div>
+            <%= f.submit "Post Comment", class: "btn-comments", disabled: true, id: "post-comment-button" %>
           <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

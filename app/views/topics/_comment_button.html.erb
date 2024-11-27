@@ -1,2 +1,1 @@
-
-<%= link_to "Write a Comment", new_topic_comment_path(@topic), class:"btn-comments"%>
+<%= link_to "Write a Comment", new_topic_comment_path(@topic), { class: "btn-comments", data: { bs_toggle: "modal", bs_target: "#exampleModal" } } %>
