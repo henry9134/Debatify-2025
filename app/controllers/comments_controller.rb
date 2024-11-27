@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
   # after_initialize :set_default_votes, if: :new_record?
 
+
+  def new
+
+
+  end
+
   def create
     @topic = Topic.find(params[:topic_id])
     @new_comment = @topic.comments.build(comment_params)
