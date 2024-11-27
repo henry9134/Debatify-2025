@@ -2,7 +2,7 @@ Comment.destroy_all
 Topic.destroy_all
 User.destroy_all
 puts "_" * 25
-puts "resetting.."
+puts "resetting..."
 puts "_" * 25
 
 famous_names = [
@@ -13,7 +13,7 @@ famous_names = [
 ]
 
 famous_names.each_with_index do |name, index|
-  User.create(
+  User.create!(
     name: name,
     email: "user#{index + 1}@example.com",
     password: "password123",
@@ -32,6 +32,7 @@ topics = [
   { title: "The effects of climate change on agriculture", description: "Analyzing how climate change is affecting farming practices.", category: "Food" },
   { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
   { title: "The importance of voting in a democracy", description: "Encouraging civic participation and the impact of voting.", category: "Politics" },
+<<<<<<< HEAD
   { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" },
   { title: "The impact of technology on education", description: "Examining how technology is enhancing learning experiences.", category: "Education" },
   { title: "The role of sports in community building", description: "How sports can foster community engagement and unity.", category: "Sports" },
@@ -39,10 +40,13 @@ topics = [
   { title: "The influence of media on public opinion", description: "How media shapes perceptions and opinions in society.", category: "Politics" },
   { title: "The future of celebrity activism", description: "How celebrities are using their platforms for social change.", category: "Celebrities" },
   { title: "The benefits of lifelong learning", description: "Understanding the importance of continuous education throughout life.", category: "Education" },
+=======
+  { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" }
+>>>>>>> master
 ]
 
 topics.each do |topic|
-  Topic.create(
+  Topic.create!(
     title: topic[:title],
     description: topic[:description],
     category: topic[:category],
@@ -52,51 +56,41 @@ end
 
 comments_data = {
   "The rise of virtual reality in gaming" => {
-    for: "AI could surpass human control, leading to unintended consequences.",
-    against: "AI is a tool that, when used responsibly, enhances human potential.",
-    neutral: "AI's impact depends on regulations and safeguards put in place."
+    for: "VR creates immersive gaming experiences.",
+    against: "VR is expensive and inaccessible for many.",
+    neutral: "VR has potential, but it is still in early stages."
   },
-  "The role of influencers in modern marketing" => {
-    for: "Regulation would reduce harmful content and misinformation.",
-    against: "Overregulation could stifle free speech and innovation.",
-    neutral: "Some regulation is necessary, but it should be balanced."
+  "The impact of sports on mental health" => {
+    for: "Sports improve mental health by reducing stress.",
+    against: "Pressure in sports can negatively impact mental health.",
+    neutral: "The impact depends on how sports are managed."
   },
-  "Electric cars" => {
-    for: "EVs drastically reduce carbon emissions and reliance on oil.",
-    against: "The environmental cost of producing EV batteries is significant.",
-    neutral: "EVs are promising but need cleaner energy sources for production."
-  },
-  "Soccer referees" => {
-    for: "VAR ensures fairness by reducing referee errors.",
-    against: "It disrupts the game flow and creates controversy over decisions.",
-    neutral: "VAR is helpful but needs consistency in its application."
-  },
-  "Football safety" => {
-    for: "The high risk of CTE makes football unsustainable.",
-    against: "Better equipment and rules can make football safer.",
-    neutral: "Football is risky, but players choose to participate."
+  "The future of food sustainability" => {
+    for: "Sustainable practices ensure long-term food security.",
+    against: "Sustainability measures can be expensive to implement.",
+    neutral: "Both innovation and cost management are key."
   }
 }
 
 Topic.all.each do |topic|
-  if comments_data[topic.title]
-    comments = comments_data[topic.title]
-    %i[for against neutral].each do |status|
-      Comment.create(
-        content: comments[status],
+  if comments_data.key?(topic.title)
+    comments_data[topic.title].each do |status, content|
+      Comment.create!(
+        content: content,
         votes: rand(0..50),
         status: status.to_s,
         user_id: User.all.sample.id,
         topic_id: topic.id
       )
-
     end
   end
 end
-  User.all.each do |user|
-    (3..5).to_a.sample.times do
-        user.favorite(Topic.all.sample)
-    end
+
+# Add random favorites for users
+User.all.each do |user|
+  rand(3..5).times do
+    user.favorite(Topic.all.sample)
   end
+end
 
 puts "Seeding complete!"
