@@ -40,7 +40,7 @@
               <div class="card-body">
                 <% favorites.each do |favorite| %>
                   <% topic = favorite.favoritable %>
-                  <div class="main-topic-card my-3 d-flex flex-column position-relative">
+                  <%= link_to topic_path(topic), class: "main-topic-card my-3 d-flex flex-column position-relative", style: "text-decoration: none; color: inherit;" do %>
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="d-flex align-items-center">
                         <div class="avatar-placeholder me-2"></div>
@@ -48,7 +48,7 @@
                       </div>
                     </div>
                     <div class="d-flex flex-column justify-content-center text-center flex-grow-1">
-                      <h3><%= link_to topic.title, topic_path(topic), class: "topic-title-link" %></h3>
+                      <h3 class="topic-title-link"><%= topic.title %></h3>
                       <div class="d-flex align-items-center">
                         <p class="mb-0"><%= topic.description.truncate(150, separator: ' ') %></p>
                       </div>
@@ -56,7 +56,7 @@
                     <div class="favorite-date position-absolute" style="bottom: 10px; right: 10px; font-size: 0.9rem; color: #6c757d;">
                       Favorited on: <%= favorite.created_at.strftime("%B %d, %Y") %>
                     </div>
-                  </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
