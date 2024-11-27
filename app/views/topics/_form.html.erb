@@ -1,0 +1,3 @@
+<%= form_with url: upvote_comment_path(comment.id), method: :patch, local: true, id: "vote-form-#{comment.id}", class: "d-none", data: { vote_target: "form" } do %>
+  <%= hidden_field_tag :vote, 1 %>
+<% end %>

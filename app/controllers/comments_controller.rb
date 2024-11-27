@@ -26,16 +26,14 @@ class CommentsController < ApplicationController
     else
       current_user.upvote(@comment)
     end
-    @comment.save
-    redirect_to topic_path(@comment.topic)
+    respond_to do |format|
+      format.html { redirect_to topic_path(@comment.topic) }
+      format.json
+    end
   end
   private
 
   def comment_params
     params.require(:comment).permit(:content, :status)
-  end
-
-  def set_default_votes
-    self.votes ||= 0
   end
 end
