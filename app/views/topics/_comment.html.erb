@@ -13,8 +13,51 @@
   <div class="d-flex justify-content-between mt-3">
     <i class="fa-regular fa-comments"></i>
     <div class="d-flex align-items-center">
-      <i class="fa-regular fa-circle-up me-1"></i>
-      <p class="mb-0"> <%= comment.votes %> </p>
+      <% if current_user.voted_on?(comment) %>
+        <i class="voted fa-solid fa-circle-up me-1" style="color:#A98251; text-shadow: 0 0 3px #A98251;" id="upvote-icon-<%= comment.id %>" onclick="event.preventDefault(); handleVote(<%= comment.id %>, this);" data-voted="true" style="cursor: pointer;"></i>
+      <% else %>
+        <i class="fa-regular fa-circle-up me-1" id="upvote-icon-<%= comment.id %>" onclick="event.preventDefault(); handleVote(<%= comment.id %>, this);" data-voted="false" style="cursor: pointer;"></i>
+      <% end %>
+      <p class="mb-0" id="vote-count-<%= comment.id %>"> <%= comment.votes %> </p>
+      <%= form_with url: upvote_comment_path(comment.id), method: :patch, local: true, id: "vote-form-#{comment.id}", class: "d-none" do %>
+        <%= hidden_field_tag :vote, 1 %>
+      <% end %>
     </div>
   </div>
 </div>
+<script>
+  function handleVote(commentId, element) {
+    const icon = document.getElementById(`upvote-icon-${commentId}`);
+    const voteCount = document.getElementById(`vote-count-${commentId}`);
+
+    if (icon.getAttribute('data-voted') === 'false') {
+      // User hasn't voted yet, proceed to upvote
+      icon.classList.add('fa-solid', 'fa-circle-up'); // Change icon to solid
+      icon.classList.remove('fa-regular'); // Remove regular class
+      icon.setAttribute('data-voted', 'true'); // Mark as voted
+      icon.style.color = 'black'; // Change icon color to black
+      icon.style.pointerEvents = 'none'; // Make icon not clickable
+
+      // Increment vote count
+      let currentVotes = parseInt(voteCount.innerText);
+      voteCount.innerText = currentVotes + 1;
+
+      // Submit the vote form
+      document.getElementById(`vote-form-${commentId}`).submit();
+    } else {
+      // User has already voted, proceed to remove vote
+      icon.classList.remove('fa-solid', 'fa-circle-up'); // Change icon back to regular
+      icon.classList.add('fa-regular'); // Add regular class
+      icon.setAttribute('data-voted', 'false'); // Mark as not voted
+      icon.style.color = ''; // Reset icon color
+      icon.style.pointerEvents = ''; // Make icon clickable again
+
+      // Decrement vote count
+      let currentVotes = parseInt(voteCount.innerText);
+      voteCount.innerText = currentVotes - 1;
+
+      // Submit the vote form to remove the vote
+      document.getElementById(`vote-form-${commentId}`).submit();
+    }
+  }
+</script>
