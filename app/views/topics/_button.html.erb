@@ -1,0 +1,11 @@
+<div data-vote-target="button">
+  <% voted = current_user.voted_on?(comment) %>
+  <% icon_class = voted ? 'fa-solid fa-circle-up' : 'fa-regular fa-circle-up' %>
+  <% icon_style = voted ? 'color:#A98251;' : '' %>
+  <i class="<%= icon_class %> me-1"
+         style="<%= icon_style %>"
+         data-action="click->vote#handleVote"
+    data-vote-target="upvoteIcon"
+    data-vote-id="<%= comment.id %>"
+    style="cursor: pointer;"></i>
+</div>
