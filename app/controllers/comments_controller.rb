@@ -12,12 +12,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
-
-  def comment_params
-    params.require(:comment).permit(:content, :status)
-  end
-
   def upvote
     @comment = Comment.find(params[:id])
     if current_user.voted_on?(@comment)
@@ -30,5 +24,13 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to topic_path(@comment.topic)
   end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content, :status)
+  end
+
+
 
 end
