@@ -1,5 +1,4 @@
 <div class="show-container d-flex flex-column justify-content-start align-items-center" style="min-height: 100vh;">
-  <!-- Main Topic Card -->
   <div class="main-topic-card my-5 d-flex flex-column">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
@@ -47,4 +46,33 @@
     </div>
   </div>
   <%= render 'comment_button'  %>
-</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add a comment</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#exampleModal" data-action="comment#resetModal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
+          <div data-controller="comment">
+            <div class="side-selection mb-3">
+              <p><strong><%= @topic.title %></strong></p>
+              <p><em><%= @topic.description %></em></p>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-against me-2" data-side="against" data-action="comment#selectSide" data-comment-target="sideButton">Against</button>
+              <button type="button" class="btn btn-neutral me-2" data-side="neutral" data-action="comment#selectSide" data-comment-target="sideButton">Neutral</button>
+              <button type="button" class="btn btn-for" data-side="for" data-action="comment#selectSide" data-comment-target="sideButton">For</button>
+            </div>
+            <%= simple_form_for [@topic, @comment] do |f| %>
+              <%= f.hidden_field :status, id: "comment-status", data: { comment_target: "statusField" } %>
+              <div class="mb-3">
+                <%= f.input :content, required: true, label: "Your Comment" %>
+              </div>
+              <%= f.submit "Post Comment", class: "btn btn-comments", disabled: true, id: "post-comment-button", data: { comment_target: "postButton" } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
