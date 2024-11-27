@@ -39,14 +39,6 @@ topics = [
   { title: "The influence of media on public opinion", description: "How media shapes perceptions and opinions in society.", category: "Politics" },
   { title: "The future of celebrity activism", description: "How celebrities are using their platforms for social change.", category: "Celebrities" },
   { title: "The benefits of lifelong learning", description: "Understanding the importance of continuous education throughout life.", category: "Education" },
-  { title: "The impact of automation on jobs", description: "Examining how automation is changing the job market.", category: "Finance" },
-  { title: "The role of sports in youth development", description: "How sports participation can aid in the development of young people.", category: "Sports" },
-  { title: "The future of renewable energy technologies", description: "Exploring advancements in renewable energy solutions.", category: "Tech" },
-  { title: "The challenges of political discourse", description: "Analyzing the difficulties in maintaining civil political discussions.", category: "Politics" },
-  { title: "The impact of fast fashion on the environment", description: "Discussing the environmental consequences of fast fashion.", category: "Food" },
-  { title: "The role of social media in shaping public discourse", description: "How social media platforms influence conversations in society.", category: "Celebrities" },
-  { title: "The future of personalized education", description: "Exploring how education can be tailored to individual needs.", category: "Education" },
-  { title: "The importance of ethical investing", description: "Understanding the significance of investing in socially responsible companies.", category: "Finance" }
 ]
 
 topics.each do |topic|
@@ -58,14 +50,13 @@ topics.each do |topic|
   )
 end
 
-
 comments_data = {
-  "AI is dangerous" => {
+  "The rise of virtual reality in gaming" => {
     for: "AI could surpass human control, leading to unintended consequences.",
     against: "AI is a tool that, when used responsibly, enhances human potential.",
     neutral: "AI's impact depends on regulations and safeguards put in place."
   },
-  "Social media regulation" => {
+  "The role of influencers in modern marketing" => {
     for: "Regulation would reduce harmful content and misinformation.",
     against: "Overregulation could stifle free speech and innovation.",
     neutral: "Some regulation is necessary, but it should be balanced."

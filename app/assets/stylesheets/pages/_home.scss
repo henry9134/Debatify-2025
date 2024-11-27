@@ -91,6 +91,7 @@
   justify-content: space-between;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
+
 .search-input2{
   background: #d7d1c9;
   color: #51493f;
@@ -101,6 +102,7 @@
   font-size:18px;
   padding-left: 10px;
 }
+
 .search-btn2{
   padding-left: 10px;
   display:flex;
@@ -113,9 +115,11 @@
   color: #d7d1c9;
   margin-left: 20px;
 }
+
 .search-box2:hover > .search-btn2{
   background: #51493f;
 }
+
 .search-input2:focus + .search-btn2{
   background: #51493f;
 }
