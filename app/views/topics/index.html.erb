@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="row justify-content-center">
-        <div class="col-sm-8 my-3">
+    <div class="col-10">
+      <div class="row justify-content-center search-width-fix">
+        <div class="col-sm-8 search-width my-3">
           <%= form_with url: topics_path, method: :get, class: "search-box2" do %>
             <%= text_field_tag :query, params[:query], class: "search-input2", placeholder: "Search topics...", id:"search-bar" %>
             <%= button_tag(type: 'submit', class: "search-btn2") do %>

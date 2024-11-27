@@ -1,34 +1,36 @@
 <nav role="navigation" style="position: sticky; top: 0; z-index: 1000;">
-	<div id="clickNav">
-		<input type="checkbox" />
-
-		<span></span>
-		<span></span>
-		<span></span>
-
-		<ul class="nav-data" role="list">
-			<li><%= link_to "<i class='fa-solid fa-house'></i> Home".html_safe, root_path, data: { title: "Home" }, aria: { label: "Home" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-fire'></i> Trending".html_safe, "/topics" , data: { title: "Trending" }, aria: { label: "Trending" } %></li>
-			<li class="separator"></li>
-			<li><h5 class="nav-title">Categories</h5></li>
-			<li><%= link_to "<i class='fa-solid fa-computer'></i> Tech".html_safe, "/topics?query=Tech", data: { title: "Technology" }, aria: { label: "Explore Technology" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-money-bill-trend-up'></i> Finance".html_safe, "/topics?query=Finance", data: { title: "Finance Tips" }, aria: { label: "Discover Finance Tips" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-landmark-flag'></i> Politics".html_safe, "/topics?query=Politics", data: { title: "Political Insights" }, aria: { label: "Read Political Insights" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-futbol'></i> Sports".html_safe, "/topics?query=Sports", data: { title: "Sports News" }, aria: { label: "Catch Up on Sports News" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-utensils'></i> Food".html_safe, "/topics?query=Food", data: { title: "Culinary Delights" }, aria: { label: "Explore Culinary Delights" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-video'></i> Celebrities".html_safe, "/topics?query=Celebrities", data: { title: "Celebrity Gossip" }, aria: { label: "Get the Latest Celebrity Gossip" } %></li>
-			<li><%= link_to "<i class='fa-solid fa-school'></i> Education".html_safe, "/topics?query=Education", data: { title: "Educational Resources" }, aria: { label: "Find Educational Resources" } %></li>
-			<li class="separator"></li>
-			<% if user_signed_in? %>
-				<li><%= link_to "<i class='fa-solid fa-user'></i> Account".html_safe, "dashboard", data: { title: "Account" }, aria: { label: "Account" } %></li>
-				<li><%= link_to "<i class='fa-solid fa-right-from-bracket'></i> Log out".html_safe, destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
-			<% else %>
-				<li><%= link_to "<i class='fa-solid fa-user-plus'></i> Sign Up".html_safe, "/users/sign_up", data: { title: "Sign Up" }, aria: { label: "Sign Up" } %></li>
-				<li><%= link_to "<i class='fa-solid fa-sign-in-alt'></i> Log In".html_safe, "/users/sign_in", data: { title: "Log In" }, aria: { label: "Log In" } %></li>
-			<% end %>
-		</ul>
-	</div>
+  <div id="clickNav">
+    <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul class="nav-data" role="list">
+      <li><%= link_to "<i class='fa-solid fa-house'></i> Home".html_safe, root_path, data: { title: "Home" }, aria: { label: "Home" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-fire'></i> Trending".html_safe, "/topics" , data: { title: "Trending" }, aria: { label: "Trending" } %></li>
+      <li class="separator"></li>
+      <li>
+        <h5 class="nav-title">Categories</h5>
+      </li>
+      <li><%= link_to "<i class='fa-solid fa-computer'></i> Tech".html_safe, "/topics?query=Tech", data: { title: "Technology" }, aria: { label: "Explore Technology" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-money-bill-trend-up'></i> Finance".html_safe, "/topics?query=Finance", data: { title: "Finance Tips" }, aria: { label: "Discover Finance Tips" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-landmark-flag'></i> Politics".html_safe, "/topics?query=Politics", data: { title: "Political Insights" }, aria: { label: "Read Political Insights" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-futbol'></i> Sports".html_safe, "/topics?query=Sports", data: { title: "Sports News" }, aria: { label: "Catch Up on Sports News" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-utensils'></i> Food".html_safe, "/topics?query=Food", data: { title: "Culinary Delights" }, aria: { label: "Explore Culinary Delights" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-video'></i> Celebrities".html_safe, "/topics?query=Celebrities", data: { title: "Celebrity Gossip" }, aria: { label: "Get the Latest Celebrity Gossip" } %></li>
+      <li><%= link_to "<i class='fa-solid fa-school'></i> Education".html_safe, "/topics?query=Education", data: { title: "Educational Resources" }, aria: { label: "Find Educational Resources" } %></li>
+      <li class="separator"></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "<i class='fa-solid fa-user'></i> Account".html_safe, "dashboard", data: { title: "Account" }, aria: { label: "Account" } %></li>
+        <li><%= link_to "<i class='fa-solid fa-right-from-bracket'></i> Log out".html_safe, destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+      <% else %>
+        <li><%= link_to "<i class='fa-solid fa-user-plus'></i> Sign Up".html_safe, "/users/sign_up", data: { title: "Sign Up" }, aria: { label: "Sign Up" } %></li>
+        <li><%= link_to "<i class='fa-solid fa-sign-in-alt'></i> Log In".html_safe, "/users/sign_in", data: { title: "Log In" }, aria: { label: "Log In" } %></li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
 <div class="navbar-logo" style="text-align: center;">
-    <%= link_to image_tag("https://res.cloudinary.com/docdjbqcu/image/upload/v1732521565/Logo_trdbe1.png", alt: "Logo", style: "max-width: 110px; height: auto; padding-top: 10px;"), root_path %>
+  <%= link_to image_tag("https://res.cloudinary.com/docdjbqcu/image/upload/v1732521565/Logo_trdbe1.png", alt: "Logo", style: "max-width: 110px; height: auto; padding-top: 10px;"), root_path %>
+  <%= link_to "".html_safe, "/topics/new", class: 'plus icon' %>
+
 </div>
