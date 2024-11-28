@@ -17,7 +17,7 @@ famous_users = [
   { name: "LeBron James", image_url: "https://i1.sndcdn.com/artworks-JHaetN7jbSBk3txE-6RuPnQ-t500x500.jpg" },
   { name: "Kanye West", image_url: "https://ih1.redbubble.net/image.5424095087.9680/raf,360x360,075,t,fafafa:ca443f4786.jpg" },
   { name: "Cristiano Ronaldo", image_url: "https://i.pinimg.com/236x/e5/fd/4a/e5fd4acc0b65a0340d9997a51a4262b9.jpg" },
-  { name: "Lionel Messi", image_url: "https://pictures.trbna.com/image/cfba80fb-24e6-4e1c-a911-57a8a0242358?width=1920&quality=70" },
+  { name: "Lionel Messi", image_url: "https://img.a.transfermarkt.technology/portrait/big/28003-1710080339.jpg?lm=1" },
   { name: "Bill Gates", image_url: "https://yt3.googleusercontent.com/WuPodYLA22bumFSAnf654wJ8cE7n2Zb8M2KEF5B3RiyziqLTXQpp6JXBYOSH8zifY_jihWVq=s900-c-k-c0x00ffffff-no-rj" },
   { name: "Mark Zuckerberg", image_url: "https://i.pinimg.com/736x/06/63/d4/0663d4d85dcd4f789e42f4d3724c5796.jpg" },
   { name: "Madison Beer", image_url: "https://hips.hearstapps.com/hmg-prod/images/madison-beer-chi-e-cantante-1604674343.jpg?crop=0.46875xw:1xh;center,top&resize=640:*" },
@@ -33,6 +33,7 @@ famous_users = [
 ]
 
 famous_users.each_with_index do |user_data, index|
+  p user_data[:image_url]
   image_url = URI.open(user_data[:image_url]) # Open the image URL
   # Create a blob from the image data
   photo_blob = ActiveStorage::Blob.create_and_upload!(
