@@ -1,4 +1,4 @@
-<div class=" hidden" data-toggle-target="replies">
+<div class="replies d-flex justify-content-end" data-toggle-target="replies">
   <% comment.comments.each do |comment| %>
     <div class="sub-comment my-3 d-flex flex-column" data-controller="vote" data-vote-id="<%= comment.id %>">
       <div class="d-flex align-items-center justify-content-between">

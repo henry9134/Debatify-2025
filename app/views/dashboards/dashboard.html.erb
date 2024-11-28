@@ -62,11 +62,13 @@
           <p class="comments-count"><%= @user.comments.count %> comment(s).</p>
           <div class="comments-container">
             <% @user.comments.each do |comment| %>
-              <div class="comment-card">
-                <h4 class="comment-topic">Topic: <%= comment.topic.title %></h4>
-                <p class="comment-content"><%= comment.content %></p>
-                <small class="comment-date">Written on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
-              </div>
+              <%= link_to topic_path(comment.topic), class: "comment-card-link" do %>
+                <div class="comment-card">
+                  <h4 class="comment-topic">Topic: <%= comment.topic.title %></h4>
+                  <p class="comment-content"><%= comment.content %></p>
+                  <small class="comment-date">Written on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+                </div>
+              <% end %>
             <% end %>
           </div>
         <% else %>
