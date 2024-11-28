@@ -4,7 +4,13 @@
       <div class="row justify-content-center search-width-fix">
         <div class="col-sm-8 search-width my-3">
           <%= form_with url: topics_path, method: :get, class: "search-box2" do %>
-            <%= text_field_tag :query, params[:query], class: "search-input2", placeholder: "Search topics...", id: "search-bar", data: { action: "keyup->index-search#search", indexSearchTarget: "input" } %>
+            <%= text_field_tag :query, params[:query], 
+              class: "search-input2", 
+              placeholder: "Search topics...", 
+              id: "search-bar", 
+              data: { 
+                action: "keyup->index-search#search",
+                index_search_target: "input" } %>
             <%= button_tag(type: 'submit', class: "search-btn2") do %>
               <i class="fas fa-search"></i>
             <% end %>
