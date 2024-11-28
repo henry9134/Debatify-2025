@@ -81,5 +81,3 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'ostruct'
 
 gem 'pg_search'
-
-gem 'acts_as_commentable_with_threading'
