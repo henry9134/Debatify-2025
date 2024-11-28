@@ -76,15 +76,25 @@ comment_templates = {
   ]
 }
 
-# Add comments to topics
+# Add comments to topics with nested comments
 Topic.all.each do |topic|
   comment_templates.each do |status, comments|
     comments.each_with_index do |content, index|
-      Comment.create!(
+      # Create a top-level comment
+      parent_comment = Comment.create!(
         content: content,
         status: status.to_s,
         user_id: User.all[index % User.count].id, # Rotate users
         topic_id: topic.id
+      )
+
+      # Create a nested comment under the top-level comment
+      Comment.create!(
+        content: "Reply to: #{content}",
+        status: status.to_s,
+        user_id: User.all[(index + 1) % User.count].id, # Use a different user
+        topic_id: topic.id,
+        parent_id: parent_comment.id
       )
     end
   end

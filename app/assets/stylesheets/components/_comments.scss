@@ -1,6 +1,25 @@
 .main-comment {
-  width: 500px;
-  background-color: rgb(237, 237, 237);
+  width: 100%;
+  background-color: rgb(169, 169, 169);
   padding: 20px;
   border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.sub-comment {
+  background-color: rgb(230, 230, 230);
+  padding: 20px;
+  margin-left: 45px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: calc(100% - 30px);
+}
+
+.n-comments {
+  position: relative;
+  padding: 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
