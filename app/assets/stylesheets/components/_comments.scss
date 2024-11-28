@@ -27,3 +27,21 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.hidden {
+  display: none;
+}
+
+.replies {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.show {
+  max-height: 500px;
+}
+
+.comments-wrapper {
+  width: 100%;
+}
