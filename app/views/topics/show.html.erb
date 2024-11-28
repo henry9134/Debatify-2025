@@ -7,48 +7,25 @@
         <% else %>
           <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", style: "width: 35px; height: 35px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
         <% end %>
-<<<<<<< HEAD
         <p class="username ms-2"> <%= @topic.user.name %> </p>
-=======
-        <p class="username ms-2"> <%= @topic.user.name %> </p> <!-- Only this line for username -->
->>>>>>> master
       </div>
       <div class="ai" data-controller="popup">
         <!-- Trigger button for the popover -->
-<<<<<<< HEAD
-        <button type="button" class="btn btn-secondary"
-                  data-action="popup#toggle"
-                  id="openModal">
-          AI Resume
-        </button>
-        <!-- Popover content -->
-        <div id="modal"
-              class="modal-overlay"
-              data-popup-target="modal"
-              style="display: none;">
-          <div class="modal-content">
-            <button class="close-button" data-action="popup#close">&times;</button>
-            <h4>Resume:</h4>
-            <p><%= @content %></p>
-          </div>
-=======
         <button type="button" class="btn btn-secondary" data-action="popup#toggle" id="openModal">
           <i class="fa-solid fa-robot"></i> <!-- AI icon (robot) -->
         </button>
-
         <!-- Popover content -->
         <div id="modal"
             class="modal-overlay"
             data-popup-target="modal"
             style="display: none;">
-            <div class="modal-content">
-                <button class="close-button" data-action="popup#close">&times;</button>
-                <h4>Summary:</h4>
-                <p>
-                  <%= @content %> <!-- Display full AI summary -->
-                </p>
-            </div>
->>>>>>> master
+          <div class="modal-content">
+            <button class="close-button" data-action="popup#close">&times;</button>
+            <h4>Summary:</h4>
+            <p>
+              <%= @content %> <!-- Display full AI summary -->
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -72,26 +49,27 @@
       </div>
     </div>
   </div>
-
   <!-- Show the counts for comments -->
   <div class="row w-100 text-center">
     <div class="col-4">
       <strong>
-        <p>Against (<%= @comments.where(status: 'against').count %>)</p> <!-- Count for Against -->
+        <p>Against (<%= @comments.where(status: 'against').count %>)</p>
+ <!-- Count for Against -->
       </strong>
     </div>
     <div class="col-4">
       <strong>
-        <p>Neutral (<%= @comments.where(status: 'neutral').count %>)</p> <!-- Count for Neutral -->
+        <p>Neutral (<%= @comments.where(status: 'neutral').count %>)</p>
+ <!-- Count for Neutral -->
       </strong>
     </div>
     <div class="col-4">
       <strong>
-        <p>For (<%= @comments.where(status: 'for').count %>)</p> <!-- Count for For -->
+        <p>For (<%= @comments.where(status: 'for').count %>)</p>
+ <!-- Count for For -->
       </strong>
     </div>
   </div>
-
   <div class="anf-bar row w-100 text-center">
     <div class="col-4 a-bar"></div>
     <div class="col-4 n-bar"></div>
@@ -113,7 +91,6 @@
         <%= render 'comment', comment: comment %>
       <% end %>
     </div>
-
     <button type="button" class="btn btn-comments mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Write a comment
     </button>
