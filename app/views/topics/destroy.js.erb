@@ -1,0 +1,5 @@
+document.querySelector('#favorite-button').innerHTML = `
+  <%= j button_to topic_favorite_path(@topic), method: :post, remote: true, class: "btn btn-link p-0" do %>
+    <i class="fa-regular fa-star"></i>
+  <% end %>
+`;
