@@ -41,7 +41,18 @@
       </div>
     </div>
     <div class="d-flex justify-content-end mt-auto">
-      <i class="fa-regular fa-star"></i>
+      <div class="d-flex justify-content-end mt-auto">
+  <% if current_user.favorited?(@topic) %>
+    <%= button_to topic_favorite_path(@topic), method: :delete, remote: true, class: "btn btn-link p-0" do %>
+      <i class="fa-solid fa-star text-warning"></i> <!-- Filled star for favorited -->
+    <% end %>
+  <% else %>
+    <%= button_to topic_favorite_path(@topic), method: :post, remote: true, class: "btn btn-link p-0" do %>
+      <i class="fa-regular fa-star"></i> <!-- Empty star for not favorited -->
+    <% end %>
+  <% end %>
+</div>
+
     </div>
   </div>
   <div class="row w-100  text-center ">
@@ -87,7 +98,7 @@
         <% end %>
       <% end %>
     </div>
-  </div>
+
   <button type="button" class="btn btn-comments mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Write a comment
   </button>

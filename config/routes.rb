@@ -8,9 +8,14 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:index, :new, :create, :show] do
     resources :comments, only: [:new, :create]
+
+    # Toggle favorite action for topics
     member do
-      post 'toggle_favourite', to: "topics#toggle_favorite"
+      post 'toggle_favourite', to: "topics#toggle_favorite" # Existing
     end
+
+    # Favorite actions
+    resource :favorite, only: [:create, :destroy] # Added for favoriting/unfavoriting
   end
 
   resources :comments, only: [] do
