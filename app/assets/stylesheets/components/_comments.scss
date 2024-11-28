@@ -10,10 +10,14 @@
 .sub-comment {
   background-color: rgb(230, 230, 230);
   padding: 20px;
-  margin-left: 45px;
   border-radius: 5px;
   box-sizing: border-box;
-  width: calc(100% - 30px);
+  align-self: flex-end;
+  width: 80%;
+}
+
+.sub-comment p {
+  font-size: smaller;
 }
 
 .n-comments {
