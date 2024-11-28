@@ -87,6 +87,24 @@
   width: 100%;
   max-width: 500px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-card:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+.comment-card-link {
+  display: block; /* Make the link behave like a block element */
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color for consistency */
+}
+
+.comment-card-link:hover .comment-card {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+  transform: scale(1.02); /* Slight zoom effect */
+  transition: transform 0.3s, box-shadow 0.3s ease;
 }
 
 .comment-topic {
