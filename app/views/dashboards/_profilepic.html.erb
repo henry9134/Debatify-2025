@@ -1,0 +1,28 @@
+<div style="position: relative; display: inline-block;">
+  <% if @user.photo.present? %>
+    <%= cl_image_tag @user.photo.key, style: "width: 180px; height: 180px; object-fit: cover; border-radius: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); margin-bottom: 10px;" %>
+  <% else %>
+    <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", style: "width: 180px; height: 180px; object-fit: cover; border-radius: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); margin-bottom: 10px;" %>
+  <% end %>
+  <%= link_to '<i class="pen edit fa-solid fa-pen-to-square"></i>'.html_safe, "#editPhotoModal", class: 'btn btn-link p-0', title: 'Edit Photo', data: { bs_toggle: 'modal', bs_target: '#editPhotoModal' }, style: "position: absolute; top: 10px; right: 10px; z-index: 1;" %>
+</div>
+<div class="modal fade" id="editPhotoModal" tabindex="-1" aria-labelledby="editPhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editPhotoModalLabel">Edit Your Profile Picture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user, url: user_path(@user), method: :patch, html: { class: 'form', multipart: true } do |form| %>
+          <div class="mb-3">
+            <%= form.input :photo, as: :file, label: "Upload New Photo", input_html: { class: "form-control", accept: 'image/*' } %>
+          </div>
+          <div class="mb-3">
+            <%= form.submit "Save Changes", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

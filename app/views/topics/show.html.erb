@@ -2,8 +2,12 @@
   <div class="main-topic-card my-5 d-flex flex-column">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
-        <div class="avatar-placeholder me-2"></div>
-        <p class="username"> <%= @topic.user.name %> </p>
+        <% if @topic.user.photo.present? %>
+          <%= cl_image_tag @topic.user.photo.key, style: "width: 35px; height: 35px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
+        <% else %>
+          <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", style: "width: 35px; height: 35px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
+        <% end %>
+        <p class="username ms-2"> <%= @topic.user.name %> </p>
       </div>
       <div> Ai</div>
     </div>
@@ -17,31 +21,26 @@
       <i class="fa-regular fa-star"></i>
     </div>
   </div>
-  <div class="anf-bar row w-100 text-center">
+  <div class="anf-bar row w-100 text-center mb-4">
     <div class="col-4 a-bar">Against</div>
     <div class="col-4 n-bar">Neutral</div>
     <div class="col-4 f-bar">For</div>
   </div>
+
   <div class="all-comments row w-100">
     <div class="col-4 d-flex flex-column align-items-center a-comments">
-      <% @comments.each do |comment| %>
-        <% if comment.status == "against" %>
-          <%= render 'comment', comment: comment %>
-        <% end %>
+      <% @comments.select { |comment| comment.status == "against" }.sort_by { |comment| -comment.votes.count }.each do |comment| %>
+        <%= render 'comment', comment: comment %>
       <% end %>
     </div>
-    <div class="col-4 d-flex flex-column align-items-center  n-comments">
-      <% @comments.each do |comment| %>
-        <% if comment.status == "neutral" %>
-          <%= render 'comment', comment: comment %>
-        <% end %>
+    <div class="col-4 d-flex flex-column align-items-center n-comments">
+      <% @comments.select { |comment| comment.status == "neutral" }.sort_by { |comment| -comment.votes.count }.each do |comment| %>
+        <%= render 'comment', comment: comment %>
       <% end %>
     </div>
-    <div class="col-4 d-flex flex-column align-items-center  f-comments">
-      <% @comments.each do |comment| %>
-        <% if comment.status == "for" %>
-          <%= render 'comment', comment: comment %>
-        <% end %>
+    <div class="col-4 d-flex flex-column align-items-center f-comments">
+      <% @comments.select { |comment| comment.status == "for" }.sort_by { |comment| -comment.votes.count }.each do |comment| %>
+        <%= render 'comment', comment: comment %>
       <% end %>
     </div>
   </div>
