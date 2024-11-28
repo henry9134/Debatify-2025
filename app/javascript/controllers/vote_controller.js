@@ -5,6 +5,14 @@ export default class extends Controller {
   static targets = ["voteCount", "upvoteIcon", "form", "button"];
 
   handleVote(event) {
+    console.log(event.target)
+    console.log(event.currentTarget)
+
+    if (event.target !== event.currentTarget){
+      event.stopPropagation();
+     }
+
+
     event.preventDefault();
     const commentId = this.data.get("id");
     const voted = this.upvoteIconTarget.classList.contains("voted");
