@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Index Search controller connected.");
+    console.log("Input Target:", this.inputTarget);
   }
 
   search(event) {
