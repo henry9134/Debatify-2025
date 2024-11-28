@@ -1,0 +1,5 @@
+document.querySelector('#favorite-button').innerHTML = `
+  <%= j button_to topic_favorite_path(@topic), method: :delete, remote: true, class: "btn btn-link p-0" do %>
+    <i class="fa-solid fa-star text-warning"></i>
+  <% end %>
+`;
