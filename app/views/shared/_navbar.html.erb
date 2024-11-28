@@ -29,8 +29,7 @@
     </ul>
   </div>
 </nav>
-<div class="navbar-logo" style="text-align: center;">
+<div class="navbar-logo" style="display:flex; justify-content: center;align item:center;position: relative ">
   <%= link_to image_tag("https://res.cloudinary.com/docdjbqcu/image/upload/v1732521565/Logo_trdbe1.png", alt: "Logo", style: "max-width: 110px; height: auto; padding-top: 10px;"), root_path %>
-  <%= link_to "".html_safe, "/topics/new", class: 'plus icon' %>
-
+  <%= link_to "New Topic", "/topics/new", class: 'plus icon', style: "position: absolute; right: 20px; top: 50%; transform: translateY(-50%);" %>
 </div>
