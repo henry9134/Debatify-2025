@@ -1,3 +1,4 @@
+# Reset the database
 Comment.destroy_all
 Topic.destroy_all
 User.destroy_all
@@ -5,6 +6,7 @@ puts "_" * 25
 puts "resetting..."
 puts "_" * 25
 
+# Create users
 famous_names = [
   "Elon Musk", "Jeff Bezos", "Oprah Winfrey", "Serena Williams", "LeBron James",
   "Kanye West", "Cristiano Ronaldo", "Lionel Messi", "Bill Gates", "Mark Zuckerberg",
@@ -21,7 +23,9 @@ famous_names.each_with_index do |name, index|
   )
 end
 
-categories = ["Sports", "Tech", "Politics", "Food", "Celebrities", "Education", "Finance"]
+puts "Users created: #{User.count}"
+
+# Define topics
 topics = [
   { title: "The rise of virtual reality in gaming", description: "Exploring how virtual reality is changing the gaming experience.", category: "Tech" },
   { title: "The impact of sports on mental health", description: "Examining how participation in sports can improve mental well-being.", category: "Sports" },
@@ -35,51 +39,67 @@ topics = [
   { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" }
 ]
 
-topics.each do |topic|
+# Create topics
+topics.each do |topic_data|
   Topic.create!(
-    title: topic[:title],
-    description: topic[:description],
-    category: topic[:category],
+    title: topic_data[:title],
+    description: topic_data[:description],
+    category: topic_data[:category],
     user_id: User.all.sample.id
   )
 end
 
-comments_data = {
-  "The rise of virtual reality in gaming" => {
-    for: "VR creates immersive gaming experiences.",
-    against: "VR is expensive and inaccessible for many.",
-    neutral: "VR has potential, but it is still in early stages."
-  },
-  "The impact of sports on mental health" => {
-    for: "Sports improve mental health by reducing stress.",
-    against: "Pressure in sports can negatively impact mental health.",
-    neutral: "The impact depends on how sports are managed."
-  },
-  "The future of food sustainability" => {
-    for: "Sustainable practices ensure long-term food security.",
-    against: "Sustainability measures can be expensive to implement.",
-    neutral: "Both innovation and cost management are key."
-  }
+puts "Topics created: #{Topic.count}"
+
+# Define generic comments
+comment_templates = {
+  for: [
+    "This is a positive point in favor of the topic.",
+    "Another supportive comment on the topic.",
+    "People generally agree on this point.",
+    "This highlights the benefits of the topic.",
+    "More reasons why this is a good idea."
+  ],
+  against: [
+    "A critique of the topic's drawbacks.",
+    "This highlights potential downsides.",
+    "People have some concerns about this.",
+    "This might not work out as intended.",
+    "More reasons why this might not be a great idea."
+  ],
+  neutral: [
+    "This is a balanced observation on the topic.",
+    "Another neutral point to consider.",
+    "This could go either way, depending on context.",
+    "Balanced feedback about the topic.",
+    "Neutral commentary reflecting various perspectives."
+  ]
 }
 
+# Add comments to topics with nested comments
 Topic.all.each do |topic|
-  if comments_data.key?(topic.title)
-    comments_data[topic.title].each do |status, content|
-      Comment.create!(
+  comment_templates.each do |status, comments|
+    comments.each_with_index do |content, index|
+      # Create a top-level comment
+      parent_comment = Comment.create!(
         content: content,
         status: status.to_s,
-        user_id: User.all.sample.id,
+        user_id: User.all[index % User.count].id, # Rotate users
         topic_id: topic.id
+      )
+
+      # Create a nested comment under the top-level comment
+      Comment.create!(
+        content: "Reply to: #{content}",
+        status: status.to_s,
+        user_id: User.all[(index + 1) % User.count].id, # Use a different user
+        topic_id: topic.id,
+        parent_id: parent_comment.id
       )
     end
   end
 end
 
-# Add random favorites for users
-User.all.each do |user|
-  rand(3..5).times do
-    user.favorite(Topic.all.sample)
-  end
-end
+puts "Comments created: #{Comment.count}"
 
 puts "Seeding complete!"
