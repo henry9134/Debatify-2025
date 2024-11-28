@@ -1,9 +1,30 @@
 <div class="container-home text-center">
-  <h1 class="debatify">Debatify</h1>
+  <h1 class="debatify mt-5">Debatify</h1>
   <p class="debatify-p">Your voice. Your impact.</p>
   <%= render "shared/searchbar" %>
   <div class="trending-topics">
     <h1><i class="fa-solid fa-fire"></i> Trending topics</h1>
     <hr class="trending-separator"/>
+  </div>
+  <div class="row">
+    <% sorted_topics = @topics&.sort_by { |topic| -topic.comments.count }&.first(3) || [] %>
+    <% sorted_topics.each do |topic| %>
+      <div class="col-md-4">
+        <div class="topic-card my-3 d-flex flex-column" style="height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid #d4c1a9;">
+          <h3 class="flex-shrink-0 mb-1"><%= topic.title.truncate(40, separator: ' ') %></h3>
+          <div class="mt-auto d-flex align-items-center justify-content-start">
+            <% if topic.user.photo.present? %>
+              <%= cl_image_tag topic.user.photo.key, style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); outline: 1px solid #d4c1a9;" %>
+            <% else %>
+              <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); outline: 1px solid #d4c1a9;" %>
+            <% end %>
+            <p class="poster-name mb-0 ms-2">By: <strong><%= topic.user.name %></strong></p>
+          </div>
+          <div class="mt-3 text-start">
+            <%= link_to "View Topic", topic_path(topic), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

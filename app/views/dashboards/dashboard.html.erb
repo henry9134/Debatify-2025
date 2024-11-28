@@ -1,11 +1,15 @@
 <div class="user-profile">
   <div class="card-dashboard">
     <div class="user-info">
-      <h2 class="user-name"><%= @user.name %></h2>
-      <p class="user-duration">Member for <%= distance_of_time_in_words(@user.created_at, Time.current) %></p>
+      <%= render "profilepic" %>
+      <%= render "username" %>
+      <div class="user-badges">
+        <h4><u>My Badges</u></h4>
+        <%= render "badges" %>
+      </div>
+      <p class="user-duration mt-2" style="font-size: 0.9em;">Member since <%= distance_of_time_in_words(@user.created_at, Time.current) %></p>
     </div>
   </div>
-
   <div class="container">
     <ul class="nav nav-tabs" id="userProfileTabs" role="tablist">
       <li class="nav-item" role="presentation">
@@ -19,9 +23,7 @@
         </button>
       </li>
     </ul>
-
     <% favorites_by_day = Favorite.where(favoritor: @user, favoritable_type: 'Topic').includes(:favoritable).group_by { |favorite| favorite.created_at.to_date } %>
-
     <div class="tab-content">
       <div class="tab-pane fade show active" id="topics" role="tabpanel" aria-labelledby="topics-tab">
         <h3 class="text-center">Favourite Topics</h3>
@@ -54,7 +56,6 @@
           <p class="no-topics-message">No Favourite Topics</p>
         <% end %>
       </div>
-
       <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
         <h3>My Comments</h3>
         <% if @user.comments.any? %>

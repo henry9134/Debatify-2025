@@ -1,0 +1,21 @@
+<h1><%= @user.name.present? ? @user.name : '<span class="no small" style="font-size: 0.8em; color: #6c757d;">What is your name ?</span>'.html_safe %> <%= link_to '<i class="fa-solid fa-pen-to-square" style="text-shadow: 0.5px 0.5px 4px rgba(0, 0, 0, 0.2); font-size: 0.8em; color: #51483F;"></i>'.html_safe, "#editNameModal", class: 'btn btn-link p-0 mt-1 mb-2', title: 'Edit Name', data: { bs_toggle: 'modal', bs_target: '#editNameModal' } %></h1>
+<div class="modal fade" id="editNameModal" tabindex="-1" aria-labelledby="editNameModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editNameModalLabel">Edit your Username</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user, url: user_path(@user), method: :put, html: { class: 'form' } do |form| %>
+          <div class="mb-3">
+            <%= form.input :name, input_html: { class: "form-control", value: @user.name.capitalize } %>
+          </div>
+          <div class="mb-3">
+            <%= form.submit "Save Changes", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

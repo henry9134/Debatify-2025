@@ -18,4 +18,6 @@ Rails.application.routes.draw do
       patch 'upvote', to: "comments#upvote"
     end
   end
+
+  resources :users, only: [:show, :edit, :update]
 end

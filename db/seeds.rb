@@ -2,9 +2,9 @@
 Comment.destroy_all
 Topic.destroy_all
 User.destroy_all
-puts "_" * 25
+puts "-" * 25
 puts "resetting..."
-puts "_" * 25
+puts "-" * 25
 
 # Create users
 famous_names = [
