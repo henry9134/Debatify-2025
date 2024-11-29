@@ -1,0 +1,14 @@
+
+.modal-content p {
+  font-size: 16px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency as needed */
+  z-index: 1040; /* Default Bootstrap z-index for backdrops */
+}

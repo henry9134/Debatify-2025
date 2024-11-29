@@ -1,10 +1,11 @@
 .main-comment {
   width: 100%;
-  background-color: rgb(169, 169, 169);
+  background-color: rgb(234, 235, 224);
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sub-comment {
@@ -38,7 +39,7 @@
   transition: max-height 0.3s ease-out;
 }
 
-.show {
+.reply-expand {
   max-height: 500px;
 }
 
