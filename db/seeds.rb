@@ -33,13 +33,11 @@ famous_users = [
 ]
 
 famous_users.each_with_index do |user_data, index|
-  p user_data[:image_url]
-  image_url = URI.open(user_data[:image_url]) # Open the image URL
-  # Create a blob from the image data
+  image_url = URI.open(user_data[:image_url])
   photo_blob = ActiveStorage::Blob.create_and_upload!(
     io: image_url,
-    filename: "#{user_data[:name].parameterize}.jpg", # Use a parameterized name for the file
-    content_type: 'image/jpeg' # Set the content type
+    filename: "#{user_data[:name].parameterize}.jpg",
+    content_type: 'image/jpeg'
   )
 
   User.create!(
@@ -47,7 +45,7 @@ famous_users.each_with_index do |user_data, index|
     email: "user#{index + 1}@example.com",
     password: "password123",
     password_confirmation: "password123",
-    photo: photo_blob # Store the blob instead of the image URL
+    photo: photo_blob
   )
 end
 
@@ -57,14 +55,7 @@ puts "Users created: #{User.count}"
 topics = [
   { title: "The rise of virtual reality in gaming", description: "Exploring how virtual reality is changing the gaming experience.", category: "Tech" },
   { title: "The impact of sports on mental health", description: "Examining how participation in sports can improve mental well-being.", category: "Sports" },
-  { title: "The future of food sustainability", description: "Discussing innovative practices for sustainable food production.", category: "Food" },
-  { title: "The role of influencers in modern marketing", description: "How social media influencers are reshaping advertising strategies.", category: "Celebrities" },
-  { title: "The evolution of online learning", description: "How digital platforms are transforming traditional education methods.", category: "Education" },
-  { title: "The significance of financial planning", description: "Understanding the importance of budgeting and saving for the future.", category: "Finance" },
-  { title: "The effects of climate change on agriculture", description: "Analyzing how climate change is affecting farming practices.", category: "Food" },
-  { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
-  { title: "The importance of voting in a democracy", description: "Encouraging civic participation and the impact of voting.", category: "Politics" },
-  { title: "The rise of mental health awareness", description: "How society is becoming more aware of mental health issues.", category: "Celebrities" }
+  { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" }
 ]
 
 # Create topics
@@ -79,55 +70,81 @@ end
 
 puts "Topics created: #{Topic.count}"
 
-# Define generic comments
-comment_templates = {
-  for: [
-    "This is a positive point in favor of the topic.",
-    "Another supportive comment on the topic.",
-    "People generally agree on this point.",
-    "This highlights the benefits of the topic.",
-    "More reasons why this is a good idea."
-  ],
-  against: [
-    "A critique of the topic's drawbacks.",
-    "This highlights potential downsides.",
-    "People have some concerns about this.",
-    "This might not work out as intended.",
-    "More reasons why this might not be a great idea."
-  ],
-  neutral: [
-    "This is a balanced observation on the topic.",
-    "Another neutral point to consider.",
-    "This could go either way, depending on context.",
-    "Balanced feedback about the topic.",
-    "Neutral commentary reflecting various perspectives."
-  ]
-}
-
-# Add comments to topics with nested comments
+# Add realistic comments and replies specific to topics
 Topic.all.each do |topic|
-  comment_templates.each do |status, comments|
-    comments.each_with_index do |content, index|
-      # Create a top-level comment
+  users = User.all.shuffle
+
+  sides = case topic.title
+          when "The rise of virtual reality in gaming"
+            {
+              "for" => [
+                ["Virtual reality makes gaming so immersive. I felt like I was in another world playing VR Skyrim!", "Exactly! It feels like the future of entertainment."],
+                ["It’s great for connecting with friends in virtual spaces. VR chat is so much fun!", "Totally agree. It’s like having a hangout spot without leaving home."]
+              ],
+              "neutral" => [
+                ["The technology is impressive, but it’s still so expensive.", "True, but prices are slowly coming down over time."],
+                ["It’s cool, but not all games are VR-compatible yet.", "That’s a valid point. The library does need to grow."]
+              ],
+              "against" => [
+                ["VR can cause motion sickness for many people.", "Yeah, I tried it once, and I couldn’t last more than 10 minutes."],
+                ["It’s isolating. Spending hours in VR might disconnect people from real life.", "Absolutely. Social interaction in VR isn’t the same as face-to-face."]
+              ]
+            }
+          when "The impact of sports on mental health"
+            {
+              "for" => [
+                ["Playing sports helps me relieve stress and stay focused.", "Absolutely! Exercise is amazing for mental clarity."],
+                ["Team sports are great for building relationships and boosting confidence.", "Couldn’t agree more. The camaraderie is unmatched."]
+              ],
+              "neutral" => [
+                ["Not everyone enjoys sports, though. Some might find it stressful.", "That’s fair. It depends on personality and interests."],
+                ["Sports are great, but injuries can really take a mental toll.", "Very true. Recovery is tough physically and mentally."]
+              ],
+              "against" => [
+                ["Competitive sports can sometimes create too much pressure.", "Exactly. That pressure can lead to anxiety or burnout."],
+                ["Not all coaches focus on mental health, which can hurt athletes.", "I’ve seen that too. It’s an area that needs more attention."]
+              ]
+            }
+          when "The future of space exploration"
+            {
+              "for" => [
+                ["Space exploration is key to humanity’s survival in the long term.", "Absolutely. Colonizing other planets is essential."],
+                ["It inspires the next generation to pursue science and innovation.", "Yes! Programs like NASA motivate young minds everywhere."]
+              ],
+              "neutral" => [
+                ["It’s exciting, but we need to balance funding with problems on Earth.", "True, but solving space challenges often benefits Earth too."],
+                ["Space travel is still so risky. Look at the number of failed missions.", "That’s a fair concern, but technology keeps improving."]
+              ],
+              "against" => [
+                ["Why invest billions in space when people on Earth are starving?", "Exactly. Those resources could help so many right now."],
+                ["Space debris is becoming a huge issue. More exploration could make it worse.", "Good point. Cleaning up space should be a priority too."]
+              ]
+            }
+          end
+
+  sides.each do |status, comments_with_replies|
+    comments_with_replies.each do |comment, reply|
+      # Create the top-level comment
+      parent_user = users.pop
       parent_comment = Comment.create!(
-        content: content,
-        status: status.to_s,
-        user_id: User.all[index % User.count].id, # Rotate users
-        topic_id: topic.id
+        content: comment,
+        status: status,
+        user: parent_user,
+        topic: topic
       )
 
-      # Create a nested comment under the top-level comment
+      # Create the reply
+      reply_user = users.pop
       Comment.create!(
-        content: "Reply to: #{content}",
-        status: status.to_s,
-        user_id: User.all[(index + 1) % User.count].id, # Use a different user
-        topic_id: topic.id,
+        content: reply,
+        status: status,
+        user: reply_user,
+        topic: topic,
         parent_id: parent_comment.id
       )
     end
   end
 end
 
-puts "Comments created: #{Comment.count}"
-
+puts "Comments and replies created successfully!"
 puts "Seeding complete!"
