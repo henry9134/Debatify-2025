@@ -131,6 +131,22 @@ nav {
   margin-bottom: 0px;
 }
 
-.ml12:hover{
-    background-color: yellow;
+.new-topic:hover {
+    transform: scale(1.1);
+}
+
+.new-topic:hover::after {
+    content: "Create New Topic";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* Position the box to the left of the element */
+    transform: translateY(-50%) translateX(-10px); /* Center vertically and add spacing from the icon */
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }

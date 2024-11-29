@@ -31,8 +31,6 @@
 </nav>
 <div class="navbar-logo" style="display:flex; justify-content: center;align item:center;position: relative;">
   <%= link_to image_tag("https://res.cloudinary.com/docdjbqcu/image/upload/v1732521565/Logo_trdbe1.png", alt: "Logo", style: "max-width: 110px; height: auto; padding-top: 10px;"), root_path %>
-  <div class="test"  style= "display:flex; gap: 5px;position: absolute; right: 40px; top: 45%; transform: translateY(-50%); font-size: 1.8em; color: #A98251;">
-    <p class="ml12">New Topic</p>
-    <%= link_to "<i class='fa-solid fa-plus'></i>".html_safe, "/topics/new", class: 'plus icon', style:"color: #A98251;", data: { action: "mouseenter->animation#showText mouseleave->animation#hideText" }  %>
-  </div>
+  <%= link_to "<i class='fa-solid fa-plus'></i>".html_safe, "/topics/new", class: 'plus icon new-topic', style:"display:flex; gap: 5px;position: absolute; right: 40px; top: 45%; transform: translateY(-50%); font-size: 1.8em; color: #A98251;" %>
+
 </div>
