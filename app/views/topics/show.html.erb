@@ -19,7 +19,7 @@
             class="modal-overlay"
             data-popup-target="modal"
             style="display: none;">
-          <div class="modal-content">
+          <div class="ai-content">
             <button class="close-button" data-action="popup#close">&times;</button>
             <h4>Summary:</h4>
             <p>
@@ -54,19 +54,19 @@
     <div class="col-4">
       <strong>
         <p>Against (<%= @comments.where(status: 'against').count %>)</p>
- <!-- Count for Against -->
+        <!-- Count for Against -->
       </strong>
     </div>
     <div class="col-4">
       <strong>
         <p>Neutral (<%= @comments.where(status: 'neutral').count %>)</p>
- <!-- Count for Neutral -->
+        <!-- Count for Neutral -->
       </strong>
     </div>
     <div class="col-4">
       <strong>
         <p>For (<%= @comments.where(status: 'for').count %>)</p>
- <!-- Count for For -->
+        <!-- Count for For -->
       </strong>
     </div>
   </div>
@@ -91,36 +91,36 @@
         <%= render 'comment', comment: comment %>
       <% end %>
     </div>
-    <button type="button" class="btn btn-comments mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Write a comment
-    </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Add a comment</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <button type="button" class="btn btn-comments mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Write a comment
+  </button>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add a comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
+        <div data-controller="comment">
+          <div class=" mb-3">
+            <p><strong><%= @topic.title %></strong></p>
+            <p><em><%= @topic.description %></em></p>
           </div>
-          <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
-            <div data-controller="comment">
-              <div class="side-selection mb-3">
-                <p><strong><%= @topic.title %></strong></p>
-                <p><em><%= @topic.description %></em></p>
-              </div>
-              <div class="mb-3">
-                <button type="button" class="btn btn-against me-2" data-side="against" data-action="comment#selectSide" data-comment-target="sideButton">Against</button>
-                <button type="button" class="btn btn-neutral me-2" data-side="neutral" data-action="comment#selectSide" data-comment-target="sideButton">Neutral</button>
-                <button type="button" class="btn btn-for" data-side="for" data-action="comment#selectSide" data-comment-target="sideButton">For</button>
-              </div>
-              <%= simple_form_for [@topic, @comment] do |f| %>
-                <%= f.hidden_field :status, id: "comment-status", data: { comment_target: "statusField" } %>
-                <div class="mb-3">
-                  <%= f.input :content, required: true, label: "Your Comment" %>
-                </div>
-                <%= f.submit "Post Comment", class: "btn btn-comments", disabled: true, id: "post-comment-button", data: { comment_target: "postButton" } %>
-              <% end %>
+          <div class="mb-3">
+            <button type="button" class="btn btn-against me-2" data-side="against" data-action="comment#selectSide" data-comment-target="sideButton">Against</button>
+            <button type="button" class="btn btn-neutral me-2" data-side="neutral" data-action="comment#selectSide" data-comment-target="sideButton">Neutral</button>
+            <button type="button" class="btn btn-for" data-side="for" data-action="comment#selectSide" data-comment-target="sideButton">For</button>
+          </div>
+          <%= simple_form_for [@topic, @comment] do |f| %>
+            <%= f.hidden_field :status, id: "comment-status", data: { comment_target: "statusField" } %>
+            <div class="mb-3">
+              <%= f.input :content, required: true, label: "Your Comment" %>
             </div>
-          </div>
+            <%= f.submit "Post Comment", class: "btn btn-comments", disabled: true, id: "post-comment-button", data: { comment_target: "postButton" } %>
+          <% end %>
         </div>
       </div>
     </div>
