@@ -63,7 +63,7 @@
 }
 
 /* Modal Overlay: light overlay for focus */
-.modal-overlay {
+.ai-overlay {
 display: none; /* Hidden by default */
 position: fixed;
 top: 0;
@@ -73,8 +73,8 @@ height: 100%;
 z-index: 999; /* Ensures it's above other content */
 }
 
-/* Modal Content Box */
-.modal-content {
+/* Ai Content Box */
+.ai-content {
 position: fixed;
 top: auto;
 left: auto;
@@ -94,13 +94,13 @@ line-height: 1.4; /* Spacing for readability */
 }
 
 /* Title Styling */
-.modal-content h4 {
+.ai-content h4 {
 margin-top: 0;
 font-size: 16px; /* Larger title font */
 }
 
 /* Paragraph Styling */
-.modal-content p {
+.ai-content p {
 font-size: 12px; /* Small text */
 color: #333;
 margin-bottom: 10px;
