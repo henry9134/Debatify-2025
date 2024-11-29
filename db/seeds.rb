@@ -70,44 +70,77 @@ end
 
 puts "Topics created: #{Topic.count}"
 
-# Add comments and votes
+# Add realistic comments and replies specific to topics
 Topic.all.each do |topic|
   users = User.all.shuffle
 
-  sides = {
-    "for" => [
-      ["VR makes gaming immersive. Skyrim VR blew my mind!", "Absolutely. It's like stepping into another world."],
-      ["Connecting in VR spaces is amazing. VRChat is a game-changer.", "Totally agree! It's like a hangout space."]
-    ],
-    "neutral" => [
-      ["VR is great but still too expensive for most.", "True, but the prices are slowly coming down."],
-      ["Cool tech, but not all games support VR yet.", "Good point. The game library is still growing."]
-    ],
-    "against" => [
-      ["VR causes motion sickness for some people.", "Yeah, that's a common issue for beginners."],
-      ["Spending hours in VR isolates you from real life.", "True, real-world connections matter more."]
-    ]
-  }
+  sides = case topic.title
+          when "The rise of virtual reality in gaming"
+            {
+              "for" => [
+                ["Virtual reality makes gaming so immersive. I felt like I was in another world playing VR Skyrim!", "Exactly! It feels like the future of entertainment."],
+                ["It’s great for connecting with friends in virtual spaces. VR chat is so much fun!", "Totally agree. It’s like having a hangout spot without leaving home."]
+              ],
+              "neutral" => [
+                ["The technology is impressive, but it’s still so expensive.", "True, but prices are slowly coming down over time."],
+                ["It’s cool, but not all games are VR-compatible yet.", "That’s a valid point. The library does need to grow."]
+              ],
+              "against" => [
+                ["VR can cause motion sickness for many people.", "Yeah, I tried it once, and I couldn’t last more than 10 minutes."],
+                ["It’s isolating. Spending hours in VR might disconnect people from real life.", "Absolutely. Social interaction in VR isn’t the same as face-to-face."]
+              ]
+            }
+          when "The impact of sports on mental health"
+            {
+              "for" => [
+                ["Playing sports helps me relieve stress and stay focused.", "Absolutely! Exercise is amazing for mental clarity."],
+                ["Team sports are great for building relationships and boosting confidence.", "Couldn’t agree more. The camaraderie is unmatched."]
+              ],
+              "neutral" => [
+                ["Not everyone enjoys sports, though. Some might find it stressful.", "That’s fair. It depends on personality and interests."],
+                ["Sports are great, but injuries can really take a mental toll.", "Very true. Recovery is tough physically and mentally."]
+              ],
+              "against" => [
+                ["Competitive sports can sometimes create too much pressure.", "Exactly. That pressure can lead to anxiety or burnout."],
+                ["Not all coaches focus on mental health, which can hurt athletes.", "I’ve seen that too. It’s an area that needs more attention."]
+              ]
+            }
+          when "The future of space exploration"
+            {
+              "for" => [
+                ["Space exploration is key to humanity’s survival in the long term.", "Absolutely. Colonizing other planets is essential."],
+                ["It inspires the next generation to pursue science and innovation.", "Yes! Programs like NASA motivate young minds everywhere."]
+              ],
+              "neutral" => [
+                ["It’s exciting, but we need to balance funding with problems on Earth.", "True, but solving space challenges often benefits Earth too."],
+                ["Space travel is still so risky. Look at the number of failed missions.", "That’s a fair concern, but technology keeps improving."]
+              ],
+              "against" => [
+                ["Why invest billions in space when people on Earth are starving?", "Exactly. Those resources could help so many right now."],
+                ["Space debris is becoming a huge issue. More exploration could make it worse.", "Good point. Cleaning up space should be a priority too."]
+              ]
+            }
+          end
 
   sides.each do |status, comments_with_replies|
     comments_with_replies.each do |comment, reply|
+      # Create the top-level comment
       parent_user = users.pop
       parent_comment = Comment.create!(
         content: comment,
         status: status,
         user: parent_user,
-        topic: topic,
-        votes: rand(0..10) # Random votes
+        topic: topic
       )
 
+      # Create the reply
       reply_user = users.pop
       Comment.create!(
         content: reply,
         status: status,
         user: reply_user,
         topic: topic,
-        parent_id: parent_comment.id,
-        votes: rand(0..10) # Random votes for replies
+        parent_id: parent_comment.id
       )
     end
   end
