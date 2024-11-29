@@ -1,0 +1,32 @@
+.ai .btn {
+  position: relative;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.ai .btn:hover {
+  transform: scale(1.1);
+  background-color: #785c3a;
+}
+
+.ai .btn:hover::after {
+  content: "Let AI summarize the comments for you";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
