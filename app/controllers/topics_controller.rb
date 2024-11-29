@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "Give me a general little summary of how people generally feel about this topic: #{@comments.map(&:content).join(', ')}" }]
+      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@comments.map(&:content).join(', ')} only 300 characters maximum." }]
     })
     @content = chatgpt_response['choices'][0]['message']['content']
   end
