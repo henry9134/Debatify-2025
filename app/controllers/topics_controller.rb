@@ -1,4 +1,14 @@
 class TopicsController < ApplicationController
+  def update_thermometer
+    @topic = Topic.find(params[:id])
+    total_votes = @topic.comments.where(status: %w[for against]).count
+    max_votes = 100
+    @thermometer_percentage = [(total_votes.to_f / max_votes * 100), 100].min
+
+    respond_to do |format|
+      format.turbo_stream # Render the Turbo Stream response
+    end
+  end
 
   def index
     if params[:query].present?
@@ -8,7 +18,7 @@ class TopicsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # Default behavior for full page load
+      format.html
       format.text { render partial: "topics/card_topics", locals: { topics: @topics }, formats: [:html] }
     end
   end
@@ -16,16 +26,27 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @user = current_user
+
     @comments = @topic.comments
-    @comment = @topic.comments.build
     @new_comment = Comment.new
+    @main_comments = @comments.where(parent_id: nil)
+
+    @for_votes = @main_comments.where(status: 'for').count
+    @against_votes = @main_comments.where(status: 'against').count
+    @neutral_votes = @main_comments.where(status: 'neutral').count
+
+    total_votes = @for_votes + @against_votes
+    max_votes = 100
+    @thermometer_percentage = [total_votes.to_f / max_votes * 100, 100].min
 
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@comments.map(&:content).join(', ')} only 300 characters maximum." }]
+      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@main_comments.map(&:content).join(', ')} only 300 characters maximum." }]
     })
     @content = chatgpt_response['choices'][0]['message']['content']
+
+    @comment = @topic.comments.build
   end
 
   def new
@@ -47,5 +68,4 @@ class TopicsController < ApplicationController
   def params_topics
     params.require(:topic).permit(:title, :description, :category)
   end
-
 end

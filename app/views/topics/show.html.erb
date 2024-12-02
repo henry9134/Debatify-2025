@@ -31,9 +31,14 @@
     </div>
   </div>
   <!-- Show the Ai and the graph -->
+  <!-- Thermometer Section -->
   <div class="middle-part mb-3">
     <div class="row">
-      <div class="col-3 left p-3"></div>
+      <div class="col-3 left p-3">
+        <turbo-frame id="thermometer_frame">
+          <%= render partial: "thermometer", locals: { thermometer_percentage: @thermometer_percentage } %>
+        </turbo-frame>
+      </div>
       <div class="col-6 center p-3 d-flex justify-content-center align-items-center"><%= @content %></div>
       <div class="col-3 right p-3"></div>
     </div>
@@ -66,7 +71,7 @@
       <% comments_against = @comments.where(parent_id: nil, status: "against").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_against.any? %>
         <% comments_against.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "against").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-against-comments" aria-expanded="false" aria-controls="more-against-comments" style="font-size: 1.5rem;" title="See more">
@@ -88,7 +93,7 @@
       <% comments_neutral = @comments.where(parent_id: nil, status: "neutral").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_neutral.any? %>
         <% comments_neutral.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "neutral").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-neutral-comments" aria-expanded="false" aria-controls="more-neutral-comments" style="font-size: 1.5rem;" title="See more">
@@ -110,7 +115,7 @@
       <% comments_for = @comments.where(parent_id: nil, status: "for").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_for.any? %>
         <% comments_for.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "for").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-for-comments" aria-expanded="false" aria-controls="more-for-comments" style="font-size: 1.5rem;" title="See more">
