@@ -39,9 +39,57 @@ h1, h2, h3 {
   font-family: "Lexend";
 }
 
-.avatar-placeholder {
-  width: 30px;
-  height: 30px;
-  background-color: rgb(65, 65, 65);
-  border-radius: 50%;
+.thermometer-container {
+  text-align: center;
+  margin: 20px auto;
+  position: relative;
+
+  .thermometer {
+    position: relative;
+    width: 50px;
+    height: 200px;
+    border: 2px solid #333;
+    background: #f3f3f3;
+    border-radius: 5px;
+
+    .ticks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .tick {
+        position: relative;
+        width: 100%;
+
+        &::before {
+          content: '';
+          width: 90%;
+          height: 1px;
+          background-color: #333;
+          position: absolute;
+          left: 5%;
+        }
+
+        .tick-number {
+          position: absolute;
+          font-size: 12px;
+          color: #333;
+          right: -40px;
+        }
+      }
+    }
+
+    .level {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(180deg, #ff4e42, #ffb142);
+      transition: height 0.3s ease;
+    }
+  }
 }
