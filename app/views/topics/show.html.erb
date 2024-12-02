@@ -9,30 +9,7 @@
         <% end %>
         <p class="username ms-2"> <%= @topic.user.name %> </p>
       </div>
-<<<<<<< HEAD
-      <div class="ai" data-controller="popup">
-        <!-- Trigger button for the popover -->
-        <button type="button" class="btn btn-primary" data-action="popup#toggle" id="openModal">
-          <i class="fa-solid fa-robot"></i> <!-- AI icon (robot) -->
-        </button>
-        <!-- Popover content -->
-        <div id="modal"
-            class="modal-overlay"
-            data-popup-target="modal"
-            style="display: none;">
-          <div class="ai-content">
-            <button class="close-button" data-action="popup#close">&times;</button>
-            <h4>Summary:</h4>
-            <p>
-              <%= @content %>
-            </p>
-          </div>
-        </div>
-      </div>
-=======
->>>>>>> master
     </div>
-
     <div class="d-flex flex-column justify-content-center text-center flex-grow-1">
       <h3> <%= @topic.title %> </h3>
       <div class="d-flex align-items-center justify-content-center text-center">
@@ -53,7 +30,6 @@
       </div>
     </div>
   </div>
-
   <!-- Show the Ai and the graph -->
   <div class="middle-part mb-3">
     <div class="row">
@@ -62,7 +38,6 @@
       <div class="col-3 right p-3"></div>
     </div>
   </div>
-
   <!-- Show the counts for comments -->
   <div class="row w-100 text-center">
     <div class="col-4">

@@ -15,6 +15,7 @@
   box-sizing: border-box;
   align-self: flex-end;
   width: 100%;
+  margin: 2px 0px;
 }
 
 .sub-comment p {
@@ -44,9 +45,19 @@
 }
 
 .reply-expand {
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 .comments-wrapper {
   width: 100%;
+}
+
+.add-comment-bar {
+  width: 100%;
+}
+
+.replies p {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
 }

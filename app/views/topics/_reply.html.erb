@@ -1,26 +1,27 @@
-<div class="replies d-flex justify-content-end" data-toggle-target="replies">
-  <% comment.comments.each do |comment| %>
-    <div class="sub-comment border-bottom border-3 my-3 d-flex flex-column" data-controller="vote" data-vote-id="<%= comment.id %>">
-      <div class="d-flex align-items-center justify-content-between">
-        <div class="d-flex align-items-center">
-          <% if comment.user.photo.present? %>
-            <%= cl_image_tag comment.user.photo.key, style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
-          <% else %>
-            <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", style: "width: 35px; height: 35px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
-          <% end %>
-          <p class="username ms-2 d-flex"><%= comment.user.name %></p>
-          <p class="mb-0"><%= comment.content %></p>
-        </div>
+<div class="replies d-flex flex-column justify-content-end" data-toggle-target="replies">
+  <% comment.comments.each do |reply| %>
+    <div class="sub-comment d-flex" data-controller="vote" data-vote-id="<%= reply.id %>">
+      <!-- Avatar -->
+      <% if reply.user.photo.present? %>
+        <%= cl_image_tag reply.user.photo.key, style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
+      <% else %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar" %>
+      <% end %>
+      <!-- Name and Content -->
+      <div class="ms-2 flex-grow-1">
+        <p class="username mb-0"><strong><%= reply.user.name %></strong></p>
+        <p class="reply-content mb-0"><%= reply.content %></p>
       </div>
     </div>
   <% end %>
   <!-- Add a Comment Bar -->
-  <div class="add-comment-bar d-flex align-items-center mt-3 p-3 border-top">
-    <form action="<%= create_reply_path %>" method="POST" class="d-flex w-100">
-      <%= hidden_field_tag :parent_id, comment.id %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <input type="text" name="content" class="form-control me-2" placeholder="Add a comment..." required>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
+  <div class="add-comment-bar d-flex justify-content-center w-100 px-3 mt-3">
+    <%= simple_form_for [comment.topic, @new_comment], class:"d-flex w-100" do |f| %>
+      <%= hidden_field_tag "comment[parent_id]", comment.id %>
+      <div class="d-flex w-100">
+        <%= f.input :content, label: false, input_html: { class: "form-control flex-grow-1", rows: 1 } %>
+        <%= f.submit "reply", class: "btn btn-primary ms-2" %>
+      </div>
+    <% end %>
   </div>
 </div>

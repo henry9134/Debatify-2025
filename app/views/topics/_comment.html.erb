@@ -1,5 +1,5 @@
 <div data-controller= "toggle" class="comments-wrapper">
-  <div class="main-comment my-3 d-flex flex-column" data-controller="vote" data-action="click->toggle#toggleReplies" data-vote-id="<%= comment.id %>">
+  <div class="main-comment my-3 d-flex flex-column" data-controller="vote" data-vote-id="<%= comment.id %>">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <% if comment.user.photo.present? %>
@@ -17,7 +17,7 @@
     </div>
     <div class="d-flex justify-content-between mt-3">
       <div class="d-flex align-items-center mt-0">
-        <i class="fa-regular fa-comments"></i>
+        <i class="fa-regular fa-comments" data-action="click->toggle#toggleReplies"></i>
         <p > <%= comment.comments.count %> </p>
       </div>
       <div class="d-flex align-items-center">
