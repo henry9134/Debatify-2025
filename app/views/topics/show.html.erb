@@ -69,7 +69,7 @@
       <% comments_against = @comments.where(parent_id: nil, status: "against").sort_by { |comment| comment.votes.count }.reverse %>
       <% if comments_against.any? %>
         <% comments_against.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
       <% else %>
         <p>No <strong>against</strong> comments yet.</p>
@@ -79,7 +79,7 @@
       <% comments_neutral = @comments.where(parent_id: nil, status: "neutral").sort_by { |comment| comment.votes.count }.reverse %>
       <% if comments_neutral.any? %>
         <% comments_neutral.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
       <% else %>
         <p>No <strong>neutral</strong> comments yet.</p>
@@ -89,7 +89,7 @@
       <% comments_for = @comments.where(parent_id: nil, status: "for").sort_by { |comment| comment.votes.count }.reverse %>
       <% if comments_for.any? %>
         <% comments_for.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, new_comment: @new_comment %>
         <% end %>
       <% else %>
         <p>No <strong>for</strong> comments yet.</p>
