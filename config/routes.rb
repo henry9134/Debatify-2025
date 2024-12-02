@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboards#dashboard'
 
   resources :topics, only: [:index, :new, :create, :show] do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create] do
+      resources :replies, only: [:create]
+    end
 
     # Toggle favorite action for topics
     member do

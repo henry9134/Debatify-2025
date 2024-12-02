@@ -9,16 +9,20 @@
 }
 
 .sub-comment {
-  background-color: rgb(230, 230, 230);
-  padding: 20px;
+  background-color: rgb(180, 181, 135);
+  padding: 5px;
   border-radius: 5px;
   box-sizing: border-box;
   align-self: flex-end;
-  width: 80%;
+  width: 100%;
 }
 
 .sub-comment p {
-  font-size: smaller;
+  font-size: 12px;
+}
+
+.sub-comment .username {
+  margin-right: 6px;
 }
 
 .n-comments {
