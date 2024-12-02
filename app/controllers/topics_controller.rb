@@ -14,29 +14,23 @@ class TopicsController < ApplicationController
   end
 
   def show
-    def show
-      @topic = Topic.find(params[:id])
-      @user = current_user
+    @topic = Topic.find(params[:id])
+    @user = current_user
 
-      # Fetch all comments
-      @comments = @topic.comments
-      @main_comments = @comments.where(parent_id: nil)
+    # Fetch all comments
+    @comments = @topic.comments
+    @main_comments = @comments.where(parent_id: nil)
 
-      # Count votes for "For" and "Against"
-      @for_votes = @main_comments.where(status: 'for').count
-      @against_votes = @main_comments.where(status: 'against').count
+    # Count votes for "For" and "Against"
+    @for_votes = @main_comments.where(status: 'for').count
+    @against_votes = @main_comments.where(status: 'against').count
 
-      # Total votes
-      total_votes = @for_votes + @against_votes
+    # Total votes
+    total_votes = @for_votes + @against_votes
 
-      # Calculate thermometer percentage
-      max_votes = 100
-      @thermometer_percentage = [total_votes.to_f / max_votes * 100, 100].min
-
-      # Prepare a new comment object
-      @comment = @topic.comments.build
-    end
-
+    # Calculate thermometer percentage
+    max_votes = 100
+    @thermometer_percentage = [total_votes.to_f / max_votes * 100, 100].min
 
     # Generate summary using OpenAI (based on main comments only)
     client = OpenAI::Client.new
