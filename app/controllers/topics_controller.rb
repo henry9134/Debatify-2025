@@ -28,6 +28,7 @@ class TopicsController < ApplicationController
     @user = current_user
 
     @comments = @topic.comments
+    @new_comment = Comment.new
     @main_comments = @comments.where(parent_id: nil)
 
     @for_votes = @main_comments.where(status: 'for').count
