@@ -49,6 +49,13 @@
       </div>
     </div>
   </div>
+
+  <%= render partial: "thermometer", locals: {
+    thermometer: @thermometer,
+    for_comments_count: @for_comments_count,
+    against_comments_count: @against_comments_count
+  } %>
+
   <!-- Show the counts for comments -->
   <div class="row w-100 text-center">
     <div class="col-4">

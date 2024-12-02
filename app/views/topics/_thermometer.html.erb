@@ -1,0 +1,14 @@
+<div class="thermometer-container">
+  <div class="thermometer">
+    <!-- Add tick marks and numbers -->
+    <div class="ticks">
+      <% (0..100).step(10).reverse_each do |tick| %>
+        <div class="tick" style="bottom: <%= tick %>%;">
+          <span class="tick-number"><%= tick %></span>
+        </div>
+      <% end %>
+    </div>
+    <!-- The filling level -->
+    <div class="level" style="height: <%= thermometer_percentage %>%;"></div>
+  </div>
+</div>

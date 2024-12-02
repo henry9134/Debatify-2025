@@ -14,18 +14,40 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
-    @user = current_user
-    @comments = @topic.comments
-    @comment = @topic.comments.build
-    @new_comment = Comment.new
+    def show
+      @topic = Topic.find(params[:id])
+      @user = current_user
 
+      # Fetch all comments
+      @comments = @topic.comments
+      @main_comments = @comments.where(parent_id: nil)
+
+      # Count votes for "For" and "Against"
+      @for_votes = @main_comments.where(status: 'for').count
+      @against_votes = @main_comments.where(status: 'against').count
+
+      # Total votes
+      total_votes = @for_votes + @against_votes
+
+      # Calculate thermometer percentage
+      max_votes = 100
+      @thermometer_percentage = [total_votes.to_f / max_votes * 100, 100].min
+
+      # Prepare a new comment object
+      @comment = @topic.comments.build
+    end
+
+
+    # Generate summary using OpenAI (based on main comments only)
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@comments.map(&:content).join(', ')} only 300 characters maximum." }]
+      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@main_comments.map(&:content).join(', ')} only 300 characters maximum." }]
     })
     @content = chatgpt_response['choices'][0]['message']['content']
+
+    # Prepare a new comment object for the form
+    @comment = @topic.comments.build
   end
 
   def new

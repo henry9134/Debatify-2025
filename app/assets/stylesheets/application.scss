@@ -18,7 +18,7 @@
 @import "pages/new_form";
 @import "components/comments";
 @import "components/anf_bar";
-@import "components/ai-button";
+  @import "components/ai-button";
 @import "components/modal";
 
 .username {
@@ -44,4 +44,56 @@ h1, h2, h3 {
   height: 30px;
   background-color: rgb(65, 65, 65);
   border-radius: 50%;
+}
+
+.thermometer-container {
+  text-align: center;
+  margin: 20px auto;
+  position: relative; /* For absolute positioning of ticks */
+
+  .thermometer {
+    width: 50px; /* Width of the thermometer */
+    height: 200px; /* Total height */
+    border: 2px solid #333; /* Border color */
+    background: #f3f3f3; /* Background color */
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+
+    .ticks {
+      position: absolute;
+      left: -20px; /* Offset to the left of the thermometer */
+      width: 20px;
+
+      .tick {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .tick-number {
+          font-size: 10px;
+          color: #333;
+          margin-right: 5px;
+        }
+
+        &::before {
+          content: "";
+          width: 10px; /* Length of the tick */
+          height: 1px;
+          background-color: #333;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .level {
+      background: linear-gradient(180deg, #ff4e42, #ffb142); /* Gradient color */
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      transition: height 0.3s ease;
+    }
+  }
 }
