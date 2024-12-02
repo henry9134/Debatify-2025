@@ -13,15 +13,19 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace(
-            "replies_turbo_#{@new_comment.parent_id}",
-            partial: "topics/reply",
-            locals: { comment: @new_comment.parent, new_comment: Comment.new, expanded: true }
-          )
+      if @new_comment.parent_id.present?
+        respond_to do |format|
+          format.turbo_stream do
+            render turbo_stream: turbo_stream.replace(
+              "replies_turbo_#{@new_comment.parent_id}",
+              partial: "topics/reply",
+              locals: { comment: @new_comment.parent, new_comment: Comment.new, expanded: true }
+            )
+          end
+          format.html { redirect_to @new_comment.parent, notice: "Reply created successfully." }
         end
-        format.html { redirect_to @new_comment.parent, notice: "Reply created successfully." }
+      else
+        redirect_to @new_comment.topic, notice: "Reply created successfully."
       end
     else
       render 'topics/show', status: :unprocessable_entity
