@@ -1,4 +1,14 @@
 class TopicsController < ApplicationController
+  def update_thermometer
+    @topic = Topic.find(params[:id])
+    total_votes = @topic.comments.where(status: %w[for against]).count
+    max_votes = 100
+    @thermometer_percentage = [(total_votes.to_f / max_votes * 100), 100].min
+
+    respond_to do |format|
+      format.turbo_stream # Render the Turbo Stream response
+    end
+  end
 
   def index
     if params[:query].present?
@@ -8,7 +18,7 @@ class TopicsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # Default behavior for full page load
+      format.html
       format.text { render partial: "topics/card_topics", locals: { topics: @topics }, formats: [:html] }
     end
   end
@@ -17,22 +27,17 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @user = current_user
 
-    # Fetch all comments
     @comments = @topic.comments
     @main_comments = @comments.where(parent_id: nil)
 
-    # Count votes for "For" and "Against"
     @for_votes = @main_comments.where(status: 'for').count
     @against_votes = @main_comments.where(status: 'against').count
+    @neutral_votes = @main_comments.where(status: 'neutral').count
 
-    # Total votes
     total_votes = @for_votes + @against_votes
-
-    # Calculate thermometer percentage
     max_votes = 100
     @thermometer_percentage = [total_votes.to_f / max_votes * 100, 100].min
 
-    # Generate summary using OpenAI (based on main comments only)
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -40,7 +45,6 @@ class TopicsController < ApplicationController
     })
     @content = chatgpt_response['choices'][0]['message']['content']
 
-    # Prepare a new comment object for the form
     @comment = @topic.comments.build
   end
 
@@ -63,5 +67,4 @@ class TopicsController < ApplicationController
   def params_topics
     params.require(:topic).permit(:title, :description, :category)
   end
-
 end

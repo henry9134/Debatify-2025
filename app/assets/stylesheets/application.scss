@@ -39,52 +39,47 @@ h1, h2, h3 {
   font-family: "Lexend";
 }
 
-.avatar-placeholder {
-  width: 30px;
-  height: 30px;
-  background-color: rgb(65, 65, 65);
-  border-radius: 50%;
-}
-
 .thermometer-container {
   text-align: center;
   margin: 20px auto;
-  position: relative; /* Needed for absolutely positioned ticks */
+  position: relative;
 
   .thermometer {
     position: relative;
-    width: 50px; /* Width of the thermometer */
-    height: 200px; /* Height of the thermometer */
-    border: 2px solid #333; /* Border color */
-    background: #f3f3f3; /* Background color */
-    overflow: hidden;
-    border-radius: 5px; /* Rounded corners */
+    width: 50px;
+    height: 200px;
+    border: 2px solid #333;
+    background: #f3f3f3;
+    border-radius: 5px;
 
     .ticks {
       position: absolute;
-      left: -30px; /* Position ticks to the left of the thermometer */
-      height: 100%; /* Match the height of the thermometer */
-      width: 30px; /* Space for tick numbers and lines */
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       .tick {
-        position: absolute;
+        position: relative;
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        .tick-number {
-          font-size: 12px; /* Font size for numbers */
-          color: #333; /* Text color */
-          margin-right: 5px; /* Spacing between number and tick line */
-        }
 
         &::before {
           content: '';
-          width: 10px; /* Length of the tick line */
-          height: 1px; /* Height of the tick line */
-          background-color: #333; /* Line color */
-          margin-right: 5px; /* Spacing between tick line and number */
+          width: 90%;
+          height: 1px;
+          background-color: #333;
+          position: absolute;
+          left: 5%;
+        }
+
+        .tick-number {
+          position: absolute;
+          font-size: 12px;
+          color: #333;
+          right: -40px;
         }
       }
     }
@@ -93,8 +88,8 @@ h1, h2, h3 {
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: linear-gradient(180deg, #ff4e42, #ffb142); /* Gradient color for level fill */
-      transition: height 0.3s ease; /* Smooth animation for height changes */
+      background: linear-gradient(180deg, #ff4e42, #ffb142);
+      transition: height 0.3s ease;
     }
   }
 }

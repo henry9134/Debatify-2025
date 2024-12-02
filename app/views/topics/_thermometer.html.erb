@@ -1,9 +1,9 @@
-<div class="thermometer-container">
+<div id="thermometer_<%= @topic.id %>" class="thermometer-container">
   <div class="thermometer">
     <!-- Add tick marks and numbers -->
     <div class="ticks">
-      <% (0..100).step(10).reverse_each do |tick| %>
-        <div class="tick" style="bottom: <%= tick %>%;">
+      <% (0..100).step(20).reverse_each.with_index do |tick, index| %>
+        <div class="tick d-flex align-items-center" style="top: <%= index * 20 %>%;"><!-- Scaling for 50 range -->
           <span class="tick-number"><%= tick %></span>
         </div>
       <% end %>
