@@ -9,16 +9,21 @@
 }
 
 .sub-comment {
-  background-color: rgb(230, 230, 230);
-  padding: 20px;
+  background-color: rgb(180, 181, 135);
+  padding: 5px;
   border-radius: 5px;
   box-sizing: border-box;
   align-self: flex-end;
-  width: 80%;
+  width: 100%;
+  margin: 2px 0px;
 }
 
 .sub-comment p {
-  font-size: smaller;
+  font-size: 12px;
+}
+
+.sub-comment .username {
+  margin-right: 6px;
 }
 
 .n-comments {
@@ -40,9 +45,19 @@
 }
 
 .reply-expand {
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 .comments-wrapper {
   width: 100%;
+}
+
+.add-comment-bar {
+  width: 100%;
+}
+
+.replies p {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
 }
