@@ -25,4 +25,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :topics do
+    member do
+      post :update_thermometer
+    end
+  end
 end
