@@ -14,9 +14,16 @@ export default class extends Controller {
 
   toggleSecondReplies(event) {
     console.log(event.target, event.currentTarget);
-    this.secondRepliesTarget.classList.toggle("reply-expand");
-    this.hiddenTarget.classList.toggle("hidden");
+    // this.secondRepliesTarget.classList.toggle("reply-expand");
+    const parent = event.currentTarget.parentElement.parentElement.parentElement.parentElement;
+    console.log(parent);
+    parent.querySelector(".add-comment-bar").classList.toggle("reply-expand");
+    this.toggleHidden();
+  }
 
+  toggleHidden() {
+    console.log("hi");
+    this.hiddenTarget.classList.toggle("replies");
   }
 
 
