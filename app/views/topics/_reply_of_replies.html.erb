@@ -1,0 +1,18 @@
+<div class="" data-toggle-target="secondReplies">
+  <% reply.comments.each do |reply_of_reply| %>
+    <div class="sub-sub-comment  my-2 d-flex flex-column justify-content-end">
+      <% if reply.user.photo.present? %>
+        <%= cl_image_tag reply.user.photo.key, style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
+      <% else %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar" , style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;"%>
+      <% end %>
+      <div class="ms-2 flex-grow-1">
+        <p class="username mb-0"><strong><%= reply_of_reply.user.name %></strong></p>
+        <div class="d-flex justify-content-between">
+          <p class="reply-content mb-0"><%= reply_of_reply.content %></p>
+          <p > <%= reply_of_reply.comments.count %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

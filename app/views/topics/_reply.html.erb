@@ -29,9 +29,6 @@
             <div class="mt-auto text-end px-2">
               <i class="fa-regular fa-comments" data-action="click->toggle#toggleSecondReplies" data-action="click->toggle#toggleHidden"></i>
             </div>
-            <% reply.comments.each do |reply_of_reply| %>
-              <p> <%= reply_of_reply.content %> </p>
-            <% end %>
           </div>
         </div>
         <%= render 'topics/second_reply_form', comment: reply, new_comment: new_comment %>
