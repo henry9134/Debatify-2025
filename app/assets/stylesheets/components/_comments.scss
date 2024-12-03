@@ -9,7 +9,7 @@
 }
 
 .sub-comment {
-  background-color: rgb(180, 181, 135);
+  background-color: #e1d1bc;
   padding: 5px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -60,4 +60,8 @@
   white-space: normal;
   word-wrap: break-word;
   word-break: break-word;
+}
+
+.btn-reply {
+  background-color: #e3c499;
 }
