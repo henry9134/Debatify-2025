@@ -71,7 +71,7 @@
       <% comments_against = @comments.where(parent_id: nil, status: "against").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_against.any? %>
         <% comments_against.each do |comment| %>
-          <%= render 'comment', comment: comment, new_comment: @new_comment %>
+          <%= render 'topics/comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "against").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-against-comments" aria-expanded="false" aria-controls="more-against-comments" style="font-size: 1.5rem;" title="See more">
@@ -80,7 +80,7 @@
           <div class="collapse" id="more-against-comments" style="margin-top: 5px; width: 100%;">
             <% @comments.where(parent_id: nil, status: "against").sort_by { |comment| comment.votes.count }.reverse.drop(3).each do |comment| %>
               <div class="comment-item"> <!-- Added wrapper for consistent styling -->
-                <%= render 'comment', comment: comment %>
+                <%= render 'topics/comment', comment: comment %>
               </div>
             <% end %>
           </div>
@@ -93,7 +93,7 @@
       <% comments_neutral = @comments.where(parent_id: nil, status: "neutral").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_neutral.any? %>
         <% comments_neutral.each do |comment| %>
-          <%= render 'comment', comment: comment, new_comment: @new_comment %>
+          <%= render 'topics/comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "neutral").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-neutral-comments" aria-expanded="false" aria-controls="more-neutral-comments" style="font-size: 1.5rem;" title="See more">
@@ -102,7 +102,7 @@
           <div class="collapse" id="more-neutral-comments" style="margin-top: 5px; width: 100%;">
             <% @comments.where(parent_id: nil, status: "neutral").sort_by { |comment| comment.votes.count }.reverse.drop(3).each do |comment| %>
               <div class="comment-item"> <!-- Added wrapper for consistent styling -->
-                <%= render 'comment', comment: comment %>
+                <%= render 'topics/comment', comment: comment %>
               </div>
             <% end %>
           </div>
@@ -115,7 +115,7 @@
       <% comments_for = @comments.where(parent_id: nil, status: "for").sort_by { |comment| comment.votes.count }.reverse.take(3) %>
       <% if comments_for.any? %>
         <% comments_for.each do |comment| %>
-          <%= render 'comment', comment: comment, new_comment: @new_comment %>
+          <%= render 'topics/comment', comment: comment, new_comment: @new_comment %>
         <% end %>
         <% if @comments.where(parent_id: nil, status: "for").count > 3 %>
           <button type="button" class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#more-for-comments" aria-expanded="false" aria-controls="more-for-comments" style="font-size: 1.5rem;" title="See more">
@@ -124,7 +124,7 @@
           <div class="collapse" id="more-for-comments" style="margin-top: 5px; width: 100%;">
             <% @comments.where(parent_id: nil, status: "for").sort_by { |comment| comment.votes.count }.reverse.drop(3).each do |comment| %>
               <div class="comment-item"> <!-- Added wrapper for consistent styling -->
-                <%= render 'comment', comment: comment %>
+                <%= render 'topics/comment', comment: comment %>
               </div>
             <% end %>
           </div>

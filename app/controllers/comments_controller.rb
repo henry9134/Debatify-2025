@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
+    @comments = @topic.comments
+    @comment = Comment.new
     @new_comment = @topic.comments.build(comment_params)
     @new_comment.user = current_user
     # when adding a reply to a reply we also need the parent of the parent
