@@ -2,7 +2,7 @@
 <%= simple_form_for @topic do |f| %>
     <%= f.input :title, placeholder: "What's your topic ?", required: true, error: "Title is required" %>
     <%= f.input :description, placeholder: "What would you like to talk about ?", required: true, minlength: 20, error: "Description must be at least 20 characters" %>
-    <%= f.input :category, collection: ['Tech', 'Finance', 'Politics', 'Sports', 'Food', 'Celebrities', 'Education'], selected: nil, prompt: "Please select a category", required: true, error: "Category is required" %>
+    <%= f.input :category, collection: ['Tech', 'Finance', 'Politics', 'Sports', 'Food', 'Celebrities', 'Education', 'Other'], selected: nil, prompt: "Please select a category", required: true, error: "Category is required" %>
     <%= f.submit "Submit topic", class: "button" %>
 <% end %>
 </div>

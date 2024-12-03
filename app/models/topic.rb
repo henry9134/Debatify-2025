@@ -2,6 +2,11 @@ class Topic < ApplicationRecord
   belongs_to :user
   has_many :comments,dependent: :destroy
   acts_as_favoritable
+
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :description, presence: true, length: { minimum: 20 }
+  validates :category, presence: true
+
   include PgSearch::Model
 
   pg_search_scope :search_topics,
@@ -9,5 +14,6 @@ class Topic < ApplicationRecord
     using: {
       tsearch: { prefix: true },
     }
+
 
 end

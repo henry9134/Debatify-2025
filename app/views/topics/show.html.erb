@@ -36,7 +36,7 @@
     <div class="row">
       <div class="col-3 left p-3">
         <turbo-frame id="thermometer_frame">
-          <%= render partial: "thermometer", locals: { thermometer_percentage: @thermometer_percentage } %>
+          <%= render partial: "topics/thermometer", locals: { thermometer_percentage: @thermometer_percentage } %>
         </turbo-frame>
       </div>
       <div class="col-6 center p-3 d-flex justify-content-center align-items-center"><%= @content %></div>
