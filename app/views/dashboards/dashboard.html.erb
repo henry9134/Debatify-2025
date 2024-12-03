@@ -12,6 +12,18 @@
     <div class="votes">
       <p>You got <strong><%= @user.point %></strong> points</p> 
     </div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Rankings</button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Rankings 👑</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <% @users.sort_by(&:point).reverse.take(10).each_with_index do |user, index| %>
+          <p><%= index + 1 %>. <%= user.name %> has <strong><%= user.point %></strong> points</p><br>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="container">
     <ul class="nav nav-tabs" id="userProfileTabs" role="tablist">

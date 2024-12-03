@@ -16,9 +16,13 @@ class User < ApplicationRecord
     votes.exists?(comment_id: comment.id)
   end
 
+  def comment_belongs_to_current_user?(comment)
+    comment.user_id == id
+  end
+
   # Method to upvote a comment
   def upvote(comment)
-    unless voted_on?(comment)
+    unless voted_on?(comment) ||comment_belongs_to_current_user?(comment)
       votes.create(comment: comment)
     end
   end
