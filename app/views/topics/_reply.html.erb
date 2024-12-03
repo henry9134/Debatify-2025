@@ -14,7 +14,7 @@
   </div>
   <div class="replies d-flex flex-column justify-content-end <%= "reply-expand" if defined?(expanded) && expanded %> "  data-toggle-target="replies" >
     <% comment.comments.order(:created_at).each do |reply| %>
-      <div class="sub-comment d-flex" data-controller="vote" data-vote-id="<%= reply.id %>">
+      <div class="sub-comment p-1 d-flex flex-column justify-content-end" data-controller="toggle" data-controller="vote" data-vote-id="<%= reply.id %>">
         <!-- Avatar -->
         <% if reply.user.photo.present? %>
           <%= cl_image_tag reply.user.photo.key, style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;" %>
@@ -24,10 +24,18 @@
         <!-- Name and Content -->
         <div class="ms-2 flex-grow-1">
           <p class="username mb-0"><strong><%= reply.user.name %></strong></p>
-          <p class="reply-content mb-0"><%= reply.content %></p>
+          <div class="d-flex justify-content-between">
+            <p class="reply-content mb-0"><%= reply.content %></p>
+            <div class="mt-auto text-end px-2">
+              <i class="fa-regular fa-comments" data-action="click->toggle#toggleSecondReplies" data-action="click->toggle#toggleHide"></i>
+            </div>
+          </div>
         </div>
+        <%= render 'topics/second_reply_form', comment: comment, new_comment: new_comment %>
       </div>
     <% end %>
-    <%= render 'topics/reply_form', comment: comment, new_comment: new_comment %>
+    <div data-controller="toggle">
+      <%= render 'topics/reply_form', comment: comment, new_comment: new_comment %>
+    </div>
   </div>
 </div>
