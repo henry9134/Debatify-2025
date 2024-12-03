@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
     end
   end
 
+
+
   def index
     if params[:query].present?
       @topics = Topic.search_topics(params[:query])

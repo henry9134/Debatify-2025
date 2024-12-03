@@ -3,14 +3,10 @@
     <div class="user-info">
       <%= render "profilepic" %>
       <%= render "username" %>
-      <div class="user-badges">
-        <h4><u>My Badges</u></h4>
-        <%= render "badges" %>
-      </div>
       <p class="user-duration mt-2" style="font-size: 0.9em;">Member since <%= distance_of_time_in_words(@user.created_at, Time.current) %></p>
     </div>
-    <div class="votes">
-      <p>You got <strong><%= @user.point %></strong> points</p> 
+    <div class="votes" title="You earn points by participating in the community. You earn 1 point by writing topics, 2 points by writing comments and 5 points per upvote you get.">
+      <p>You got <strong><%= @user.point %></strong> points <i class="fa-solid fa-circle-info" style="transition: color 0.3s; cursor: pointer;" onmouseover="this.style.color='#51483F';" onmouseout="this.style.color='';"></i></p>
     </div>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Rankings</button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
