@@ -192,3 +192,51 @@
   color: #6c757d;
   text-align: right;
 }
+
+/* Adjust the width of the offcanvas */
+.offcanvas.offcanvas-end {
+  width: 350px; /* Wider sidebar */
+  background-color: #f9f9f9; /* Light background for better readability */
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+/* Improve the header styling */
+.offcanvas-header {
+  border-bottom: 1px solid #ddd; /* Add a divider line */
+  padding: 20px; /* Increase padding for better spacing */
+}
+
+.offcanvas-header h5 {
+  font-size: 1.5rem; /* Increase font size for the title */
+  color: #333; /* Darker text for better visibility */
+}
+
+/* Style the body content */
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  
+  padding: 20px; /* Add padding for spacing */
+  font-family: 'Arial', sans-serif; /* Modern font */
+  color: #555; /* Softer text color */
+}
+
+.offcanvas-body p {
+  font-size: 1rem; /* Adjust font size */
+  line-height: 1.5; /* Better line spacing */
+  margin-bottom: 10px; /* Add spacing between ranks */
+}
+
+/* Style the close button */
+.btn-close {
+  background-color: #ccc; /* Subtle color */
+  border-radius: 50%; /* Round button */
+}
+
+.btn-close:hover {
+  background-color: #999; /* Darker on hover */
+}
+

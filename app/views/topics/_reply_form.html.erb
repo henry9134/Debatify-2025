@@ -1,0 +1,10 @@
+<!-- Add a Comment Bar -->
+<div class="add-comment-bar d-flex justify-content-center w-100 px-3 mt-3">
+  <%= simple_form_for [comment.topic, new_comment], class:"d-flex w-100" do |f| %>
+    <%= hidden_field_tag "comment[parent_id]", comment.id %>
+    <div class="d-flex w-100">
+      <%= f.input :content, label: false, input_html: { class: "form-control flex-grow-1", rows: 1 } %>
+      <%= f.submit "reply", class: "btn btn-primary ms-2" %>
+    </div>
+  <% end %>
+</div>

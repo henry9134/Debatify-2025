@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_033254) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_041950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,9 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_033254) do
     t.bigint "topic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "comment_id"
     t.integer "parent_id"
-    t.index ["comment_id"], name: "index_comments_on_comment_id"
     t.index ["topic_id"], name: "index_comments_on_topic_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -95,6 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_033254) do
     t.datetime "updated_at", null: false
     t.string "badge"
     t.string "name"
+    t.integer "point", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,7 +109,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_033254) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "comments"
   add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
   add_foreign_key "topics", "users"
