@@ -80,7 +80,7 @@ topics = [
   { title: "The influence of technology on relationships", description: "Technology shapes personal connections, sometimes enhancing and sometimes hindering them.", category: "Tech" },
   { title: "The future of renewable energy", description: "Advancements in renewable energy sources are essential for a sustainable future.", category: "Environment" },
   { title: "The significance of cultural diversity", description: "Cultural diversity enriches society and fosters understanding among different communities.", category: "Society" },
-  { title: "The future of Ai", description: "I wish Ai didn't exist. I feel like it's going to end authentic human creativity and hard work", category: "Tech" }
+  { title: "Life after death", description: "I believe there is life after death, how can there not be? there are so many accounts of people dying, seeing the afterlife and coming back to life to tell the tale.", category: "Education" }
 ]
 
 # Create topics
@@ -323,31 +323,31 @@ Topic.all.each do |topic|
                 ["Not everyone agrees on the best ways to promote cultural diversity.", "Absolutely, it's a complex issue with many perspectives."]
               ]
             }
-          when "The future of Ai"
+          when "Life after death"
             {
               "for" => [
-                ["AI is taking over everything these days, and honestly, it scares me. Where's the room for real human creativity when algorithms are deciding what's trendy or popular?",
-                 "Totally agree with you. It's like we're letting machines decide what's valuable, and that's just sad."],
-                ["I feel like AI is making people lazy. Instead of learning new skills or solving problems themselves, they just rely on AI tools to do it for them. It's depressing to see.",
-                 "Exactly! Hard work and real effort are what make accomplishments meaningful, and we're losing that."],
-                ["The worst part is how AI is being used to create art or music. It's not even real! It's just data stitched together to mimic creativity, and that takes away from actual artists who pour their hearts into their work.",
-                 "Yes! AI might be 'impressive,' but it's never going to have the soul that real human-made creations have."]
+                ["I’ve read so many stories about near-death experiences, and they all sound so similar—bright lights, peace, and seeing loved ones. How can that just be coincidence?",
+                 "Exactly! There’s too much consistency in these stories for it to be random imagination."],
+                ["Even ancient cultures believed in some form of an afterlife. It’s like humanity has always had this instinctive belief that there’s something more beyond this life.",
+                 "Totally agree. The fact that this belief spans across time and cultures says a lot."],
+                ["There’s just no way this life is all there is. The soul feels too powerful to just vanish into nothing after death.",
+                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."]
               ],
               "neutral" => [
-                ["I think AI is a mixed bag. On one hand, it's really helpful for boring, repetitive stuff, but on the other, I worry about how it's being used in creative fields. Balance is key, I guess.",
-                 "Totally agree. It's all about finding ways to use it responsibly without taking away opportunities for people."],
-                ["Honestly, I'm torn. AI can do some amazing things, like helping with medical research, but at the same time, it could go too far and make us too dependent on it.",
-                 "Yeah, it feels like a double-edged sword. It's great in some areas, but we have to watch out for the downsides."],
-                ["I think people should focus on working with AI instead of fearing it. It can be a tool to enhance creativity, but it shouldn't replace it entirely.",
-                 "Exactly. Collaboration between humans and AI seems like the best way forward, but it's easier said than done."]
+                ["I’m open to the idea, but it’s hard to say for sure. Near-death experiences could just be the brain reacting to trauma.",
+                 "That’s true, but even then, the vividness and common themes are hard to ignore."],
+                ["It’s fascinating to think about, but without solid evidence, it’s just speculation at this point.",
+                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."],
+                ["Maybe life after death exists in some form we can’t understand yet. It doesn’t have to fit into traditional ideas of heaven or reincarnation.",
+                 "Exactly. There’s so much about existence we still don’t know."]
               ],
               "against" => [
-                ["AI isn't all bad! It's already saving lives in hospitals and making things like personalized medicine possible. If we use it right, it could really improve the quality of life for so many people.",
-                 "Exactly! It's about how we use the technology, not just blaming AI for everything wrong."],
-                ["Honestly, I think AI is just another tool like any other technology we've invented. It's up to us to use it wisely. If anything, it frees us from boring tasks so we can focus on being more creative.",
-                 "So true! People forget that we're still the ones in control. AI isn't going to take over unless we let it."],
-                ["I get why people are worried, but AI has so much potential to make our lives easier. Imagine a world where we don't have to waste time on repetitive stuff and can spend more time doing what we love.",
-                 "Yes! That's exactly it. AI isn't here to replace us—it's here to help us reach our potential."]
+                ["I think it’s all wishful thinking. People just don’t want to accept that death is the end, so they create these comforting stories.",
+                 "Totally. The idea of an afterlife feels more like a coping mechanism than anything else."],
+                ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
+                 "Yeah, without evidence, it’s hard to take these stories seriously."],
+                ["Near-death experiences can be explained by brain activity during trauma—it’s not evidence of an afterlife.",
+                 "Exactly. It’s just the brain doing weird things under stress, nothing more."]
               ]
             }
 

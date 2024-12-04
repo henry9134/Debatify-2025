@@ -1,45 +1,56 @@
-def create
-  @comment = Comment.new(comment_params)
-  @comment.user = current_user
-  @comment.topic = Topic.find(params[:topic_id])
+class CommentsController < ApplicationController
+  # after_initialize :set_default_votes, if: :new_record?
 
-  if @comment.save
-    respond_to do |format|
-      format.turbo_stream do
-        if @comment.parent_id.present?
-          # For replies
-          render turbo_stream: turbo_stream.append(
-            "replies-#{@comment.parent_id}",
-            partial: "topics/reply",
-            locals: { reply: @comment }
-          )
-        else
-          # For main comments
-          render turbo_stream: turbo_stream.append(
-            "comments-section",
-            partial: "topics/comment",
-            locals: { comment: @comment, new_comment: Comment.new }
-          )
+
+  def new
+
+
+  end
+
+  def create
+    @topic = Topic.find(params[:topic_id])
+    @comments = @topic.comments
+    @comment = Comment.new
+    @new_comment = @topic.comments.build(comment_params)
+    @new_comment.user = current_user
+    # when adding a reply to a reply we also need the parent of the parent
+    # @parent = params[:reply].present? ? @new_comment.parent.parent : @new_comment.parent
+    if @new_comment.save
+      if @new_comment.parent_id.present?
+        respond_to do |format|
+          format.turbo_stream do
+            partial = @new_comment.parent.parent_id.present? ? "topics/second_reply_form" : "topics/reply"
+            render turbo_stream: turbo_stream.replace(
+              "replies_turbo_#{ @new_comment.parent.id }",
+              partial: partial,
+              locals: { comment: @new_comment.parent, new_comment: Comment.new, expanded: true }
+            )
+          end
+          format.html { redirect_to @new_comment.parent, notice: "Reply created successfully." }
         end
+      else
+        redirect_to @new_comment.topic, notice: "Reply created successfully."
       end
-      format.html { redirect_to @comment.topic, notice: "Comment added successfully." }
-    end
-  else
-    respond_to do |format|
-      format.html { render :new, status: :unprocessable_entity }
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          "new_comment_form",
-          partial: "topics/comment_form",
-          locals: { topic: @topic, comment: @comment }
-        )
-      end
+    else
+      render 'topics/show', status: :unprocessable_entity
     end
   end
-end
 
-private
+  def upvote
+    @comment = Comment.find(params[:id])
+    if current_user.voted_on?(@comment)
+      current_user.remove_vote(@comment)
+    else
+      current_user.upvote(@comment)
+    end
+    respond_to do |format|
+      format.html { redirect_to topic_path(@comment.topic) }
+      format.json
+    end
+  end
+  private
 
-def comment_params
-  params.require(:comment).permit(:content, :parent_id)
+  def comment_params
+    params.require(:comment).permit(:content, :status, :parent_id)
+  end
 end
