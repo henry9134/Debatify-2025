@@ -47,6 +47,22 @@ class CommentsController < ApplicationController
       format.json
     end
   end
+
+  def analyse
+    client = OpenAI::Client.new
+    chatgpt_response = client.chat(parameters: {
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: "you will analyse my comment. 
+      First you will rate me based only on this : bad, average or good.
+      Then if my comments was bad or average you will give me addvice how I can improve,
+      but if my comment is good just confirm that my message is good. 
+      here the comment you need to analyse : #{params[:comment]}" }]
+    })
+    content = chatgpt_response['choices'][0]['message']['content']
+
+    render json: { analysis: content }
+  end
+
   private
 
   def comment_params
