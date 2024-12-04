@@ -108,3 +108,23 @@
   text-align: left; /* Align text to the left */
   white-space: pre-wrap; /* Preserve line breaks and whitespace */
 }
+
+.thermometer-hover:hover {
+  transform: scale(1.02);
+}
+
+.thermometer-hover:hover::after {
+  content: "This is the Debate Meter. The higher the Debate Meter, the more people interacted with the topic.";
+  position: absolute;
+  top: 50%; /* Center vertically relative to the thermometer */
+  left: 0; /* Position the box on the left side */
+  transform: translateY(-50%) translateX(-220px); /* Center vertically and add spacing to the left */
+  background-color: rgba(51, 51, 51, 0.8); /* Changed to rgba for opacity */
+  color: white;
+  padding: 10px 20px; /* Adjusted padding for a better fit */
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  width: 225px;
+  max-width: 225px;
+}

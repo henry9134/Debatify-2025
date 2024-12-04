@@ -365,7 +365,6 @@ Topic.all.each do |topic|
 
   sides.each do |status, comments_with_replies|
     comments_with_replies.each do |comment, reply|
-      # Create the top-level comment
       parent_user = users.pop
       if parent_user
         parent_comment = Comment.create!(
@@ -375,7 +374,6 @@ Topic.all.each do |topic|
           topic: topic
         )
 
-        # Create the reply
         reply_user = users.pop
         if reply_user
           Comment.create!(
