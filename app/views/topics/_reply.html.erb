@@ -22,18 +22,6 @@
           <%= image_tag "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar" , style: "width: 20px; height: 20px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); outline: 2px solid #d4c1a9;"%>
         <% end %>
         <!-- Name and Content -->
-        <div class="ms-2 flex-grow-1">
-          <p class="username mb-0"><strong><%= reply.user.name %></strong></p>
-          <div class="d-flex justify-content-between">
-            <p class="reply-content mb-0"><%= reply.content %></p>
-            <div class="mt-auto text-end px-2">
-              <i class="fa-regular fa-comments" data-action="click->toggle#toggleSecondReplies" data-action="click->toggle#toggleHidden"></i>
-            </div>
-            <% reply.comments.each do |reply_of_reply| %>
-              <p> <%= reply_of_reply.content %> </p>
-            <% end %>
-          </div>
-        </div>
         <%= render 'topics/second_reply_form', comment: reply, new_comment: new_comment %>
       </div>
     <% end %>

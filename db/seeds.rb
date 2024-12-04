@@ -67,19 +67,20 @@ puts "Users created: #{User.count}"
 
 # Define topics
 topics = [
-  { title: "The rise of virtual reality in gaming", description: "Exploring how virtual reality is changing the gaming experience.", category: "Tech" },
-  { title: "The impact of sports on mental health", description: "Examining how participation in sports can improve mental well-being.", category: "Sports" },
-  { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
-  { title: "The benefits of meditation", description: "Discussing how meditation can improve mental health and focus.", category: "Health" },
-  { title: "The role of technology in education", description: "How technology is transforming the learning experience.", category: "Education" },
-  { title: "Climate change and its impact", description: "Understanding the effects of climate change on our planet.", category: "Environment" },
-  { title: "The evolution of social media", description: "How social media has changed the way we communicate.", category: "Society" },
-  { title: "The importance of mental health awareness", description: "Raising awareness about mental health issues and their impact.", category: "Health" },
-  { title: "The impact of climate change on wildlife", description: "Examining how climate change affects biodiversity and ecosystems.", category: "Environment" },
-  { title: "The role of art in society", description: "Exploring how art influences culture and community engagement.", category: "Society" },
-  { title: "The influence of technology on relationships", description: "Discussing how technology shapes personal connections.", category: "Tech" },
-  { title: "The future of renewable energy", description: "Investigating advancements in renewable energy sources and their potential.", category: "Environment" },
-  { title: "The significance of cultural diversity", description: "Understanding the value of cultural diversity in society.", category: "Society" }
+  { title: "The rise of virtual reality in gaming", description: "Virtual reality makes gaming so immersive. I felt like I was in another world playing VR Skyrim!", category: "Tech" },
+  { title: "The impact of sports on mental health", description: "Playing sports helps me relieve stress and stay focused.", category: "Sports" },
+  { title: "The future of space exploration", description: "I believe the next steps in humanity's journey into space will involve Mars colonization.", category: "Tech" },
+  { title: "The benefits of meditation", description: "Meditation has significantly improved my mental health and focus.", category: "Health" },
+  { title: "The role of technology in education", description: "Technology is transforming the learning experience by making it more interactive.", category: "Education" },
+  { title: "Climate change and its impact", description: "Climate change is affecting our planet in ways we are just beginning to understand.", category: "Environment" },
+  { title: "The evolution of social media", description: "Social media has changed the way we communicate, making it instant and global.", category: "Society" },
+  { title: "The importance of mental health awareness", description: "Raising awareness about mental health issues is crucial for societal well-being.", category: "Health" },
+  { title: "The impact of climate change on wildlife", description: "Climate change is threatening biodiversity and ecosystems around the world.", category: "Environment" },
+  { title: "The role of art in society", description: "Art influences culture and community engagement in profound ways.", category: "Society" },
+  { title: "The influence of technology on relationships", description: "Technology shapes personal connections, sometimes enhancing and sometimes hindering them.", category: "Tech" },
+  { title: "The future of renewable energy", description: "Advancements in renewable energy sources are essential for a sustainable future.", category: "Environment" },
+  { title: "The significance of cultural diversity", description: "Cultural diversity enriches society and fosters understanding among different communities.", category: "Society" },
+  { title: "Life after death", description: "I believe there is life after death, how can there not be? there are so many accounts of people dying, seeing the afterlife and coming back to life to tell the tale.", category: "Education" }
 ]
 
 # Create topics
@@ -103,16 +104,16 @@ Topic.all.each do |topic|
             {
               "for" => [
                 ["Virtual reality makes gaming so immersive. I felt like I was in another world playing VR Skyrim!", "Exactly! It feels like the future of entertainment."],
-                ["It’s great for connecting with friends in virtual spaces. VR chat is so much fun!", "Totally agree. It’s like having a hangout spot without leaving home."],
+                ["It's great for connecting with friends in virtual spaces. VR chat is so much fun!", "Totally agree. It's like having a hangout spot without leaving home."],
                 ["VR can enhance learning experiences in educational games.", "Absolutely! It opens up new ways to engage with content."]
               ],
               "neutral" => [
-                ["The technology is impressive, but it’s still so expensive.", "True, but prices are slowly coming down over time."],
-                ["Some people might prefer traditional gaming over VR.", "That’s understandable; everyone has their preferences."]
+                ["The technology is impressive, but it's still so expensive.", "True, but prices are slowly coming down over time."],
+                ["Some people might prefer traditional gaming over VR.", "That's understandable; everyone has their preferences."]
               ],
               "against" => [
-                ["VR can cause motion sickness for many people.", "Yeah, I tried it once, and I couldn’t last more than 10 minutes."],
-                ["It’s isolating. Spending hours in VR might disconnect people from real life.", "Absolutely. Social interaction in VR isn’t the same as face-to-face."],
+                ["VR can cause motion sickness for many people.", "Yeah, I tried it once, and I couldn't last more than 10 minutes."],
+                ["It's isolating. Spending hours in VR might disconnect people from real life.", "Absolutely. Social interaction in VR isn't the same as face-to-face."],
                 ["The technology can be overwhelming for new users.", "I agree, it takes time to get used to the controls."],
                 ["Some users may feel disoriented after using VR for extended periods.", "That's a common issue; it can take time to adjust back to reality."]
               ]
@@ -121,15 +122,15 @@ Topic.all.each do |topic|
             {
               "for" => [
                 ["Playing sports helps me relieve stress and stay focused.", "Absolutely! Exercise is amazing for mental clarity."],
-                ["Team sports are great for building relationships and boosting confidence.", "Couldn’t agree more. The camaraderie is unmatched."],
+                ["Team sports are great for building relationships and boosting confidence.", "Couldn't agree more. The camaraderie is unmatched."],
                 ["Sports can provide a sense of achievement and purpose.", "Exactly! Setting and reaching goals is fulfilling."]
               ],
               "neutral" => [
-                ["Not everyone enjoys sports, though. Some might find it stressful.", "That’s fair. It depends on personality and interests."],
+                ["Not everyone enjoys sports, though. Some might find it stressful.", "That's fair. It depends on personality and interests."],
                 ["Sports are great, but injuries can really take a mental toll.", "Very true. Recovery is tough physically and mentally."],
-                ["Some people might feel pressured to perform.", "That’s a valid concern; it can lead to anxiety."],
+                ["Some people might feel pressured to perform.", "That's a valid concern; it can lead to anxiety."],
                 ["Participating in sports can sometimes lead to burnout if not managed well.", "Absolutely, balance is key to enjoying sports."],
-                ["Some individuals may feel excluded if they don't fit the typical athlete mold.", "That’s a valid point; inclusivity in sports is important."]
+                ["Some individuals may feel excluded if they don't fit the typical athlete mold.", "That's a valid point; inclusivity in sports is important."]
               ],
               "against" => [
                 ["Competitive sports can sometimes create too much pressure.", "Exactly. That pressure can lead to anxiety or burnout."]
@@ -138,14 +139,14 @@ Topic.all.each do |topic|
           when "The future of space exploration"
             {
               "for" => [
-                ["Space exploration is key to humanity’s survival in the long term.", "Absolutely. Colonizing other planets is essential."],
+                ["Space exploration is key to humanity's survival in the long term.", "Absolutely. Colonizing other planets is essential."],
                 ["It inspires the next generation to pursue science and innovation.", "Yes! Programs like NASA motivate young minds everywhere."]
               ],
               "neutral" => [
-                ["It’s exciting, but we need to balance funding with problems on Earth.", "True, but solving space challenges often benefits Earth too."],
-                ["Space travel is still so risky. Look at the number of failed missions.", "That’s a fair concern, but technology keeps improving."],
-                ["Some people might not see the value in space exploration.", "That’s understandable; it’s a matter of perspective."],
-                ["The focus on space can divert attention from pressing Earth issues.", "That’s a valid concern; we need to find a balance."]
+                ["It's exciting, but we need to balance funding with problems on Earth.", "True, but solving space challenges often benefits Earth too."],
+                ["Space travel is still so risky. Look at the number of failed missions.", "That's a fair concern, but technology keeps improving."],
+                ["Some people might not see the value in space exploration.", "That's understandable; it's a matter of perspective."],
+                ["The focus on space can divert attention from pressing Earth issues.", "That's a valid concern; we need to find a balance."]
               ],
               "against" => [
                 ["Why invest billions in space when people on Earth are starving?", "Exactly. Those resources could help so many right now."],
@@ -158,11 +159,11 @@ Topic.all.each do |topic|
                 ["Meditation has helped me reduce anxiety and improve focus.", "Absolutely! It's a game changer for mental clarity."]
               ],
               "neutral" => [
-                ["Not everyone finds meditation effective; it can be challenging.", "That’s true; it requires practice and patience."]
+                ["Not everyone finds meditation effective; it can be challenging.", "That's true; it requires practice and patience."]
               ],
               "against" => [
                 ["Meditation might not work for everyone; some may find it frustrating.", "Exactly, it can be difficult to quiet the mind."],
-                ["It can be seen as a trend rather than a genuine practice.", "That’s a fair concern; authenticity matters."]
+                ["It can be seen as a trend rather than a genuine practice.", "That's a fair concern; authenticity matters."]
               ]
             }
           when "The role of technology in education"
@@ -174,7 +175,7 @@ Topic.all.each do |topic|
                 ["It can provide interactive and immersive learning experiences.", "Absolutely, it makes learning more engaging."]
               ],
               "neutral" => [
-                ["Not all students have equal access to technology.", "That’s true; the digital divide is a significant issue."]
+                ["Not all students have equal access to technology.", "That's true; the digital divide is a significant issue."]
               ],
               "against" => [
               ]
@@ -186,16 +187,16 @@ Topic.all.each do |topic|
                 ["Renewable energy sources can significantly reduce our carbon footprint.", "Yes! Transitioning to renewables is essential."],
               ],
               "neutral" => [
-                ["Some people may not believe in climate change despite the evidence.", "That’s true; misinformation is a challenge."],
+                ["Some people may not believe in climate change despite the evidence.", "That's true; misinformation is a challenge."],
                 ["The effects of climate change can be hard to see immediately.", "Absolutely, it often requires long-term observation."],
-                ["Balancing economic growth with environmental protection is complex.", "That’s a valid concern; it requires careful planning."],
-                ["Not everyone agrees on the best solutions to combat climate change.", "Absolutely, it’s a complex issue with many perspectives."],
-                ["The focus on climate change can overshadow other important issues.", "That’s a valid concern; we need to find a balance."]
+                ["Balancing economic growth with environmental protection is complex.", "That's a valid concern; it requires careful planning."],
+                ["Not everyone agrees on the best solutions to combat climate change.", "Absolutely, it's a complex issue with many perspectives."],
+                ["The focus on climate change can overshadow other important issues.", "That's a valid concern; we need to find a balance."]
               ],
               "against" => [
-                ["Some argue that climate change is exaggerated for political gain.", "That’s a fair point; skepticism exists."],
+                ["Some argue that climate change is exaggerated for political gain.", "That's a fair point; skepticism exists."],
                 ["The costs of implementing green technologies can be high.", "Exactly, funding is a significant barrier."],
-                ["Not everyone agrees on the best solutions to combat climate change.", "Absolutely, it’s a complex issue with many perspectives."]
+                ["Not everyone agrees on the best solutions to combat climate change.", "Absolutely, it's a complex issue with many perspectives."]
               ]
             }
           when "The evolution of social media"
@@ -207,13 +208,13 @@ Topic.all.each do |topic|
                 ["It can provide a platform for activism and social change.", "Absolutely, it has the power to mobilize people."]
               ],
               "neutral" => [
-                ["Not everyone enjoys using social media; some prefer face-to-face interactions.", "That’s true; personal preferences vary."],
+                ["Not everyone enjoys using social media; some prefer face-to-face interactions.", "That's true; personal preferences vary."],
                 ["Social media can sometimes lead to misinformation.", "Absolutely, critical thinking is essential."],
-                ["The impact of social media on mental health is still being studied.", "That’s a valid point; research is ongoing."]
+                ["The impact of social media on mental health is still being studied.", "That's a valid point; research is ongoing."]
               ],
               "against" => [
                 ["Social media can contribute to feelings of isolation and anxiety.", "Exactly! It can be a double-edged sword."],
-                ["It often promotes unrealistic standards and comparisons.", "That’s a fair concern; it can affect self-esteem."]
+                ["It often promotes unrealistic standards and comparisons.", "That's a fair concern; it can affect self-esteem."]
               ]
             }
           when "The importance of mental health awareness"
@@ -226,12 +227,12 @@ Topic.all.each do |topic|
                 ["Mental health awareness can lead to more compassionate communities.", "Exactly! It fosters empathy and understanding."]
               ],
               "neutral" => [
-                ["Some people may not understand mental health issues.", "That’s true; education is key."],
+                ["Some people may not understand mental health issues.", "That's true; education is key."],
                 ["Mental health awareness campaigns can sometimes be misunderstood.", "Absolutely, clarity in messaging is important."],
-                ["Not everyone feels comfortable discussing mental health.", "That’s a valid point; it can be a sensitive topic."]
+                ["Not everyone feels comfortable discussing mental health.", "That's a valid point; it can be a sensitive topic."]
               ],
               "against" => [
-                ["Some argue that mental health awareness can lead to over-diagnosis.", "That’s a fair concern; balance is needed."]
+                ["Some argue that mental health awareness can lead to over-diagnosis.", "That's a fair concern; balance is needed."]
               ]
             }
           when "The impact of climate change on wildlife"
@@ -243,13 +244,13 @@ Topic.all.each do |topic|
                 ["Conservation efforts can lead to healthier ecosystems.", "Absolutely, it supports the balance of nature."]
               ],
               "neutral" => [
-                ["Some people may not see the immediate effects of climate change on wildlife.", "That’s true; it often requires long-term observation."],
+                ["Some people may not see the immediate effects of climate change on wildlife.", "That's true; it often requires long-term observation."],
               ],
               "against" => [
-                ["Some argue that climate change is exaggerated for political gain.", "That’s a fair point; skepticism exists."],
+                ["Some argue that climate change is exaggerated for political gain.", "That's a fair point; skepticism exists."],
                 ["The costs of implementing conservation measures can be high.", "Exactly, funding is a significant barrier."],
-                ["Not everyone agrees on the best solutions to protect wildlife.", "Absolutely, it’s a complex issue with many perspectives."],
-                ["The focus on climate change can overshadow other important issues.", "That’s a valid concern; we need to find a balance."]
+                ["Not everyone agrees on the best solutions to protect wildlife.", "Absolutely, it's a complex issue with many perspectives."],
+                ["The focus on climate change can overshadow other important issues.", "That's a valid concern; we need to find a balance."]
               ]
             }
           when "The role of art in society"
@@ -262,17 +263,17 @@ Topic.all.each do |topic|
                 ["Art can promote empathy and understanding among diverse groups.", "Exactly! It bridges gaps and fosters unity."]
               ],
               "neutral" => [
-                ["Not everyone appreciates art in the same way.", "That’s true; personal preferences vary."],
+                ["Not everyone appreciates art in the same way.", "That's true; personal preferences vary."],
                 ["The value of art can be subjective.", "Absolutely, it often depends on individual interpretation."],
-                ["Art can sometimes be seen as elitist.", "That’s a valid concern; accessibility is important."],
-                ["The focus on art can overshadow other important issues.", "That’s a valid concern; we need to find a balance."]
+                ["Art can sometimes be seen as elitist.", "That's a valid concern; accessibility is important."],
+                ["The focus on art can overshadow other important issues.", "That's a valid concern; we need to find a balance."]
               ],
               "against" => [
-                ["Some argue that art funding should be redirected to essential services.", "That’s a fair point; priorities matter."],
+                ["Some argue that art funding should be redirected to essential services.", "That's a fair point; priorities matter."],
                 ["Art can be seen as a luxury rather than a necessity.", "Exactly, basic needs should come first."],
                 ["Not all art is universally appreciated.", "Absolutely, taste is subjective."],
-                ["The focus on art can overshadow other important issues.", "That’s a valid concern; we need to find a balance."],
-                ["Not everyone agrees on the best ways to promote art.", "Absolutely, it’s a complex issue with many perspectives."]
+                ["The focus on art can overshadow other important issues.", "That's a valid concern; we need to find a balance."],
+                ["Not everyone agrees on the best ways to promote art.", "Absolutely, it's a complex issue with many perspectives."]
               ]
             }
           when "The influence of technology on relationships"
@@ -282,28 +283,28 @@ Topic.all.each do |topic|
                 ["Social media allows us to connect with friends and family easily.", "Yes! It keeps us in touch."]
               ],
               "neutral" => [
-                ["Some people may feel overwhelmed by constant connectivity.", "That’s true; balance is key."]
+                ["Some people may feel overwhelmed by constant connectivity.", "That's true; balance is key."]
               ],
               "against" => [
                 ["Over-reliance on technology can weaken face-to-face interactions.", "Exactly! Personal connection is vital."],
-                ["Social media can contribute to feelings of isolation.", "That’s a fair concern; moderation is key."]
+                ["Social media can contribute to feelings of isolation.", "That's a fair concern; moderation is key."]
               ]
             }
           when "The future of renewable energy"
             {
               "for" => [
-                ["Investing in renewable energy is crucial for sustainability.", "Absolutely! It’s essential for our planet's future."],
+                ["Investing in renewable energy is crucial for sustainability.", "Absolutely! It's essential for our planet's future."],
                 ["Renewable energy can reduce our dependence on fossil fuels.", "Yes! Transitioning is vital."]
               ],
               "neutral" => [
-                ["Some people may be skeptical about the feasibility of renewable energy.", "That’s true; it requires significant investment."],
+                ["Some people may be skeptical about the feasibility of renewable energy.", "That's true; it requires significant investment."],
                 ["The transition to renewable energy can be slow.", "Absolutely, it takes time to implement changes."],
-                ["Not all regions have equal access to renewable energy resources.", "That’s a valid concern; infrastructure is key."]
+                ["Not all regions have equal access to renewable energy resources.", "That's a valid concern; infrastructure is key."]
               ],
               "against" => [
-                ["Some argue that renewable energy sources can be unreliable.", "That’s a fair point; consistency is important."],
+                ["Some argue that renewable energy sources can be unreliable.", "That's a fair point; consistency is important."],
                 ["The costs of implementing renewable energy can be high.", "Exactly, funding is a significant barrier."],
-                ["Not everyone agrees on the best solutions for renewable energy.", "Absolutely, it’s a complex issue with many perspectives."]
+                ["Not everyone agrees on the best solutions for renewable energy.", "Absolutely, it's a complex issue with many perspectives."]
               ]
             }
           when "The significance of cultural diversity"
@@ -314,14 +315,42 @@ Topic.all.each do |topic|
                 ["Cultural exchange promotes understanding and tolerance.", "Exactly! It helps bridge gaps between people."]
               ],
               "neutral" => [
-                ["Some people may not appreciate cultural diversity.", "That’s true; education is key."]
+                ["Some people may not appreciate cultural diversity.", "That's true; education is key."]
               ],
               "against" => [
-                ["Some argue that cultural diversity can lead to division.", "That’s a fair point; balance is needed."],
+                ["Some argue that cultural diversity can lead to division.", "That's a fair point; balance is needed."],
                 ["The focus on diversity can overshadow other important issues.", "Exactly, all aspects of society matter."],
-                ["Not everyone agrees on the best ways to promote cultural diversity.", "Absolutely, it’s a complex issue with many perspectives."]
+                ["Not everyone agrees on the best ways to promote cultural diversity.", "Absolutely, it's a complex issue with many perspectives."]
               ]
             }
+          when "Life after death"
+            {
+              "for" => [
+                ["I’ve read so many stories about near-death experiences, and they all sound so similar—bright lights, peace, and seeing loved ones. How can that just be coincidence?",
+                 "Exactly! There’s too much consistency in these stories for it to be random imagination."],
+                ["Even ancient cultures believed in some form of an afterlife. It’s like humanity has always had this instinctive belief that there’s something more beyond this life.",
+                 "Totally agree. The fact that this belief spans across time and cultures says a lot."],
+                ["There’s just no way this life is all there is. The soul feels too powerful to just vanish into nothing after death.",
+                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."]
+              ],
+              "neutral" => [
+                ["I’m open to the idea, but it’s hard to say for sure. Near-death experiences could just be the brain reacting to trauma.",
+                 "That’s true, but even then, the vividness and common themes are hard to ignore."],
+                ["It’s fascinating to think about, but without solid evidence, it’s just speculation at this point.",
+                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."],
+                ["Maybe life after death exists in some form we can’t understand yet. It doesn’t have to fit into traditional ideas of heaven or reincarnation.",
+                 "Exactly. There’s so much about existence we still don’t know."]
+              ],
+              "against" => [
+                ["I think it’s all wishful thinking. People just don’t want to accept that death is the end, so they create these comforting stories.",
+                 "Totally. The idea of an afterlife feels more like a coping mechanism than anything else."],
+                ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
+                 "Yeah, without evidence, it’s hard to take these stories seriously."],
+                ["Near-death experiences can be explained by brain activity during trauma—it’s not evidence of an afterlife.",
+                 "Exactly. It’s just the brain doing weird things under stress, nothing more."]
+              ]
+            }
+
           end
 
   sides.each do |status, comments_with_replies|

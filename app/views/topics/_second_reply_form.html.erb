@@ -1,12 +1,25 @@
-<div class="add-comment-bar replies d-flex justify-content-center w-100 px-3 mt-3" data-toggle-target="secondReplies">
-  <%= simple_form_for [comment.topic, new_comment], class:"d-flex w-100" do |f| %>
-    <%= hidden_field_tag "comment[parent_id]", comment.id %>
-    <%= hidden_field_tag "reply", true %>
-    <div class="w-100 d-flex justify-content-center">
-      <%= f.input :content, label: false, input_html: { class: "form-control flex-grow-1 w-100", rows: 1 } %>
-      <div>
-        <%= f.submit "add reply", class: "btn btn-primary btn-reply ms-2" %>
+<div id="replies_turbo_<%= comment.id %>">
+  <div class="ms-2 flex-grow-1">
+    <p class="username mb-0"><strong><%= comment.user.name %></strong></p>
+    <div class="d-flex justify-content-between">
+      <p class="reply-content mb-0"><%= comment.content %></p>
+      <div class="d-flex align-items-center mt-0 mt-auto text-end px-2">
+        <i class="fa-regular fa-comments" data-action="click->toggle#toggleSecondReplies" data-action="click->toggle#toggleHidden"></i>
+        <p > <%= comment.comments.count %> </p>
       </div>
     </div>
-  <% end %>
+  </div>
+  <div class="add-comment-bar replies d-flex flex-column justify-content-center w-100 px-3 mt-3 <%= "reply-expand" if defined?(expanded) && expanded %>" data-toggle-target="secondReplies">
+    <%= render 'topics/reply_of_replies', reply: comment %>
+    <%= simple_form_for [comment.topic, new_comment], class:"d-flex w-100" do |f| %>
+      <%= hidden_field_tag "comment[parent_id]", comment.id %>
+      <%= hidden_field_tag "reply", true %>
+      <div class="w-100 d-flex justify-content-center">
+        <%= f.input :content, label: false, input_html: { class: "form-control flex-grow-1 w-100", rows: 1 } %>
+        <div>
+          <%= f.submit "add reply", class: "btn btn-primary btn-reply ms-2" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
