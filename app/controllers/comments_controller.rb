@@ -14,15 +14,16 @@ class CommentsController < ApplicationController
     @new_comment = @topic.comments.build(comment_params)
     @new_comment.user = current_user
     # when adding a reply to a reply we also need the parent of the parent
-    @parent = params[:reply].present? ? @new_comment.parent.parent : @new_comment.parent
+    # @parent = params[:reply].present? ? @new_comment.parent.parent : @new_comment.parent
     if @new_comment.save
       if @new_comment.parent_id.present?
         respond_to do |format|
           format.turbo_stream do
+            partial = @new_comment.parent.parent_id.present? ? "topics/second_reply_form" : "topics/reply"
             render turbo_stream: turbo_stream.replace(
-              "replies_turbo_#{ @parent.id }",
-              partial: "topics/reply",
-              locals: { comment: @parent, new_comment: Comment.new, expanded: true }
+              "replies_turbo_#{ @new_comment.parent.id }",
+              partial: partial,
+              locals: { comment: @new_comment.parent, new_comment: Comment.new, expanded: true }
             )
           end
           format.html { redirect_to @new_comment.parent, notice: "Reply created successfully." }

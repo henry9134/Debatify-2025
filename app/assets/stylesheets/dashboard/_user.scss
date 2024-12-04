@@ -130,6 +130,7 @@
   align-items: center;
   gap: 30px;
   width: 100%;
+  max-width: 800px;
 }
 
 .day-group-card {
@@ -218,7 +219,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  
+
   padding: 20px; /* Add padding for spacing */
   font-family: 'Arial', sans-serif; /* Modern font */
   color: #555; /* Softer text color */
@@ -239,4 +240,3 @@
 .btn-close:hover {
   background-color: #999; /* Darker on hover */
 }
-
