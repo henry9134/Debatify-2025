@@ -88,10 +88,10 @@ h1, h2, h3 {
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: linear-gradient(0deg, rgba(255, 255, 0, 0.683), rgba(255, 153, 0, 0.852), rgb(255, 0, 0)); /* Gradual change from blue to red */
-      background-size: 100% 200%; /* Ensures the full gradient is twice the height of the level */
-      background-position: bottom; /* Start from the bottom of the gradient */
-      transition: height 0.3s ease, background-position 0.3s ease; /* Smooth transitions */
+      background: linear-gradient(0deg, rgba(255, 255, 0, 0.683), rgba(255, 153, 0, 0.852), rgb(255, 0, 0));
+      background-size: 100% 200%;
+      background-position: bottom;
+      transition: height 0.3s ease, background-position 0.3s ease;
     }
   }
 }

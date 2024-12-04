@@ -1,6 +1,5 @@
 <div id="thermometer_<%= @topic.id %>" class="thermometer-container">
   <div class="thermometer">
-    <!-- Add tick marks and numbers -->
     <div class="ticks">
       <% (0..50).step(10).reverse_each do |tick| %>
         <div class="tick d-flex align-items-center" style="top: <%= (50 - tick) / 50.0 * 100 %>%;">
@@ -8,7 +7,6 @@
         </div>
       <% end %>
     </div>
-    <!-- The filling level -->
     <div class="level" style="height: <%= ([thermometer_percentage, 50].min / 50.0) * 100 %>%;"></div>
   </div>
 </div>
