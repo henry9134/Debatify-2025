@@ -11,36 +11,35 @@ require 'open-uri'
 require 'faker'
 
 image_urls = [
-  "https://cdn.pfps.gg/pfps/5635-goofy.png",
-  "https://i.pinimg.com/736x/86/d3/e2/86d3e24b8647e52cc6c815a52ff6e445.jpg",
+  "https://randomuser.me/api/portraits/men/86.jpg",
+  "https://randomuser.me/api/portraits/men/19.jpg",
   "https://tr.rbxcdn.com/180DAY-d5f59643c2050b82be112fe297d4ea19/420/420/Hat/Webp/noFilter",
   "https://pikshunt.com/wp-content/uploads/2024/05/100000003914_Goofy_Ahh_Pictures.jpg.webp",
   "https://static.planetminecraft.com/files/image/minecraft/texture-pack/2023/088/16414626-pack_m.jpg",
   "https://p16-va.lemon8cdn.com/tos-maliva-v-ac5634-us/oQtOJFDHt1Be1QAHWFEIGOCDpAGQwsAgImfoQB~tplv-tej9nj120t-origin.webp",
-  "https://cutegirlpic.in/wp-content/uploads/2024/06/img-4-3.webp",
+  "https://randomuser.me/api/portraits/lego/1.jpg",
   "https://i.pinimg.com/originals/ec/e5/37/ece537399b0e7cb065d1364a5617edd9.jpg",
-  "https://i.pinimg.com/736x/f1/ea/c3/f1eac39f7e801ec627349af2ceab4e7c.jpg",
+  "https://randomuser.me/api/portraits/women/28.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYvJWwRKSEHODxrPLDbe_BO8Fry_S0Kxr6Bg&s",
   "https://wallpapers-clan.com/wp-content/uploads/2022/02/fortnite-pfp-5.jpg",
-  "https://i.pinimg.com/736x/3f/06/5b/3f065bc60f49aefe50244069a71302f0.jpg",
+  "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_square.jpg",
   "https://preview.redd.it/goofy-blue-pfp-v0-3e9elnursklb1.png?auto=webp&s=a01be1c9b7e706db23709c090c8a8089f5446934",
   "https://us-tuna-sounds-images.voicemod.net/b8e29bee-bd5d-4574-be79-171c2f82f3fe-1664477220626.jpg",
   "https://preview.redd.it/the-best-wallpaper-ever-v0-azooeafy2uaa1.jpeg?width=623&format=pjpg&auto=webp&s=47e739cae2e91cd199db03683c2a34fba5f6a27f",
   "https://photosly.net/wp-content/uploads/2024/02/goofy-ahh-memes-photos-images-pfp1.jpg",
   "https://pbs.twimg.com/media/FmTlu40WQAAQbf0.jpg",
-  "https://i.pinimg.com/736x/c3/9a/c5/c39ac5ebf279969584e8e12b7622c556.jpg",
-  "https://i.pinimg.com/236x/df/a9/36/dfa936c58b78dc35318a3fc684e38358.jpg",
+  "https://dogsinc.org/wp-content/uploads/2021/08/extraordinary-dog.png",
+  "https://pics.craiyon.com/2024-09-10/oH_33jLPQuiU649sEVF-DA.webp",
   "https://cdn3.emoji.gg/emojis/5263-goffycatmeme.png",
   "https://i.redd.it/ijt6xs0wz4ea1.jpg",
   "https://us-tuna-sounds-images.voicemod.net/067a2006-5ad8-40c3-9f94-e6e82c582f7d-1661219753344.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnaE0CplSnQWaLtNGJPlbCAn74ci-1wCnkAA&s",
   "https://media.tenor.com/E70TMSI7rsUAAAAe/memes-goofy-ahh-pictures-meme.png",
-  "https://static.wikia.nocookie.net/beluga/images/9/98/Quandale_D.webp/revision/latest/thumbnail/width/360/height/360?cb=20221012110207",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/640px-Cat03.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcAJN2cpzClyBZxTX_Og70DqiDznvrCuWFg&s",
   "https://i.pinimg.com/236x/f9/f5/07/f9f50757afb22d4d3df5ee9bde0c91ac.jpg",
-  "https://i.pinimg.com/736x/30/b2/94/30b294d1c07117369ca79b55481486ca.jpg",
-  "https://i.pinimg.com/474x/46/5f/a7/465fa792bac7b94c1d229d43edeaa20d.jpg",
-  "https://i.pinimg.com/736x/2c/5c/30/2c5c30a58c233c1a2c4e728106356700.jpg"
+  "https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png",
+  "https://i.pinimg.com/474x/46/5f/a7/465fa792bac7b94c1d229d43edeaa20d.jpg"
 ]
 
 famous_users = image_urls.shuffle.each_with_index.map do |image_url, index|
@@ -332,15 +331,21 @@ Topic.all.each do |topic|
                 ["Even ancient cultures believed in some form of an afterlife. It’s like humanity has always had this instinctive belief that there’s something more beyond this life.",
                  "Totally agree. The fact that this belief spans across time and cultures says a lot."],
                 ["There’s just no way this life is all there is. The soul feels too powerful to just vanish into nothing after death.",
-                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."]
+                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."],
+                ["The experiences people describe during near-death events often include knowledge or visions they couldn’t have known otherwise.",
+                  "Absolutely. Some accounts involve details that can’t be easily explained by science."],
+                ["Quantum physics suggests the possibility of parallel dimensions or alternate realities. Couldn’t the afterlife exist in one of those?",
+                "Exactly! Modern science opens the door to possibilities we’re just beginning to understand."],
+                ["The idea of energy conservation aligns with the belief in an afterlife. Energy doesn’t disappear; it transforms.",
+                "Yes! If our consciousness is a form of energy, it makes sense it would continue in some way."],
+                ["Many spiritual traditions emphasize that death is not the end but a transition. This belief resonates across countless cultures.",
+                "Totally agree. Shared beliefs like these often stem from deep truths."]
               ],
               "neutral" => [
                 ["I’m open to the idea, but it’s hard to say for sure. Near-death experiences could just be the brain reacting to trauma.",
                  "That’s true, but even then, the vividness and common themes are hard to ignore."],
                 ["It’s fascinating to think about, but without solid evidence, it’s just speculation at this point.",
-                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."],
-                ["Maybe life after death exists in some form we can’t understand yet. It doesn’t have to fit into traditional ideas of heaven or reincarnation.",
-                 "Exactly. There’s so much about existence we still don’t know."]
+                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."]
               ],
               "against" => [
                 ["I think it’s all wishful thinking. People just don’t want to accept that death is the end, so they create these comforting stories.",
@@ -348,7 +353,11 @@ Topic.all.each do |topic|
                 ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
                  "Yeah, without evidence, it’s hard to take these stories seriously."],
                 ["Near-death experiences can be explained by brain activity during trauma—it’s not evidence of an afterlife.",
-                 "Exactly. It’s just the brain doing weird things under stress, nothing more."]
+                 "Exactly. It’s just the brain doing weird things under stress, nothing more."],
+                ["Belief in an afterlife is often rooted in cultural or religious upbringing, not in objective reality.",
+                 "Exactly. It’s hard to separate these beliefs from societal conditioning."],
+                ["If there really were life after death, we’d have more concrete evidence by now—something that couldn’t be dismissed as anecdotal.",
+                 "Totally agree. All we have are stories, not proof."]
               ]
             }
 
@@ -386,3 +395,28 @@ end
 
 puts "Comments and replies created successfully!"
 puts "Seeding complete!"
+
+# Add random votes to comments
+puts "-" * 25
+puts "Adding random votes to comments..."
+puts "-" * 25
+
+users = User.all
+comments = Comment.all
+
+comments.each do |comment|
+  # Generate a random number of votes (1 to 10)
+  rand(1..10).times do
+    voter = users.sample
+
+    # Ensure no duplicate votes from the same user on the same comment
+    unless Vote.exists?(user_id: voter.id, comment_id: comment.id)
+      Vote.create!(
+        user: voter,
+        comment: comment
+      )
+    end
+  end
+end
+
+puts "Votes added successfully! Total votes: #{Vote.count}"
