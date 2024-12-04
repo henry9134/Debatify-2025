@@ -1,5 +1,5 @@
 <div class="show-container d-flex flex-column justify-content-start align-items-center mb-5" style="min-height: 100vh;">
-  <div class="main-topic-card sticky-top my-5 d-flex flex-column" style="top: 20px;">
+  <div class="main-topic-card my-5 d-flex flex-column" style="top: 20px;">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <% if @topic.user.photo.present? %>
@@ -47,17 +47,17 @@
   <div class="row w-100 text-center">
     <div class="col-4">
       <strong>
-        <p>Against (<%= @comments.where(status: 'against').count %>)</p>
+        <p>Against (<%= @comments.where(status: 'against', parent_id: nil).count %>)</p>
       </strong>
     </div>
     <div class="col-4">
       <strong>
-        <p>Neutral (<%= @comments.where(status: 'neutral').count %>)</p>
+        <p>Neutral (<%= @comments.where(status: 'neutral', parent_id: nil).count %>)</p>
       </strong>
     </div>
     <div class="col-4">
       <strong>
-        <p>For (<%= @comments.where(status: 'for').count %>)</p>
+        <p>For (<%= @comments.where(status: 'for', parent_id: nil).count %>)</p>
       </strong>
     </div>
   </div>

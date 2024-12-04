@@ -88,8 +88,10 @@ h1, h2, h3 {
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: linear-gradient(180deg, #ff4e42, #ffb142);
-      transition: height 0.3s ease;
+      background: linear-gradient(0deg, rgba(255, 255, 0, 0.683), rgba(255, 153, 0, 0.852), rgb(255, 0, 0));
+      background-size: 100% 200%;
+      background-position: bottom;
+      transition: height 0.3s ease, background-position 0.3s ease;
     }
   }
 }
