@@ -33,7 +33,7 @@ export default class extends Controller {
             selectDiv.innerHTML = '';
 
             const aiAnswer = document.createElement("div");
-            aiAnswer.textContent = content; // Use plain text to preserve formatting
+            aiAnswer.textContent = content; 
             aiAnswer.classList.add("ai-answer");
 
             selectDiv.appendChild(aiAnswer);

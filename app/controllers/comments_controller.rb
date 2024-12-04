@@ -53,11 +53,10 @@ class CommentsController < ApplicationController
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "you will analyse my comment. 
-      First you will rate me based only on this : bad, average or good.
-      Then if my comments was bad or average you will give me addvice how I can improve,
-      but if my comment is good just confirm that my message is good. 
-      here the comment you need to analyse : #{params[:comment]}" }]
+      messages: [{ role: "user", content: "Please analyze the following comment and provide feedback as follows:
+1. **Rating**: Based on the comment, rate its quality as one of the following: terrible, Bad, Average, or Good, Excellent. read the comment and compare it to the topic title and description. 
+ a good rated comment is one that makes sense to the topic title and description and adds value to the conversation.
+2. **Improvement Advice**: - If the comment is rated below excellent, provide constructive advice on how the comment can be improved. - If the comment is rated Excellent, Don't display any feedback, just the rating. make your analysis max 100 characters. Here is the comment for analysis: #{params[:comment]} Format your response like this: - Rating: [Your rating here] - Feedback: [Your advice or confirmation here] "}]
     })
     content = chatgpt_response['choices'][0]['message']['content']
 
