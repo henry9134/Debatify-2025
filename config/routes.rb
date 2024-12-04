@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [] do
+    collection do
+      post 'analyse', to: "comments#analyse"
+    end
     member do
       patch 'upvote', to: "comments#upvote"
     end

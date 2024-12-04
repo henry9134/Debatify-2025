@@ -94,3 +94,17 @@
   width: 250px;
   max-width: 250px;
 }
+//////////////////////////////////
+/// ai button
+.ai-answer {
+  display: block; /* Block layout */
+  margin-top: 1rem; /* Add space above */
+  margin-bottom: 1rem; /* Add space below */
+  padding: 1rem; /* Add padding for a clean look */
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: left; /* Align text to the left */
+  white-space: pre-wrap; /* Preserve line breaks and whitespace */
+}

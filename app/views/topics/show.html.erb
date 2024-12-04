@@ -172,9 +172,11 @@
           </div>
           <%= simple_form_for [@topic, @comment] do |f| %>
             <%= f.hidden_field :status, id: "comment-status", data: { comment_target: "statusField" } %>
-            <div class="mb-3">
-              <%= f.input :content, required: true, label: "Your Comment" %>
+            <div class="mb-3" data-controller="ai-review-button">
+              <%= f.input :content, required: true, label: "Your Comment", input_html: { data: { "ai-review-button-target": "commentInput"}} %>
+              <button type="button" class="ai-button" data-action="click->ai-review-button#analyse">Ai review</button>
             </div>
+            <div class="ai"></div>
             <%= f.submit "Post Comment", class: "btn btn-comments", disabled: true, id: "post-comment-button", data: { comment_target: "postButton" } %>
           <% end %>
         </div>
