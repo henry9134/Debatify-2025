@@ -336,8 +336,6 @@ Topic.all.each do |topic|
                   "Absolutely. Some accounts involve details that can’t be easily explained by science."],
                 ["Quantum physics suggests the possibility of parallel dimensions or alternate realities. Couldn’t the afterlife exist in one of those?",
                 "Exactly! Modern science opens the door to possibilities we’re just beginning to understand."],
-                ["The idea of energy conservation aligns with the belief in an afterlife. Energy doesn’t disappear; it transforms.",
-                "Yes! If our consciousness is a form of energy, it makes sense it would continue in some way."],
                 ["Many spiritual traditions emphasize that death is not the end but a transition. This belief resonates across countless cultures.",
                 "Totally agree. Shared beliefs like these often stem from deep truths."]
               ],
@@ -348,7 +346,7 @@ Topic.all.each do |topic|
                  "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."]
               ],
               "against" => [
-                ["I think it’s all wishful thinking. People just don’t want to accept that death is the end, so they create these comforting stories.",
+                ["I think humans resist the idea that death is truly the end, clinging to the belief that we’re too special for our existence to simply stop. But I’ve found that accepting the finality of death allows me to fully embrace life and make the most of every moment.",
                  "Totally. The idea of an afterlife feels more like a coping mechanism than anything else."],
                 ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
                  "Yeah, without evidence, it’s hard to take these stories seriously."],
