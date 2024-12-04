@@ -4,7 +4,7 @@ class Topic < ApplicationRecord
   acts_as_favoritable
 
   validates :title, presence: true, length: { minimum: 5 }
-  validates :description, presence: true, length: { minimum: 20 }
+  validates :description, presence: true, length: { minimum: 10 }
   validates :category, presence: true
 
   include PgSearch::Model
