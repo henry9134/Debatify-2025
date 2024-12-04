@@ -2,11 +2,14 @@
   <div class="card-dashboard">
     <div class="user-info">
       <%= render "profilepic" %>
-      <%= render "username" %>
-      <p class="user-duration mt-2" style="font-size: 0.9em;">Member since <%= distance_of_time_in_words(@user.created_at, Time.current) %></p>
+      <h1><%= @user.name %></h1>
+      <p class="user-duration mt-2" style="font-size: 0.9em;">Member since <strong><%= distance_of_time_in_words(@user.created_at, Time.current) %></strong></p>
     </div>
-    <div class="votes" title="You earn points by participating in the community. You earn 1 point by writing topics, 2 points by writing comments and 5 points per upvote you get.">
-      <p>You got <strong><%= @user.point %></strong> points <i class="fa-solid fa-circle-info" style="transition: color 0.3s; cursor: pointer;" onmouseover="this.style.color='#51483F';" onmouseout="this.style.color='';"></i></p>
+    <div class="votes" style="display: flex; align-items: center; justify-content: center;">
+      <p style="text-align: center;">You got <strong><%= @user.point %></strong> points</p>
+      <div class="votes-icon" style="margin-left: 5px; margin-bottom: 16px;">
+        <i class="fa-solid fa-circle-info"></i>
+      </div>
     </div>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Rankings</button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -16,7 +19,8 @@
       </div>
       <div class="offcanvas-body">
         <% @users.sort_by(&:point).reverse.take(10).each_with_index do |user, index| %>
-          <p><%= index + 1 %>. <%= user.name %> has <strong><%= user.point %></strong> points</p><br>
+          <p><%= index + 1 %>. <%= user.name %> has <strong><%= user.point %></strong> points</p>
+          <br>
         <% end %>
       </div>
     </div>

@@ -76,6 +76,7 @@
 
 .debbie-logo:hover {
   transform: scale(1.05);
+  color: #51483F;
 }
 
 .debbie-logo:hover::after {
@@ -84,13 +85,12 @@
   top: 100%; /* Position the box below the element */
   right: 50%; /* Center the box horizontally relative to the element */
   transform: translateY(7px) translateX(50%); /* Add spacing below and center it */
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.8); /* Changed to rgba for opacity */
   color: white;
   padding: 10px 22px; /* Adjusted padding for a better fit */
   border-radius: 6px;
   font-size: 13px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  opacity: 0.8;
   width: 250px;
   max-width: 250px;
 }
