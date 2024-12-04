@@ -331,15 +331,21 @@ Topic.all.each do |topic|
                 ["Even ancient cultures believed in some form of an afterlife. It’s like humanity has always had this instinctive belief that there’s something more beyond this life.",
                  "Totally agree. The fact that this belief spans across time and cultures says a lot."],
                 ["There’s just no way this life is all there is. The soul feels too powerful to just vanish into nothing after death.",
-                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."]
+                 "Yes! The idea of our consciousness just disappearing doesn’t make sense to me either."],
+                ["The experiences people describe during near-death events often include knowledge or visions they couldn’t have known otherwise.",
+                  "Absolutely. Some accounts involve details that can’t be easily explained by science."],
+                ["Quantum physics suggests the possibility of parallel dimensions or alternate realities. Couldn’t the afterlife exist in one of those?",
+                "Exactly! Modern science opens the door to possibilities we’re just beginning to understand."],
+                ["The idea of energy conservation aligns with the belief in an afterlife. Energy doesn’t disappear; it transforms.",
+                "Yes! If our consciousness is a form of energy, it makes sense it would continue in some way."],
+                ["Many spiritual traditions emphasize that death is not the end but a transition. This belief resonates across countless cultures.",
+                "Totally agree. Shared beliefs like these often stem from deep truths."]
               ],
               "neutral" => [
                 ["I’m open to the idea, but it’s hard to say for sure. Near-death experiences could just be the brain reacting to trauma.",
                  "That’s true, but even then, the vividness and common themes are hard to ignore."],
                 ["It’s fascinating to think about, but without solid evidence, it’s just speculation at this point.",
-                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."],
-                ["Maybe life after death exists in some form we can’t understand yet. It doesn’t have to fit into traditional ideas of heaven or reincarnation.",
-                 "Exactly. There’s so much about existence we still don’t know."]
+                 "I agree. It’s a mystery that might never be solved, but it’s fun to explore the possibilities."]
               ],
               "against" => [
                 ["I think it’s all wishful thinking. People just don’t want to accept that death is the end, so they create these comforting stories.",
@@ -347,7 +353,11 @@ Topic.all.each do |topic|
                 ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
                  "Yeah, without evidence, it’s hard to take these stories seriously."],
                 ["Near-death experiences can be explained by brain activity during trauma—it’s not evidence of an afterlife.",
-                 "Exactly. It’s just the brain doing weird things under stress, nothing more."]
+                 "Exactly. It’s just the brain doing weird things under stress, nothing more."],
+                ["Belief in an afterlife is often rooted in cultural or religious upbringing, not in objective reality.",
+                 "Exactly. It’s hard to separate these beliefs from societal conditioning."],
+                ["If there really were life after death, we’d have more concrete evidence by now—something that couldn’t be dismissed as anecdotal.",
+                 "Totally agree. All we have are stories, not proof."]
               ]
             }
 
@@ -387,3 +397,28 @@ end
 
 puts "Comments and replies created successfully!"
 puts "Seeding complete!"
+
+# Add random votes to comments
+puts "-" * 25
+puts "Adding random votes to comments..."
+puts "-" * 25
+
+users = User.all
+comments = Comment.all
+
+comments.each do |comment|
+  # Generate a random number of votes (1 to 10)
+  rand(1..10).times do
+    voter = users.sample
+
+    # Ensure no duplicate votes from the same user on the same comment
+    unless Vote.exists?(user_id: voter.id, comment_id: comment.id)
+      Vote.create!(
+        user: voter,
+        comment: comment
+      )
+    end
+  end
+end
+
+puts "Votes added successfully! Total votes: #{Vote.count}"
