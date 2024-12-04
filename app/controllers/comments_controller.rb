@@ -19,11 +19,13 @@ class CommentsController < ApplicationController
       if @new_comment.parent_id.present?
         respond_to do |format|
           format.turbo_stream do
-            render turbo_stream: turbo_stream.replace(
-              "replies_turbo_#{ @parent.id }",
-              partial: "topics/reply",
-              locals: { comment: @parent, new_comment: Comment.new, expanded: true }
-            )
+            render turbo_stream: [
+              turbo_stream.replace(
+                "replies_turbo_#{ @parent.id }",
+                partial: "topics/reply",
+                locals: { comment: @parent, new_comment: Comment.new, expanded: true }
+              ),
+            ]
           end
           format.html { redirect_to @new_comment.parent, notice: "Reply created successfully." }
         end

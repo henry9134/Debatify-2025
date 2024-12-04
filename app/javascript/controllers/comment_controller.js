@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["statusField", "postButton", "sideButton"];
 
   connect() {
-    console.log("Stimulus controller connected!");
+    console.log("Comment controller connected!");
     this.disablePostButton();
   }
 

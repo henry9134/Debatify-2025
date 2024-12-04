@@ -67,19 +67,19 @@ puts "Users created: #{User.count}"
 
 # Define topics
 topics = [
-  { title: "The rise of virtual reality in gaming", description: "Exploring how virtual reality is changing the gaming experience.", category: "Tech" },
-  { title: "The impact of sports on mental health", description: "Examining how participation in sports can improve mental well-being.", category: "Sports" },
-  { title: "The future of space exploration", description: "Exploring the next steps in humanity's journey into space.", category: "Tech" },
-  { title: "The benefits of meditation", description: "Discussing how meditation can improve mental health and focus.", category: "Health" },
-  { title: "The role of technology in education", description: "How technology is transforming the learning experience.", category: "Education" },
-  { title: "Climate change and its impact", description: "Understanding the effects of climate change on our planet.", category: "Environment" },
-  { title: "The evolution of social media", description: "How social media has changed the way we communicate.", category: "Society" },
-  { title: "The importance of mental health awareness", description: "Raising awareness about mental health issues and their impact.", category: "Health" },
-  { title: "The impact of climate change on wildlife", description: "Examining how climate change affects biodiversity and ecosystems.", category: "Environment" },
-  { title: "The role of art in society", description: "Exploring how art influences culture and community engagement.", category: "Society" },
-  { title: "The influence of technology on relationships", description: "Discussing how technology shapes personal connections.", category: "Tech" },
-  { title: "The future of renewable energy", description: "Investigating advancements in renewable energy sources and their potential.", category: "Environment" },
-  { title: "The significance of cultural diversity", description: "Understanding the value of cultural diversity in society.", category: "Society" }
+  { title: "The rise of virtual reality in gaming", description: "Virtual reality makes gaming so immersive. I felt like I was in another world playing VR Skyrim!", category: "Tech" },
+  { title: "The impact of sports on mental health", description: "Playing sports helps me relieve stress and stay focused.", category: "Sports" },
+  { title: "The future of space exploration", description: "I believe the next steps in humanity's journey into space will involve Mars colonization.", category: "Tech" },
+  { title: "The benefits of meditation", description: "Meditation has significantly improved my mental health and focus.", category: "Health" },
+  { title: "The role of technology in education", description: "Technology is transforming the learning experience by making it more interactive.", category: "Education" },
+  { title: "Climate change and its impact", description: "Climate change is affecting our planet in ways we are just beginning to understand.", category: "Environment" },
+  { title: "The evolution of social media", description: "Social media has changed the way we communicate, making it instant and global.", category: "Society" },
+  { title: "The importance of mental health awareness", description: "Raising awareness about mental health issues is crucial for societal well-being.", category: "Health" },
+  { title: "The impact of climate change on wildlife", description: "Climate change is threatening biodiversity and ecosystems around the world.", category: "Environment" },
+  { title: "The role of art in society", description: "Art influences culture and community engagement in profound ways.", category: "Society" },
+  { title: "The influence of technology on relationships", description: "Technology shapes personal connections, sometimes enhancing and sometimes hindering them.", category: "Tech" },
+  { title: "The future of renewable energy", description: "Advancements in renewable energy sources are essential for a sustainable future.", category: "Environment" },
+  { title: "The significance of cultural diversity", description: "Cultural diversity enriches society and fosters understanding among different communities.", category: "Society" }
 ]
 
 # Create topics
