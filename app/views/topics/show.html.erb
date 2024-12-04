@@ -1,5 +1,5 @@
 <div class="show-container d-flex flex-column justify-content-start align-items-center mb-5" style="min-height: 100vh;">
-  <div class="main-topic-card my-5 d-flex flex-column" style="top: 20px;">
+  <div class="main-topic-card d-flex flex-column" style="top: 20px;">
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <% if @topic.user.photo.present? %>
@@ -33,14 +33,22 @@
   <!-- Show the Ai and the graph -->
   <!-- Thermometer Section -->
   <div class="middle-part mb-3">
-    <div class="row">
-      <div class="col-3 left p-3 d-flex justify-content-center align-items-center">
+    <div class="d-flex">
+      <div class="left p-3 d-flex justify-content-center align-items-center">
         <turbo-frame id="thermometer_frame">
           <%= render partial: "topics/thermometer", locals: { thermometer_percentage: @thermometer_percentage } %>
         </turbo-frame>
       </div>
-      <div class="col-6 center p-3 d-flex justify-content-center align-items-center fst-italic"><%= @content %></div>
-      <div class="col-3 right p-3"></div>
+      <div class="center p-3 d-flex justify-content-center align-items-center">
+        <div class="debbie-logo">
+          <img src="https://res.cloudinary.com/docdjbqcu/image/upload/v1733277799/debbie-logo-nobg_htbrbj.png" alt="Debbie Logo" style="width: 40px; opacity: 0.8;" />
+        </div>
+        <div style="border-left: 1.5px solid #5a5a5a; height: 70%; margin: 0 7px;"></div>
+        <div data-controller="typing">
+          <div class="ai-summary fst-italic typing-animation" id="ai-summary"><%= @content %></div>
+        </div>
+      </div>
+      <div class="right p-3"></div>
     </div>
   </div>
   <!-- Show the counts for comments -->
