@@ -39,7 +39,8 @@ image_urls = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcAJN2cpzClyBZxTX_Og70DqiDznvrCuWFg&s",
   "https://i.pinimg.com/236x/f9/f5/07/f9f50757afb22d4d3df5ee9bde0c91ac.jpg",
   "https://i.pinimg.com/736x/30/b2/94/30b294d1c07117369ca79b55481486ca.jpg",
-  "https://i.pinimg.com/474x/46/5f/a7/465fa792bac7b94c1d229d43edeaa20d.jpg"
+  "https://i.pinimg.com/474x/46/5f/a7/465fa792bac7b94c1d229d43edeaa20d.jpg",
+  "https://i.pinimg.com/736x/2c/5c/30/2c5c30a58c233c1a2c4e728106356700.jpg"
 ]
 
 famous_users = image_urls.shuffle.each_with_index.map do |image_url, index|
@@ -355,7 +356,6 @@ Topic.all.each do |topic|
 
   sides.each do |status, comments_with_replies|
     comments_with_replies.each do |comment, reply|
-      # Create the top-level comment
       parent_user = users.pop
       if parent_user
         parent_comment = Comment.create!(
@@ -365,7 +365,6 @@ Topic.all.each do |topic|
           topic: topic
         )
 
-        # Create the reply
         reply_user = users.pop
         if reply_user
           Comment.create!(
