@@ -80,7 +80,12 @@ topics = [
   { title: "The influence of technology on relationships", description: "Technology shapes personal connections, sometimes enhancing and sometimes hindering them.", category: "Tech" },
   { title: "The future of renewable energy", description: "Advancements in renewable energy sources are essential for a sustainable future.", category: "Environment" },
   { title: "The significance of cultural diversity", description: "Cultural diversity enriches society and fosters understanding among different communities.", category: "Society" },
-  { title: "Life after death", description: "I believe there is life after death, how can there not be? there are so many accounts of people dying, seeing the afterlife and coming back to life to tell the tale.", category: "Education" }
+  { title: "Life after death", description: "The afterlife has to exist! how can there not be? there are so many accounts of people dying, seeing the afterlife and coming back to life to tell the tale.", category: "Education" },
+  { title: "Life on Mars: Fact or Fiction?", description: "With advancements in space exploration, the possibility of life on Mars is becoming more plausible. Let's explore the evidence and theories about extraterrestrial life on the Red Planet.", category: "Science"},
+  { title: "The Secret to a Happy Life", description: "What makes life fulfilling? Is it relationships, achievements, or self-discovery? Share your thoughts on the keys to happiness and a meaningful existence.", category: "Tech"},
+  { title: "Life Lessons from Nature", description: "Nature teaches us resilience, balance, and adaptability. Explore how observing the natural world can inspire and guide us in everyday life.", category: "Education"},
+  { title: "Artificial Life: The Future of AI", description: "Can artificial intelligence develop its own form of life? Discuss the ethics and potential of AI achieving lifelike autonomy.", category: "Technology"},
+  { title: "Life in Extreme Environments", description: "From deep-sea trenches to arid deserts, life thrives in the harshest conditions. Let's delve into the science of organisms that defy the odds.", category: "Science"}
 ]
 
 # Create topics
@@ -185,6 +190,7 @@ Topic.all.each do |topic|
               "for" => [
                 ["Addressing climate change is crucial for future generations.", "Absolutely! We owe it to them to take action."],
                 ["Renewable energy sources can significantly reduce our carbon footprint.", "Yes! Transitioning to renewables is essential."],
+                ["i agree!","wow"]
               ],
               "neutral" => [
                 ["Some people may not believe in climate change despite the evidence.", "That's true; misinformation is a challenge."],
@@ -232,7 +238,12 @@ Topic.all.each do |topic|
                 ["Not everyone feels comfortable discussing mental health.", "That's a valid point; it can be a sensitive topic."]
               ],
               "against" => [
-                ["Some argue that mental health awareness can lead to over-diagnosis.", "That's a fair concern; balance is needed."]
+                ["Some argue that mental health awareness can lead to over-diagnosis.", "That's a fair concern; balance is needed."],
+                ["Awareness alone isn’t enough; it needs to be backed by accessible resources.", "Absolutely. Without resources, awareness can feel hollow."],
+                ["Increased awareness might lead to self-diagnosis, which can be harmful.", "True, people might misinterpret symptoms and avoid seeking professional help."],
+                ["Focusing too much on mental health can make it seem like everyone has an issue.", "I agree; it might lead to unnecessary worry or medicalization of normal emotions."],
+                ["Some people believe that awareness campaigns might encourage victim mentality.", "That’s a perspective; it could shift focus away from resilience and solutions."]
+
               ]
             }
           when "The impact of climate change on wildlife"
@@ -335,9 +346,7 @@ Topic.all.each do |topic|
                 ["The experiences people describe during near-death events often include knowledge or visions they couldn’t have known otherwise.",
                   "Absolutely. Some accounts involve details that can’t be easily explained by science."],
                 ["Quantum physics suggests the possibility of parallel dimensions or alternate realities. Couldn’t the afterlife exist in one of those?",
-                "Exactly! Modern science opens the door to possibilities we’re just beginning to understand."],
-                ["Many spiritual traditions emphasize that death is not the end but a transition. This belief resonates across countless cultures.",
-                "Totally agree. Shared beliefs like these often stem from deep truths."]
+                "Exactly! Modern science opens the door to possibilities we’re just beginning to understand."]
               ],
               "neutral" => [
                 ["I’m open to the idea, but it’s hard to say for sure. Near-death experiences could just be the brain reacting to trauma.",
@@ -351,14 +360,94 @@ Topic.all.each do |topic|
                 ["Science hasn’t proven anything about life after death, and until it does, I don’t see a reason to believe in it.",
                  "Yeah, without evidence, it’s hard to take these stories seriously."],
                 ["Near-death experiences can be explained by brain activity during trauma—it’s not evidence of an afterlife.",
-                 "Exactly. It’s just the brain doing weird things under stress, nothing more."],
-                ["Belief in an afterlife is often rooted in cultural or religious upbringing, not in objective reality.",
-                 "Exactly. It’s hard to separate these beliefs from societal conditioning."],
-                ["If there really were life after death, we’d have more concrete evidence by now—something that couldn’t be dismissed as anecdotal.",
-                 "Totally agree. All we have are stories, not proof."]
+                 "Exactly. It’s just the brain doing weird things under stress, nothing more."]
               ]
             }
-
+          when "Life on Mars: Fact or Fiction?"
+            {
+              "for" => [
+                ["There's solid evidence of water on Mars, which could support life.", "Exactly! Water is a key ingredient for life."],
+                ["Mars rovers have found organic compounds in the soil, suggesting the possibility of life.", "Totally! These discoveries are exciting for future exploration."],
+                ["Colonizing Mars could help us discover how life might have evolved there.", "Absolutely! Mars colonization could answer big questions."]
+              ],
+              "neutral" => [
+                ["It’s fascinating, but we’re still far from confirming life on Mars.", "True, but every new discovery brings us closer."],
+                ["The idea of life on Mars is intriguing, but it’s mostly speculative right now.", "I agree; we need more concrete evidence."]
+              ],
+              "against" => [
+                ["Mars has harsh conditions that make life unlikely.", "Exactly, the extreme cold and radiation are huge challenges."],
+                ["Just because there’s water doesn’t mean there’s life.", "Right, water alone isn’t enough to confirm anything."],
+                ["Focusing on life on Mars distracts from solving Earth’s problems.", "That’s a fair point; our planet should come first."]
+              ]
+            }
+          when "The Secret to a Happy Life"
+            {
+              "for" => [
+                ["Focusing on gratitude makes life more fulfilling.", "Absolutely! Being thankful changes your perspective."],
+                ["Strong relationships are key to happiness.", "Completely agree; connections with others are so important."],
+                ["Living a life of purpose brings lasting happiness.", "Yes, finding meaning makes all the difference."]
+              ],
+              "neutral" => [
+                ["Happiness can mean different things to different people.", "True, it's a very personal journey."],
+                ["Sometimes, circumstances can make happiness difficult to achieve.", "That's a valid point; it's not always easy."]
+              ],
+              "against" => [
+                ["Happiness is overrated; contentment is more sustainable.", "Interesting perspective, and I can see why you'd say that."],
+                ["Chasing happiness can lead to disappointment.", "Agreed; sometimes the pursuit itself can be stressful."],
+                ["Some people are just naturally happier than others.", "True, and that's due to different life circumstances and mindsets."]
+              ]
+            }
+          when "Life Lessons from Nature"
+            {
+              "for" => [
+                ["Observing nature teaches patience and adaptability.", "Exactly! It’s amazing how nature mirrors life lessons."],
+                ["The balance in ecosystems inspires us to find balance in our lives.", "Absolutely! There’s so much we can learn from nature."],
+                ["Nature’s resilience shows us how to overcome adversity.", "Totally agree; it’s a powerful metaphor for personal growth."]
+              ],
+              "neutral" => [
+                ["Nature can be inspiring, but not everyone connects with it.", "True, it’s not everyone’s source of inspiration."],
+                ["Sometimes, nature’s lessons are subtle and hard to interpret.", "Agreed; it depends on how closely you observe."]
+              ],
+              "against" => [
+                ["Nature is chaotic and doesn’t necessarily teach us balance.", "Interesting take; not everything in nature is balanced."],
+                ["Life lessons from nature are too abstract to apply in real life.", "Fair point; they might not be practical for everyone."],
+                ["Not everyone has access to nature to learn from it.", "That’s true; urban living makes it harder to connect."]
+              ]
+            }
+          when "Artificial Life: The Future of AI"
+            {
+              "for" => [
+                ["AI could revolutionize industries by creating lifelike systems.", "Absolutely! It’s a game changer for technology."],
+                ["Artificial life might help us understand biological processes.", "Exactly! It bridges technology and biology."],
+                ["AI could assist in solving complex problems, like simulating ecosystems.", "Totally agree; the possibilities are endless."]
+              ],
+              "neutral" => [
+                ["AI is still far from creating true artificial life.", "That’s true, but it’s advancing rapidly."],
+                ["The ethical implications of artificial life are unclear.", "Good point; there’s a lot to consider."]
+              ],
+              "against" => [
+                ["Artificial life could lead to uncontrollable systems.", "Yes, there’s always the risk of unintended consequences."],
+                ["It’s unnatural and could disrupt ecosystems.", "Fair point; we need to tread carefully."],
+                ["Focusing on artificial life takes resources from solving immediate problems.", "That’s a valid concern; priorities matter."]
+              ]
+            }
+          when "Life in Extreme Environments"
+            {
+              "for" => [
+                ["Studying life in extreme environments helps us understand Earth’s biodiversity.", "Absolutely! It broadens our understanding of life."],
+                ["Extremophiles inspire technological innovations, like bioengineering.", "Totally! They’re fascinating organisms."],
+                ["Life in harsh conditions could provide clues about extraterrestrial life.", "Exactly! It expands our search for life beyond Earth."]
+              ],
+              "neutral" => [
+                ["It’s fascinating, but the practical applications are limited.", "True, but the discoveries are still valuable."],
+                ["Some environments are too extreme for any life to survive.", "Fair point; there are limits to what life can endure."]
+              ],
+              "against" => [
+                ["Researching extreme environments is too costly.", "That’s a valid concern; funding could go elsewhere."],
+                ["It’s more relevant to study environments that affect humans directly.", "True, that might have more immediate benefits."],
+                ["Focusing on extremes ignores the importance of everyday ecosystems.", "Fair point; balance is important."]
+              ]
+            }
           end
 
   sides.each do |status, comments_with_replies|

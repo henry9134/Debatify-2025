@@ -44,7 +44,11 @@ class TopicsController < ApplicationController
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@main_comments.map(&:content).join(', ')} only 250 characters maximum. give an example of a comment on a gainst and for side for example you can say that someone felt this way about the topic, but dont give the exact comment, just a summary of the comment, and word it like 'for example, one user felt this way' etc. if there is no comment, make just a phrase where say you re waiting comments to summarize. at the end, say more people are for" }]
+      messages: [{ role: "user", content: "give me a summary of how the users feel based on the comments: #{@main_comments.map(&:content).join(', ')}. If there are no comments,
+      or less than 2 comments, write 'waiting for new comments'.  give an example of a comment on
+      against and for side. For example you can say that someone felt this way about the topic, but dont give
+      the exact comment, just a summary of the comment, and word it like 'for example, one user felt this way' etc. make your summary max 300 characters.
+      if there is no comment, make just a phrase where say you re waiting comments to summarize. " }]
     })
     @content = chatgpt_response['choices'][0]['message']['content']
 
