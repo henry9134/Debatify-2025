@@ -2,9 +2,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 To create a new topic in Debatify, follow these steps:
 
 Go to the homepage
-From the navigation bar, click on the "Home" or "Topics" link.
+From the navigation bar, click on the "+" symbol.
 
-Click on “New Topic”
 You’ll be redirected to the topic creation form (/topics/new).
 
 Fill in the topic form:
